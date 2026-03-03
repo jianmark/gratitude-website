@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Retours clients integres au flux de pourboire | Gratitude',
+  description: 'Evaluation 1 a 5 etoiles et commentaire integres au flux de pourboire. Analyse de sentiment, tendances dans le temps, alertes automatiques. Retours captes au pic de satisfaction.',
+};
+
+const c = {
+  h1: 'Retours integres au flux de pourboire',
+  h2: 'Le pic de satisfaction, capture',
+  intro: 'Lorsqu\'un client laisse un pourboire, il se trouve a son moment de gratitude maximale. C\'est le moment ideal pour demander un retour. Gratitude integre une evaluation 1 a 5 etoiles et un commentaire optionnel directement dans le flux de pourboire -- sans interrompre l\'experience, sans formulaires separes, sans e-mails de suivi que personne n\'ouvre. Les donnees collectees alimentent un tableau de bord dedie avec analyse de sentiment, tendances dans le temps et alertes automatiques.',
+  cta: 'Decouvrez les retours integres -- Demander une demo',
+  sub1title: 'Evaluation et commentaire dans le flux',
+  sub1desc: 'Apres le pourboire, un seul ecran optionnel : 5 etoiles tactiles et un champ de commentaire de 500 caracteres. Le client peut completer en 5 secondes ou passer d\'un simple geste. Le taux de completion est nettement superieur aux enquetes traditionnelles car le retour est contextuel et immediat.',
+  sub2title: 'Analyse de sentiment automatique',
+  sub2desc: 'Chaque commentaire est analyse en termes de sentiment (positif, neutre, negatif) via la correspondance de mots-cles. Le tableau de bord affiche la distribution du sentiment dans le temps, vous permettant d\'identifier les tendances et d\'intervenir rapidement.',
+  sub3title: 'Retours par employe et departement',
+  sub3desc: 'Chaque retour peut etre associe a un employe specifique ou a un departement. Le tableau de bord agrege les donnees : note moyenne par employe, par secteur, tendances dans le temps. Un indicateur puissant pour les decisions de gestion du personnel.',
+  sub4title: 'Alertes et moderation',
+  sub4desc: 'Les commentaires critiques (evaluation 1-2 etoiles) generent des alertes automatiques. Les commentaires inappropries peuvent etre signales et masques. Tous les textes sont nettoyes cote serveur pour prevenir les contenus malveillants.',
+  benefitTitle: 'Avantage pour le directeur',
+  benefit: 'Les retours clients sont la forme la plus pure d\'intelligence operationnelle. Gratitude les recueille au bon moment, les analyse automatiquement et les presente sous une forme actionnable. Pas d\'enquetes a concevoir, pas de suivi a gerer, pas de donnees a interpreter manuellement.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/guest-feedback.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

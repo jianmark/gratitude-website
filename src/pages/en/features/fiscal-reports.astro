@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Tax-Ready Fiscal Reports for Hotels | Gratitude',
+  description: 'Automatic VAT exemption (Art. 15 DPR 633/72), per-employee reports, Mexal CSV export, suggested journal entries. Italian fiscal compliance at one click.',
+};
+
+const c = {
+  h1: 'Tax-ready reports for your accountant',
+  h2: 'Italian fiscal compliance at one click',
+  intro: 'Managing tips in Italy involves fiscal complexity: VAT exemption, 5% substitute tax, separate accounting. Gratitude automatically generates reports compliant with current legislation: Art. 15 DPR 633/72 for VAT exemption, liberal disbursements for payroll, suggested debit/credit journal entries. Professional PDF export for your accountant and CSV for direct import into Mexal.',
+  cta: 'Discover fiscal reports -- Request a demo',
+  sub1title: 'Automatic VAT Exemption',
+  sub1desc: 'Every tip is posted on Passepartout with VAT code "ES" (Exempt Art. 15). The fiscal report groups tips by department, article and VAT code. Compliance is not optional: it is built into the flow.',
+  sub2title: 'Per-Employee Report',
+  sub2desc: 'Detail for every employee with employee code (for payroll matching), total distributed, total nominated, total automatic. Ready for accounting as liberal disbursement with 5% substitute tax.',
+  sub3title: 'Mexal Export',
+  sub3desc: 'CSV file in the exact format required by Mexal (Passepartout accounting). Department code, debit account, credit account, amount, description. Direct import without manual manipulation. Tested and validated with the Passepartout environment.',
+  sub4title: 'Suggested Journal Entries',
+  sub4desc: 'For each period, Gratitude suggests journal entries: debits to the tip transit account, credits to the employee account. Your accountant receives a document ready to validate, not to interpret.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'Fiscal compliance is no longer a cost in time and consultancy. Gratitude eliminates the risk of error in tip accounting, reduces your accountant\'s workload and guarantees that every transaction is traceable and compliant. During a tax audit, every tip is documented with a complete audit trail.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/fiscal-report.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Distribuzione Automatica Mance per Hotel | Gratitude',
+  description: 'Distribuzione equa e trasparente delle mance: percentuale fissa o ore lavorate. Workflow approvativo, simulatore what-if, audit trail completo. Zero contabilita manuale.',
+};
+
+const c = {
+  h1: 'Distribuzione equa e trasparente',
+  h2: 'Dalla raccolta alla busta paga, tutto tracciato',
+  intro: 'La distribuzione delle mance e il punto piu delicato della gestione. Chi riceve quanto? Con quale criterio? Con quale frequenza? Gratitude automatizza l\'intero processo con due algoritmi a scelta: percentuale fissa per reparto o proporzionale alle ore lavorate. Il workflow prevede calcolo automatico, approvazione direzionale e conferma di pagamento. Ogni centesimo e tracciato nell\'audit log immutabile.',
+  cta: 'Scopri la distribuzione automatica -- Richiedi una demo',
+  sub1title: 'Due Modalita di Distribuzione',
+  sub1desc: 'Percentuale fissa: ogni reparto ha una quota predefinita (es. Ricevimento 30%, Cucina 25%, Housekeeping 25%, Servizio 20%). All\'interno del reparto, ogni dipendente riceve in base alla propria percentuale. Ore lavorate: la distribuzione e proporzionale al contributo effettivo. Chi lavora di piu, riceve di piu.',
+  sub2title: 'Workflow Approvativo',
+  sub2desc: 'Calcolo automatico, preview dettagliata prima dell\'esecuzione, approvazione da parte del direttore, conferma di pagamento. Ogni passaggio e registrato con timestamp e utente responsabile. Nessuna distribuzione avviene senza supervisione.',
+  sub3title: 'Simulatore What-If',
+  sub3desc: 'Prima di eseguire la distribuzione, simulate scenari: "Cosa succede se cambio le percentuali dei settori?" "Quanto riceve il reparto cucina se aggiungo un dipendente?" Il simulatore mostra il risultato senza toccare i dati reali.',
+  sub4title: 'Mance Nominative Separate',
+  sub4desc: 'Le mance nominate a un dipendente specifico vanno direttamente a quel dipendente, senza passare dal pool di distribuzione. Il sistema le traccia separatamente, garantendo trasparenza totale tra mance da distribuzione e mance personali.',
+  benefitTitle: 'Beneficio per il Direttore',
+  benefit: 'Zero ore di contabilita manuale al mese. Eliminazione delle controversie sulla distribuzione grazie alla trasparenza totale. Report dettagliati per il commercialista con un clic. Compliance garantita: ogni distribuzione e auditabile e conforme alle regole di equita definite dalla direzione.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/distribution-page.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

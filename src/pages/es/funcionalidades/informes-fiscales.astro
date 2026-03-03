@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Informes fiscales listos para el contable | Gratitude',
+  description: 'Exencion de IVA automatica (Art. 15 DPR 633/72), informes por empleado, exportacion CSV para Mexal, asientos contables sugeridos. Cumplimiento fiscal italiano en un clic.',
+};
+
+const c = {
+  h1: 'Informes fiscales listos para su contable',
+  h2: 'Cumplimiento fiscal italiano en un clic',
+  intro: 'La gestion fiscal de las propinas en Italia implica complejidad: exencion de IVA, impuesto sustitutivo del 5 %, contabilidad separada. Gratitude genera automaticamente informes conformes con la legislacion vigente: Art. 15 DPR 633/72 para la exencion de IVA, prestaciones liberales para la nomina, asientos contables debito/credito sugeridos. Exportacion PDF profesional para su contable y CSV para importacion directa en Mexal.',
+  cta: 'Descubra los informes fiscales -- Solicitar una demo',
+  sub1title: 'Exencion de IVA automatica',
+  sub1desc: 'Cada propina se registra en Passepartout con codigo IVA "ES" (Exento Art. 15). El informe fiscal agrupa las propinas por departamento, articulo y codigo IVA. El cumplimiento no es opcional: esta integrado en el flujo.',
+  sub2title: 'Informe por empleado',
+  sub2desc: 'Detalle para cada empleado con codigo de empleado (para correspondencia con nomina), total distribuido, total nominativo, total automatico. Listo para contabilizar como prestacion liberal con impuesto sustitutivo del 5 %.',
+  sub3title: 'Exportacion Mexal',
+  sub3desc: 'Archivo CSV en el formato exacto requerido por Mexal (contabilidad Passepartout). Codigo de departamento, cuenta deudora, cuenta acreedora, importe, descripcion. Importacion directa sin manipulacion manual. Probado y validado con el entorno Passepartout.',
+  sub4title: 'Asientos contables sugeridos',
+  sub4desc: 'Para cada periodo, Gratitude sugiere asientos contables: debitos en la cuenta transitoria de propinas, creditos en la cuenta de empleados. Su contable recibe un documento listo para validar, no para interpretar.',
+  benefitTitle: 'Beneficio para el director',
+  benefit: 'El cumplimiento fiscal ya no es un coste en tiempo y consultoria. Gratitude elimina el riesgo de error en la contabilizacion de propinas, reduce la carga de trabajo de su contable y garantiza que cada transaccion sea rastreable y conforme. Durante una auditoria fiscal, cada propina esta documentada con una pista de auditoria completa.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/fiscal-report.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

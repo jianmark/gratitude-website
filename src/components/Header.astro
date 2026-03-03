@@ -1,0 +1,131 @@
+---
+import { getLocale, t, localizedUrl, languages, type Locale } from '@/i18n/utils';
+import DarkModeToggle from './a11y/DarkModeToggle';
+import LanguageSelector from './a11y/LanguageSelector';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const navItems = [
+  { key: 'nav.features', path: locale === 'it' ? '/funzionalita/' : locale === 'de' ? '/funktionen/' : locale === 'fr' ? '/fonctionnalites/' : locale === 'es' ? '/funcionalidades/' : '/features/' },
+  { key: 'nav.pricing', path: locale === 'it' ? '/prezzi/' : locale === 'de' ? '/preise/' : locale === 'fr' ? '/tarifs/' : locale === 'es' ? '/precios/' : '/pricing/' },
+  { key: 'nav.about', path: locale === 'it' ? '/chi-siamo/' : locale === 'de' ? '/ueber-uns/' : locale === 'fr' ? '/a-propos/' : locale === 'es' ? '/nosotros/' : '/about/' },
+  { key: 'nav.contact', path: locale === 'it' ? '/contatti/' : locale === 'de' ? '/kontakt/' : locale === 'fr' ? '/contact/' : locale === 'es' ? '/contacto/' : '/contact/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="sticky top-0 z-50 w-full border-b border-stone-200/80 bg-white/80 backdrop-blur-lg dark:border-navy-700/80 dark:bg-navy-950/80"
+  role="banner"
+>
+  <div class="section-container flex h-24 items-center justify-between px-4 md:px-8">
+    <!-- Logo -->
+    <a href={localizedUrl(locale, '/')} class="flex items-center gap-2 font-bold text-xl text-navy-800 dark:text-stone-100" aria-label="Gratitude Home">
+      <img src="/logo-gratitude-transparent.png" alt="Gratitude — Tips Management System per Hotel" class="h-20 w-auto" height="80" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+      {navItems.map(({ key, path }) => {
+        const href = localizedUrl(locale, path);
+        const isActive = currentPath.startsWith(href);
+        return (
+          <a
+            href={href}
+            class:list={[
+              'px-3 py-2 text-sm font-medium rounded-lg transition-colors',
+              isActive
+                ? 'text-teal-700 bg-teal-50 dark:text-teal-400 dark:bg-teal-900/20'
+                : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100 dark:text-stone-300 dark:hover:text-stone-100 dark:hover:bg-navy-800',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {t(locale, key)}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Right side: language, dark mode, CTA -->
+    <div class="hidden lg:flex items-center gap-2">
+      <LanguageSelector locale={locale} currentPath={currentPath} client:load />
+      <DarkModeToggle locale={locale} client:load />
+      <a
+        href={localizedUrl(locale, '/demo/')}
+        class="btn-primary text-sm !px-4 !py-2"
+        data-track-cta={t(locale, 'cta.demo.short')}
+        data-track-source="header"
+      >
+        {t(locale, 'cta.demo.short')}
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden p-2 rounded-lg text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-navy-800"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label={t(locale, 'a11y.menu.open')}
+    >
+      <svg class="h-6 w-6" id="menu-icon-open" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg class="h-6 w-6 hidden" id="menu-icon-close" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-stone-200 dark:border-navy-700 bg-white dark:bg-navy-950" role="navigation" aria-label="Mobile navigation">
+    <div class="px-4 py-4 space-y-1">
+      {navItems.map(({ key, path }) => {
+        const href = localizedUrl(locale, path);
+        const isActive = currentPath.startsWith(href);
+        return (
+          <a
+            href={href}
+            class:list={[
+              'block px-3 py-3 text-base font-medium rounded-lg',
+              isActive
+                ? 'text-teal-700 bg-teal-50 dark:text-teal-400 dark:bg-teal-900/20'
+                : 'text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-navy-800',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {t(locale, key)}
+          </a>
+        );
+      })}
+      <div class="pt-4 flex items-center gap-3 border-t border-stone-200 dark:border-navy-700">
+        <LanguageSelector locale={locale} currentPath={currentPath} client:load />
+        <DarkModeToggle locale={locale} client:load />
+      </div>
+      <a
+        href={localizedUrl(locale, '/demo/')}
+        class="btn-primary w-full text-center mt-4"
+        data-track-cta={t(locale, 'cta.demo.short')}
+        data-track-source="header-mobile"
+      >
+        {t(locale, 'cta.demo.short')}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+  });
+</script>

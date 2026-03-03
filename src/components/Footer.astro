@@ -1,0 +1,170 @@
+---
+import { getLocale, t, localizedUrl, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const featureBase = locale === 'it' ? 'funzionalita' : locale === 'de' ? 'funktionen' : locale === 'fr' ? 'fonctionnalites' : locale === 'es' ? 'funcionalidades' : 'features';
+
+const featureLinks = [
+  { key: 'features.f1.title', slug: 'tablet-checkout' },
+  { key: 'features.f2.title', slug: 'qr-code' },
+  { key: 'features.f3.title', slug: 'dashboard' },
+  { key: 'features.f4.title', slug: locale === 'it' ? 'distribuzione' : locale === 'de' ? 'verteilung' : 'distribution' },
+  { key: 'features.f5.title', slug: locale === 'it' ? 'report-fiscali' : locale === 'de' ? 'steuerberichte' : locale === 'fr' ? 'rapports-fiscaux' : locale === 'es' ? 'informes-fiscales' : 'fiscal-reports' },
+];
+
+const privacyPath = locale === 'it' ? '/privacy/' : locale === 'de' ? '/datenschutz/' : locale === 'fr' ? '/confidentialite/' : locale === 'es' ? '/privacidad/' : '/privacy/';
+const cookiePath = locale === 'it' ? '/cookie-policy/' : locale === 'de' ? '/cookie-richtlinie/' : locale === 'fr' ? '/politique-cookies/' : locale === 'es' ? '/politica-cookies/' : '/cookie-policy/';
+
+const legalLinks = [
+  { key: 'nav.about', path: locale === 'it' ? '/chi-siamo/' : locale === 'de' ? '/ueber-uns/' : locale === 'fr' ? '/a-propos/' : locale === 'es' ? '/nosotros/' : '/about/' },
+  { key: 'nav.contact', path: locale === 'it' ? '/contatti/' : locale === 'de' ? '/kontakt/' : locale === 'fr' ? '/contact/' : locale === 'es' ? '/contacto/' : '/contact/' },
+  { key: 'nav.pricing', path: locale === 'it' ? '/prezzi/' : locale === 'de' ? '/preise/' : locale === 'fr' ? '/tarifs/' : locale === 'es' ? '/precios/' : '/pricing/' },
+  { key: 'footer.privacy', path: privacyPath },
+  { key: 'footer.cookie', path: cookiePath },
+];
+---
+
+<footer class="bg-teal-900 dark:bg-teal-950 text-white border-t border-teal-700" role="contentinfo">
+  <div class="section-container px-4 md:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Brand + Company Info -->
+      <div class="lg:col-span-1">
+        <a href={localizedUrl(locale, '/')} class="flex items-center gap-2 text-white font-bold text-xl mb-4">
+          <img src="/logo-gratitude-transparent.png" alt="Gratitude — Tips Management System per Hotel" class="h-20 w-auto" height="80" />
+        </a>
+        <p class="text-sm text-teal-100 mb-4">{t(locale, 'footer.tagline')}</p>
+        <!-- Company details -->
+        <div class="text-xs text-teal-200 space-y-1 mb-4">
+          <p class="font-medium text-teal-100">SG Informatica di Gianmarco Gianni</p>
+          <p>Via Romagna, 1/A — 61011 Gabicce Mare (PU)</p>
+          <p>P.IVA: IT02640570418</p>
+          <p>
+            <a href="mailto:info@sginformatica.com" class="hover:text-white transition-colors">info@sginformatica.com</a>
+            {' '}&middot;{' '}
+            <a href="tel:+390541950360" class="hover:text-white transition-colors">+39 0541 950360</a>
+          </p>
+        </div>
+        <!-- Trust badges -->
+        <div class="flex flex-wrap gap-2">
+          <span class="badge text-xs bg-teal-700 text-teal-400">{t(locale, 'hero.badge.gdpr')}</span>
+          <span class="badge text-xs bg-teal-700 text-teal-400">{t(locale, 'hero.badge.pms')}</span>
+        </div>
+      </div>
+
+      <!-- Features links -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{t(locale, 'nav.features')}</h3>
+        <ul class="space-y-2">
+          {featureLinks.map(({ key, slug }) => (
+            <li>
+              <a
+                href={localizedUrl(locale, `/${featureBase}/${slug}/`)}
+                class="text-sm text-teal-100 hover:text-white transition-colors"
+              >
+                {t(locale, key)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company & Legal links -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{t(locale, 'footer.company')}</h3>
+        <ul class="space-y-2">
+          {legalLinks.map(({ key, path }) => (
+            <li>
+              <a
+                href={localizedUrl(locale, path)}
+                class="text-sm text-teal-100 hover:text-white transition-colors"
+              >
+                {t(locale, key)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{t(locale, 'footer.newsletter.heading')}</h3>
+        <p class="text-sm text-teal-100 mb-4">{t(locale, 'footer.newsletter.sub')}</p>
+        <form class="newsletter-form flex gap-2" data-source="footer" novalidate>
+          <label for="newsletter-email" class="sr-only">{t(locale, 'form.email')}</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            placeholder={t(locale, 'footer.newsletter.placeholder')}
+            required
+            class="flex-1 min-w-0 px-3 py-2 text-sm bg-teal-700 border border-teal-500 rounded-lg text-white placeholder-teal-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+          />
+          <button type="submit" class="px-4 py-2 text-sm font-medium bg-teal-600 text-white rounded-lg hover:bg-teal-500 transition-colors whitespace-nowrap">
+            {t(locale, 'footer.newsletter.button')}
+          </button>
+        </form>
+        <p class="text-xs text-teal-200 mt-2">
+          {t(locale, 'footer.newsletter.privacy')}{' '}
+          {t(locale, 'footer.newsletter.unsubscribe')}
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-8 border-t border-teal-500 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-teal-200">&copy; 2025-2026 SG Informatica di Gianmarco Gianni &mdash; P.IVA IT02640570418. {t(locale, 'footer.rights')}</p>
+      <div class="flex items-center gap-4 text-xs text-teal-200">
+        <a href={localizedUrl(locale, privacyPath)} class="hover:text-white transition-colors">{t(locale, 'footer.privacy')}</a>
+        <span class="text-teal-500">&middot;</span>
+        <a href={localizedUrl(locale, cookiePath)} class="hover:text-white transition-colors">{t(locale, 'footer.cookie')}</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.newsletter-form').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = form.querySelector<HTMLInputElement>('input[type="email"]');
+      const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (!input || !btn || !input.value || !input.validity.valid) return;
+
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = '...';
+
+      try {
+        const res = await fetch('/api/public/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: input.value,
+            name: '',
+            type: 'newsletter',
+            source: form.dataset.source || 'footer',
+            locale: document.documentElement.lang || 'it',
+          }),
+        });
+        if (!res.ok) throw new Error();
+        input.value = '';
+        btn.textContent = '\u2713';
+        btn.classList.add('bg-teal-400');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          btn.classList.remove('bg-teal-400');
+        }, 3000);
+      } catch {
+        btn.textContent = '\u2717';
+        btn.classList.add('bg-red-500');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          btn.classList.remove('bg-red-500');
+        }, 3000);
+      }
+    });
+  });
+</script>

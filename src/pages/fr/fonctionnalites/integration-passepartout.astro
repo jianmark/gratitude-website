@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Integration native Passepartout Welcome | Gratitude',
+  description: 'Integration native avec Passepartout Welcome. Lecture des reservations en temps reel, enregistrement des pourboires exoneres de TVA, annulation automatique. Circuit breaker et outbox pattern : aucun pourboire perdu.',
+};
+
+const c = {
+  h1: 'Integration native avec Passepartout Welcome',
+  h2: 'Votre PMS, augmente',
+  intro: 'Gratitude n\'est pas un systeme parallele. Il s\'integre directement avec Passepartout Welcome via API REST, lisant les reservations en temps reel et enregistrant les pourboires comme supplements exoneres de TVA. La connexion est protegee par un circuit breaker et un outbox pattern : meme si le PMS est temporairement inaccessible, aucun pourboire n\'est jamais perdu. Le systeme reessaie automatiquement jusqu\'au succes.',
+  cta: 'Decouvrez l\'integration Passepartout -- Demander une demo',
+  sub1title: 'Lecture des reservations',
+  sub1desc: 'Donnees client, chambre, dates de sejour, totaux du compte, detail des charges -- tout lu en temps reel depuis Passepartout. L\'operateur n\'a rien a saisir manuellement. La note presentee sur la tablette est toujours a jour.',
+  sub2title: 'Enregistrement automatique',
+  sub2desc: 'Le pourboire est enregistre comme supplement sur le compte chambre avec le code article MANCIA (ou MANCIA_NOM pour les nominatifs), departement EXTRA, code TVA Exonere Art. 15. Aucune intervention manuelle requise.',
+  sub3title: 'Annulation automatique',
+  sub3desc: 'Si un pourboire doit etre annule, Gratitude envoie une annulation automatique a Passepartout avec un montant negatif. L\'operation est tracee dans le journal d\'audit avec le motif et l\'utilisateur responsable.',
+  sub4title: 'Outbox Pattern -- Zero pourboire perdu',
+  sub4desc: 'Chaque pourboire a envoyer a Passepartout est ecrit dans une file d\'evenements persistante dans la meme transaction de base de donnees. Un worker dedie traite la file en arriere-plan. Si Passepartout est hors ligne, le worker reessaie avec un backoff exponentiel (1min, 5min, 15min, 1h, 6h). Apres 5 tentatives echouees, l\'evenement entre en dead letter et la direction est notifiee. Aucun pourboire n\'est jamais perdu.',
+  benefitTitle: 'Avantage pour le directeur',
+  benefit: 'L\'integration native elimine la double saisie et le risque de desalignement entre le systeme de pourboires et votre PMS. Chaque pourboire apparait automatiquement sur le compte du client dans Passepartout, pret pour la facturation. Le circuit breaker protege le flux operationnel : si Passepartout ralentit, Gratitude continue sans interruption.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/passepartout-integration.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

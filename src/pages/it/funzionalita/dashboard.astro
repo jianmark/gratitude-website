@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Dashboard Direzionale in Tempo Reale | Gratitude',
+  description: 'Dashboard per la direzione con KPI real-time, grafici interattivi, registro mance, feedback ospiti. Protetta da 2FA. Ruoli differenziati. Aggiornamenti WebSocket.',
+};
+
+const c = {
+  h1: 'Dashboard in tempo reale',
+  h2: 'Ogni mancia, ogni feedback, ogni trend -- a portata di sguardo',
+  intro: 'La dashboard Gratitude e il centro di comando della vostra strategia di digital tipping. KPI aggiornati in tempo reale via WebSocket, grafici interattivi per identificare trend e stagionalita, registro completo delle mance con filtri avanzati. Progettata per il direttore che vuole dati, non complessita. Protetta da autenticazione a due fattori e controllo degli accessi basato sui ruoli.',
+  cta: 'Esplora la dashboard -- Richiedi una demo',
+  sub1title: 'KPI in Tempo Reale',
+  sub1desc: 'Mance del giorno, totale mensile, importo medio, tasso di adozione, confronto con il mese precedente. Widget dedicati per QR scans, feedback ospiti e distribuzione per canale (tablet vs QR). Aggiornamenti istantanei senza ricaricare la pagina.',
+  sub2title: 'Grafici Interattivi',
+  sub2desc: 'Trend mance nel tempo, distribuzione per settore (torta), confronto periodo su periodo (barre), classifica staff (orizzontale), distribuzione feedback per stelle. Ogni grafico e esportabile e filtrabile per date, settore, canale.',
+  sub3title: 'RBAC a 5 Livelli',
+  sub3desc: 'Super Admin, Admin Hotel, Manager di Reparto, Viewer, Operatore. Ogni ruolo vede solo cio che deve vedere. Il manager del ristorante accede solo ai dati del proprio reparto. Il direttore ha visione completa. Le autorizzazioni sono granulari fino al singolo permesso.',
+  sub4title: 'Registro Mance Completo',
+  sub4desc: 'Ogni mancia e registrata con data, ora, importo, tipo (generica/nominativa), canale (tablet/QR), stato WebHawk, destinatari, feedback associato. Filtri avanzati, ricerca, ordinamento per colonna. Export CSV e PDF con un clic.',
+  benefitTitle: 'Beneficio per il Direttore',
+  benefit: 'Prendete decisioni basate su dati reali, non su impressioni. Identificate i periodi di punta, i reparti piu performanti, i dipendenti piu apprezzati dagli ospiti. La dashboard Gratitude trasforma la gratitudine degli ospiti in intelligence operativa.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/dashboard-overview.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

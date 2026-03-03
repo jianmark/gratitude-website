@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Distribucion justa y transparente de propinas | Gratitude',
+  description: 'Distribucion automatica de propinas con dos algoritmos: porcentaje fijo u horas trabajadas. Flujo de aprobacion, simulador what-if, propinas nominativas separadas. Cada centimo rastreado.',
+};
+
+const c = {
+  h1: 'Distribucion justa y transparente',
+  h2: 'De la recaudacion a la nomina, todo rastreado',
+  intro: 'La distribucion de propinas es el aspecto mas sensible de la gestion. Quien recibe cuanto? Segun que criterios? Con que frecuencia? Gratitude automatiza todo el proceso con dos algoritmos a elegir: porcentaje fijo por departamento o proporcional a las horas trabajadas. El flujo de trabajo incluye calculo automatico, aprobacion del director y confirmacion de pago. Cada centimo queda rastreado en el registro de auditoria inmutable.',
+  cta: 'Descubra la distribucion automatica -- Solicitar una demo',
+  sub1title: 'Dos modos de distribucion',
+  sub1desc: 'Porcentaje fijo: cada departamento tiene una cuota predefinida (ej. Recepcion 30 %, Cocina 25 %, Housekeeping 25 %, Servicio 20 %). Dentro del departamento, cada empleado recibe segun su porcentaje. Horas trabajadas: la distribucion es proporcional a la contribucion efectiva. Mas horas, mas parte.',
+  sub2title: 'Flujo de aprobacion',
+  sub2desc: 'Calculo automatico, vista previa detallada antes de la ejecucion, aprobacion del director, confirmacion de pago. Cada paso se registra con marca de tiempo y usuario responsable. Ninguna distribucion ocurre sin supervision.',
+  sub3title: 'Simulador What-If',
+  sub3desc: 'Antes de ejecutar una distribucion, simule escenarios: "Que pasa si cambio los porcentajes de los sectores?" "Cuanto recibe la cocina si anado un empleado?" El simulador muestra resultados sin tocar los datos reales.',
+  sub4title: 'Propinas nominativas separadas',
+  sub4desc: 'Las propinas dedicadas a un empleado especifico van directamente a ese empleado, sin pasar por el pool de distribucion. El sistema las rastrea por separado, garantizando total transparencia entre propinas colectivas y personales.',
+  benefitTitle: 'Beneficio para el director',
+  benefit: 'Cero horas de contabilidad manual al mes. Disputas sobre la distribucion eliminadas gracias a la transparencia total. Informes detallados para su contable en un clic. Cumplimiento garantizado: cada distribucion es auditable y conforme a las reglas de equidad definidas por la direccion.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/distribution-page.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F0F4F8"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="shieldG" x1="400" y1="80" x2="400" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#059669"/>
+      <stop offset="1" stop-color="#1B3A5C"/>
+    </linearGradient>
+    <linearGradient id="innerG" x1="400" y1="120" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#059669" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#1B3A5C" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background transparent -->
+
+  <!-- Outer glow rings -->
+  <ellipse cx="400" cy="295" rx="200" ry="230" fill="#059669" opacity="0.03"/>
+  <ellipse cx="400" cy="295" rx="160" ry="190" fill="#059669" opacity="0.03"/>
+
+  <!-- Shield shape (outer) -->
+  <path d="M400 80 C400 80 540 110 560 120 C560 120 570 300 400 480 C230 300 240 120 240 120 C260 110 400 80 400 80Z" fill="url(#shieldG)" opacity="0.85"/>
+  <!-- Shield inner border -->
+  <path d="M400 100 C400 100 525 126 540 134 C540 134 549 290 400 454 C251 290 260 134 260 134 C275 126 400 100 400 100Z" fill="#FFFFFF" opacity="0.1"/>
+  <!-- Shield inner fill -->
+  <path d="M400 114 C400 114 514 138 526 144 C526 144 534 284 400 436 C266 284 274 144 274 144 C286 138 400 114 400 114Z" fill="url(#innerG)"/>
+
+  <!-- Lock body -->
+  <rect x="370" y="260" width="60" height="50" rx="8" fill="#FFFFFF" opacity="0.9"/>
+  <!-- Lock shackle -->
+  <path d="M380 260 L380 240 C380 222, 420 222, 420 240 L420 260" stroke="#FFFFFF" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <!-- Keyhole -->
+  <circle cx="400" cy="280" r="8" fill="#1B3A5C" opacity="0.4"/>
+  <rect x="397" y="282" width="6" height="14" rx="3" fill="#1B3A5C" opacity="0.3"/>
+
+  <!-- Checkmark badge -->
+  <circle cx="440" cy="250" r="16" fill="#F59E0B"/>
+  <polyline points="432,250 438,257 450,243" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Security feature badges floating around shield -->
+
+  <!-- Badge 1: GDPR — top left -->
+  <rect x="60" y="120" width="160" height="44" rx="22" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="72" y="132" width="20" height="20" rx="10" fill="#ECFDF5"/>
+  <text x="82" y="146" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#059669" text-anchor="middle">&#10003;</text>
+  <text x="100" y="140" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">GDPR Compliant</text>
+  <text x="100" y="152" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Consenso e diritto all'oblio</text>
+
+  <!-- Badge 2: AES-256 — top right -->
+  <rect x="580" y="120" width="160" height="44" rx="22" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="592" y="132" width="20" height="20" rx="10" fill="#FEF3C7"/>
+  <text x="602" y="146" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#F59E0B" text-anchor="middle">&#128274;</text>
+  <text x="620" y="140" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">AES-256-GCM</text>
+  <text x="620" y="152" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Crittografia end-to-end</text>
+
+  <!-- Badge 3: 2FA TOTP — left -->
+  <rect x="40" y="300" width="160" height="44" rx="22" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="52" y="312" width="20" height="20" rx="10" fill="#EFF6FF"/>
+  <text x="62" y="326" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#3B82F6" text-anchor="middle">2F</text>
+  <text x="80" y="320" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">2FA TOTP</text>
+  <text x="80" y="332" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Autenticazione a due fattori</text>
+
+  <!-- Badge 4: Rate Limiting — right -->
+  <rect x="600" y="300" width="160" height="44" rx="22" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="612" y="312" width="20" height="20" rx="10" fill="#F5F3FF"/>
+  <text x="622" y="326" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#8B5CF6" text-anchor="middle">&#9201;</text>
+  <text x="640" y="320" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">Rate Limiting</text>
+  <text x="640" y="332" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Protezione brute-force</text>
+
+  <!-- Badge 5: HMAC — bottom left -->
+  <rect x="100" y="460" width="160" height="44" rx="22" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="112" y="472" width="20" height="20" rx="10" fill="#ECFDF5"/>
+  <text x="122" y="487" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#059669" text-anchor="middle">&#128279;</text>
+  <text x="140" y="480" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">HMAC-SHA256</text>
+  <text x="140" y="492" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">QR link firmati anti-forgery</text>
+
+  <!-- Badge 6: Audit Log — bottom right -->
+  <rect x="540" y="460" width="160" height="44" rx="22" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="552" y="472" width="20" height="20" rx="10" fill="#FEF3C7"/>
+  <text x="562" y="487" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#F59E0B" text-anchor="middle">&#128220;</text>
+  <text x="580" y="480" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">Audit Log</text>
+  <text x="580" y="492" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Log immutabili append-only</text>
+
+  <!-- Connecting dashed lines from badges to shield -->
+  <line x1="220" y1="142" x2="290" y2="195" stroke="#059669" stroke-width="1" opacity="0.15" stroke-dasharray="4 3"/>
+  <line x1="580" y1="142" x2="510" y2="195" stroke="#F59E0B" stroke-width="1" opacity="0.15" stroke-dasharray="4 3"/>
+  <line x1="200" y1="322" x2="274" y2="290" stroke="#3B82F6" stroke-width="1" opacity="0.15" stroke-dasharray="4 3"/>
+  <line x1="600" y1="322" x2="526" y2="290" stroke="#8B5CF6" stroke-width="1" opacity="0.12" stroke-dasharray="4 3"/>
+  <line x1="260" y1="482" x2="330" y2="410" stroke="#059669" stroke-width="1" opacity="0.12" stroke-dasharray="4 3"/>
+  <line x1="540" y1="482" x2="470" y2="410" stroke="#F59E0B" stroke-width="1" opacity="0.12" stroke-dasharray="4 3"/>
+
+  <!-- Bottom text -->
+  <text x="400" y="545" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#0F172A" text-anchor="middle">Sicurezza Enterprise-Grade</text>
+  <text x="400" y="564" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B" text-anchor="middle">TLS 1.3 | HSTS | CSP Strict | JWT httpOnly | Prepared Statements | Docker non-root</text>
+  <text x="400" y="580" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8" text-anchor="middle">121 vulnerabilita risolte | Penetration tested | Conforme normativa italiana</text>
+</svg>

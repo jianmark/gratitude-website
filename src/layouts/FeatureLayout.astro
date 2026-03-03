@@ -1,0 +1,65 @@
+---
+import PageLayout from './PageLayout.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import { getLocale, t, type Locale } from '@/i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  h2: string;
+  intro: string;
+  ctaText: string;
+  screenshot?: string;
+}
+
+const { title, description, h1, h2, intro, ctaText, screenshot } = Astro.props;
+const locale = getLocale(Astro.url) as Locale;
+---
+
+<PageLayout title={title} description={description}>
+  <!-- Feature Hero -->
+  <section class="section-padding bg-gradient-to-b from-teal-50 to-stone-50 dark:from-navy-900 dark:to-navy-950">
+    <div class="section-container">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{h1}</h1>
+          <p class="text-lg md:text-xl text-teal-700 dark:text-teal-400 font-medium mb-6">{h2}</p>
+          <p class="text-base md:text-lg text-stone-600 dark:text-stone-300 leading-relaxed mb-8">{intro}</p>
+          <a
+            href={`/${locale}/demo/`}
+            class="btn-primary"
+            data-track-cta={ctaText}
+            data-track-source="feature-hero"
+          >
+            {ctaText}
+          </a>
+        </div>
+        {screenshot && (
+          <div class="relative">
+            <div class="rounded-2xl overflow-hidden shadow-2xl border border-stone-200 dark:border-navy-700">
+              <img
+                src={screenshot}
+                alt={h1}
+                class="w-full h-auto"
+                loading="eager"
+                width="800"
+                height="600"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-features -->
+  <section class="section-padding">
+    <div class="section-container">
+      <slot />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection />
+</PageLayout>

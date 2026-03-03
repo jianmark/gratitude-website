@@ -1,0 +1,282 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import { t, localizedUrl } from '@/i18n/utils';
+
+const locale = 'it';
+
+const essentialsFeatures = [
+  'Tablet checkout con mancia integrata',
+  'Fino a 5 QR Code attivi',
+  'Dashboard base (overview + registro mance)',
+  'Distribuzione automatica (percentuale fissa)',
+  'Report mensili PDF',
+  'Integrazione Passepartout Welcome',
+  '5 lingue (IT, EN, DE, FR, ES)',
+  'Supporto email',
+  '1 utente dashboard',
+];
+
+const essentialsNotIncluded = [
+  'QR illimitati',
+  'Distribuzione per ore lavorate',
+  'Report fiscali Mexal',
+  'Guest feedback',
+  'Gamification staff',
+  'Notifiche dipendenti',
+  'Stripe QR payments',
+  'Supporto prioritario',
+];
+
+const professionalFeatures = [
+  'QR Code illimitati con analytics',
+  'Dashboard completa (tutti i moduli)',
+  'Distribuzione per ore lavorate',
+  'Report fiscali PDF + CSV Mexal',
+  'Guest feedback con analisi sentiment',
+  'Pagamenti Stripe via QR',
+  'Notifiche email ai dipendenti',
+  'Classifica e gamification staff',
+  'Template stampa QR (card, tent, adesivo)',
+  '8 lingue (IT, EN, DE, FR, ES, AR, RU, ZH)',
+  'Supporto prioritario',
+  'Fino a 5 utenti dashboard',
+  'Formazione team dedicata',
+];
+
+const enterpriseFeatures = [
+  'Multi-property (gestione centralizzata)',
+  'API personalizzate',
+  'Branding completamente personalizzato (white-label)',
+  'SLA garantito con supporto dedicato',
+  'Utenti dashboard illimitati',
+  'Integrazione Telegram per notifiche',
+  'Alert sistema e monitoring avanzato',
+  'Self-hosted su infrastruttura cliente',
+  'Onboarding premium con project manager dedicato',
+  'Report personalizzati su richiesta',
+  'Audit di sicurezza periodico',
+];
+
+const faqs = [
+  {
+    q: 'Quanto costa Gratitude?',
+    a: 'Il costo dipende dalla dimensione della struttura, dal numero di camere e dalle funzionalita selezionate. Contattateci per un preventivo personalizzato e trasparente, senza impegno.',
+  },
+  {
+    q: "C'e un costo di setup iniziale?",
+    a: "L'installazione e la configurazione iniziale sono incluse in tutti i piani. Il nostro team configura Gratitude sulla vostra infrastruttura, collega Passepartout e forma il vostro staff.",
+  },
+  {
+    q: 'Quali sono i costi per i pagamenti Stripe via QR?',
+    a: 'I pagamenti via QR utilizzano Stripe Connect. Le commissioni Stripe standard si applicano su ogni transazione (visibili su stripe.com/pricing). Gratitude non aggiunge commissioni aggiuntive sulle transazioni.',
+  },
+  {
+    q: 'E necessario acquistare hardware?',
+    a: 'No. Gratitude funziona su qualsiasi iPad o tablet Android esistente come PWA (Progressive Web App). Non e necessario alcun hardware dedicato.',
+  },
+  {
+    q: 'Posso cambiare piano in qualsiasi momento?',
+    a: "Si. L'upgrade e possibile in qualsiasi momento. Il downgrade e possibile alla scadenza del periodo contrattuale.",
+  },
+  {
+    q: 'I dati restano di mia proprieta?',
+    a: 'Assolutamente si. I dati sono di proprieta esclusiva della struttura. Con il piano Enterprise, potete ospitare Gratitude sulla vostra infrastruttura (self-hosted). In ogni caso, offriamo export completo dei dati in qualsiasi momento.',
+  },
+  {
+    q: 'Come funziona il supporto?',
+    a: 'Il piano Essentials include supporto email in orario lavorativo. Professional include supporto prioritario con tempi di risposta garantiti. Enterprise include un referente dedicato e SLA personalizzato.',
+  },
+  {
+    q: 'Gratitude funziona senza Passepartout?',
+    a: 'Gratitude e ottimizzato per Passepartout Welcome, ma il modulo QR con pagamento Stripe funziona in modo indipendente. Contattateci per discutere integrazioni con altri PMS.',
+  },
+  {
+    q: "Quanto tempo richiede l'installazione?",
+    a: 'In media, 1 giorno lavorativo per i piani Essentials e Professional. Il piano Enterprise prevede un onboarding strutturato con il project manager dedicato, tipicamente 3-5 giorni.',
+  },
+  {
+    q: 'E previsto un periodo di prova?',
+    a: 'Offriamo una demo completa e personalizzata. Contattateci per organizzarla senza impegno.',
+  },
+];
+
+const comparisonFeatures = [
+  { name: 'Tablet checkout', e: true, p: true, ent: true },
+  { name: 'QR Code', e: '5', p: 'Illimitati', ent: 'Illimitati' },
+  { name: 'Dashboard', e: 'Base', p: 'Completa', ent: 'Completa' },
+  { name: 'Lingue', e: '5', p: '8', ent: '8' },
+  { name: 'Utenti dashboard', e: '1', p: '5', ent: 'Illimitati' },
+  { name: 'Distribuzione ore lavorate', e: false, p: true, ent: true },
+  { name: 'Report fiscali Mexal', e: false, p: true, ent: true },
+  { name: 'Guest feedback', e: false, p: true, ent: true },
+  { name: 'Pagamenti Stripe QR', e: false, p: true, ent: true },
+  { name: 'Gamification staff', e: false, p: true, ent: true },
+  { name: 'Notifiche dipendenti', e: false, p: true, ent: true },
+  { name: 'Multi-property', e: false, p: false, ent: true },
+  { name: 'White-label', e: false, p: false, ent: true },
+  { name: 'API personalizzate', e: false, p: false, ent: true },
+  { name: 'Self-hosted', e: false, p: false, ent: true },
+  { name: 'SLA garantito', e: false, p: false, ent: true },
+  { name: 'Supporto', e: 'Email', p: 'Prioritario', ent: 'Dedicato' },
+];
+---
+
+<PageLayout
+  title={t(locale, 'meta.pricing.title')}
+  description={t(locale, 'meta.pricing.description')}
+>
+  <!-- Hero -->
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">{t(locale, 'pricing.heading')}</h1>
+      <p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-3xl mx-auto">{t(locale, 'pricing.subheading')}</p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="section-padding">
+    <div class="section-container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Essentials -->
+        <div class="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm dark:border-navy-700 dark:bg-navy-800/50">
+          <h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.essentials')}</h3>
+          <p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.essentials.target')}</p>
+          <p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p>
+          <a href={localizedUrl(locale, '/demo/')} class="btn-secondary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a>
+          <ul class="mt-8 space-y-3">
+            {essentialsFeatures.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300">
+                <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 pt-6 border-t border-stone-200 dark:border-navy-700">
+            <p class="text-xs font-medium text-stone-400 dark:text-stone-500 uppercase mb-3">{t(locale, 'pricing.not_included')}</p>
+            <ul class="space-y-2">
+              {essentialsNotIncluded.map((f) => (
+                <li class="flex items-start gap-2 text-sm text-stone-400 dark:text-stone-500">
+                  <svg class="h-5 w-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Professional (Popular) -->
+        <div class="rounded-2xl border-2 border-teal-500 bg-white p-8 shadow-lg relative dark:border-teal-400 dark:bg-navy-800/50">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 badge-teal px-4 py-1 text-xs font-semibold">{t(locale, 'pricing.popular')}</span>
+          <h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.professional')}</h3>
+          <p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.professional.target')}</p>
+          <p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p>
+          <a href={localizedUrl(locale, '/demo/')} class="btn-primary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a>
+          <p class="mt-8 text-xs font-medium text-stone-500 dark:text-stone-400">{t(locale, 'pricing.everything_in').replace('{plan}', 'Essentials')}</p>
+          <ul class="mt-4 space-y-3">
+            {professionalFeatures.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300">
+                <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm dark:border-navy-700 dark:bg-navy-800/50">
+          <h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.enterprise')}</h3>
+          <p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.enterprise.target')}</p>
+          <p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p>
+          <a href={localizedUrl(locale, '/demo/')} class="btn-secondary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a>
+          <p class="mt-8 text-xs font-medium text-stone-500 dark:text-stone-400">{t(locale, 'pricing.everything_in').replace('{plan}', 'Professional')}</p>
+          <ul class="mt-4 space-y-3">
+            {enterpriseFeatures.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300">
+                <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="section-padding bg-stone-50 dark:bg-navy-900">
+    <div class="section-container">
+      <h2 class="text-3xl font-serif font-bold text-center mb-12">{t(locale, 'cta.plans')}</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full max-w-5xl mx-auto text-sm">
+          <thead>
+            <tr class="border-b-2 border-stone-200 dark:border-navy-700">
+              <th class="py-4 px-4 text-left font-medium text-stone-500 dark:text-stone-400"></th>
+              <th class="py-4 px-4 text-center font-semibold text-navy-800 dark:text-stone-200">Essentials</th>
+              <th class="py-4 px-4 text-center font-semibold text-teal-700 dark:text-teal-400">Professional</th>
+              <th class="py-4 px-4 text-center font-semibold text-navy-800 dark:text-stone-200">Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonFeatures.map((row) => (
+              <tr class="border-b border-stone-100 dark:border-navy-800">
+                <td class="py-3 px-4 text-stone-700 dark:text-stone-300">{row.name}</td>
+                {[row.e, row.p, row.ent].map((val) => (
+                  <td class="py-3 px-4 text-center">
+                    {val === true ? (
+                      <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                    ) : val === false ? (
+                      <svg class="h-5 w-5 text-stone-300 dark:text-navy-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                    ) : (
+                      <span class="text-stone-600 dark:text-stone-400">{val}</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding">
+    <div class="section-container max-w-3xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-center mb-12">FAQ</h2>
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group rounded-xl border border-stone-200 bg-white dark:border-navy-700 dark:bg-navy-800/50">
+            <summary class="cursor-pointer list-none flex items-center justify-between px-6 py-4 text-base font-medium text-navy-800 dark:text-stone-200 [&::-webkit-details-marker]:hidden">
+              <span>{faq.q}</span>
+              <svg class="h-5 w-5 shrink-0 text-stone-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+            </summary>
+            <div class="px-6 pb-4 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section-padding bg-navy-800 dark:bg-navy-950">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-serif font-bold text-white mb-4">{t(locale, 'pricing.cta_heading')}</h2>
+      <p class="text-lg text-stone-300 max-w-2xl mx-auto mb-8">{t(locale, 'pricing.cta_body')}</p>
+      <a href={localizedUrl(locale, '/contatti/')} class="btn-primary text-lg">{t(locale, 'cta.quote')}</a>
+    </div>
+  </section>
+
+  <JsonLd data={{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqs.map((faq) => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a,
+      },
+    })),
+  }} />
+</PageLayout>

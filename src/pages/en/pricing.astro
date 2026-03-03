@@ -1,0 +1,274 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import { t, localizedUrl } from '@/i18n/utils';
+
+const locale = 'en';
+
+const essentialsFeatures = [
+  'Tablet checkout with tipping',
+  'Up to 5 active QR codes',
+  'Basic dashboard (overview + tip registry)',
+  'Automatic distribution (fixed percentage)',
+  'Monthly PDF reports',
+  'Passepartout Welcome integration',
+  '5 languages (IT, EN, DE, FR, ES)',
+  'Email support',
+  '1 dashboard user',
+];
+
+const essentialsNotIncluded = [
+  'Unlimited QR codes',
+  'Distribution by hours worked',
+  'Mexal fiscal reports',
+  'Guest feedback',
+  'Staff gamification',
+  'Employee notifications',
+  'Stripe QR payments',
+  'Priority support',
+];
+
+const professionalFeatures = [
+  'Unlimited QR codes with analytics',
+  'Complete dashboard (all modules)',
+  'Distribution by hours worked',
+  'Fiscal reports PDF + CSV Mexal',
+  'Guest feedback with sentiment analysis',
+  'Stripe QR payments',
+  'Employee email notifications',
+  'Staff gamification and leaderboard',
+  'QR print templates (card, tent, sticker)',
+  '8 languages (IT, EN, DE, FR, ES, AR, RU, ZH)',
+  'Priority support',
+  'Up to 5 dashboard users',
+  'Dedicated team training',
+];
+
+const enterpriseFeatures = [
+  'Multi-property (centralised management)',
+  'Custom APIs',
+  'Full white-label branding',
+  'Guaranteed SLA with dedicated support',
+  'Unlimited dashboard users',
+  'Telegram notification integration',
+  'Advanced monitoring and system alerts',
+  'Self-hosted on client infrastructure',
+  'Premium onboarding with dedicated project manager',
+  'Custom reports on request',
+  'Periodic security audit',
+];
+
+const faqs = [
+  {
+    q: 'How much does Gratitude cost?',
+    a: 'Pricing depends on property size, room count and selected features. Contact us for a transparent, no-obligation quote.',
+  },
+  {
+    q: 'Is there a setup fee?',
+    a: 'Initial installation and configuration are included in all plans. Our team configures Gratitude on your infrastructure, connects your PMS and trains your staff.',
+  },
+  {
+    q: 'What are the costs for Stripe QR payments?',
+    a: 'QR payments use Stripe Connect. Standard Stripe fees apply to each transaction (see stripe.com/pricing). Gratitude does not add additional transaction fees.',
+  },
+  {
+    q: 'Do I need to purchase hardware?',
+    a: 'No. Gratitude runs on any existing iPad or Android tablet as a PWA. No dedicated hardware is required.',
+  },
+  {
+    q: 'Can I change plans at any time?',
+    a: 'Yes. Upgrades are available at any time. Downgrades are possible at the end of the contract period.',
+  },
+  {
+    q: 'Do I own my data?',
+    a: 'Absolutely. Data is the exclusive property of the property. With the Enterprise plan, you can host Gratitude on your own infrastructure. In all cases, we offer complete data export at any time.',
+  },
+  {
+    q: 'How does support work?',
+    a: 'Essentials includes business-hours email support. Professional includes priority support with guaranteed response times. Enterprise includes a dedicated contact and custom SLA.',
+  },
+  {
+    q: 'Does Gratitude work without Passepartout?',
+    a: 'Gratitude is optimised for Passepartout Welcome, but the QR module with Stripe payment works independently. Contact us to discuss integrations with other PMS systems.',
+  },
+  {
+    q: 'How long does installation take?',
+    a: 'Typically 1 business day for Essentials and Professional. Enterprise includes structured onboarding with a dedicated project manager, typically 3-5 days.',
+  },
+  {
+    q: 'Is there a trial period?',
+    a: 'We offer a complete, personalised demo. Contact us to arrange one, no obligation.',
+  },
+];
+
+const comparisonFeatures = [
+  { name: 'Tablet checkout', e: true, p: true, ent: true },
+  { name: 'QR Codes', e: '5', p: 'Unlimited', ent: 'Unlimited' },
+  { name: 'Dashboard', e: 'Basic', p: 'Complete', ent: 'Complete' },
+  { name: 'Languages', e: '5', p: '8', ent: '8' },
+  { name: 'Dashboard users', e: '1', p: '5', ent: 'Unlimited' },
+  { name: 'Hours-based distribution', e: false, p: true, ent: true },
+  { name: 'Mexal fiscal reports', e: false, p: true, ent: true },
+  { name: 'Guest feedback', e: false, p: true, ent: true },
+  { name: 'Stripe QR payments', e: false, p: true, ent: true },
+  { name: 'Staff gamification', e: false, p: true, ent: true },
+  { name: 'Employee notifications', e: false, p: true, ent: true },
+  { name: 'Multi-property', e: false, p: false, ent: true },
+  { name: 'White-label', e: false, p: false, ent: true },
+  { name: 'Custom APIs', e: false, p: false, ent: true },
+  { name: 'Self-hosted', e: false, p: false, ent: true },
+  { name: 'Guaranteed SLA', e: false, p: false, ent: true },
+  { name: 'Support', e: 'Email', p: 'Priority', ent: 'Dedicated' },
+];
+---
+
+<PageLayout
+  title={t(locale, 'meta.pricing.title')}
+  description={t(locale, 'meta.pricing.description')}
+>
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">{t(locale, 'pricing.heading')}</h1>
+      <p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-3xl mx-auto">{t(locale, 'pricing.subheading')}</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="section-container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm dark:border-navy-700 dark:bg-navy-800/50">
+          <h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.essentials')}</h3>
+          <p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.essentials.target')}</p>
+          <p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p>
+          <a href={localizedUrl(locale, '/demo/')} class="btn-secondary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a>
+          <ul class="mt-8 space-y-3">
+            {essentialsFeatures.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300">
+                <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 pt-6 border-t border-stone-200 dark:border-navy-700">
+            <p class="text-xs font-medium text-stone-400 dark:text-stone-500 uppercase mb-3">{t(locale, 'pricing.not_included')}</p>
+            <ul class="space-y-2">
+              {essentialsNotIncluded.map((f) => (
+                <li class="flex items-start gap-2 text-sm text-stone-400 dark:text-stone-500">
+                  <svg class="h-5 w-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border-2 border-teal-500 bg-white p-8 shadow-lg relative dark:border-teal-400 dark:bg-navy-800/50">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 badge-teal px-4 py-1 text-xs font-semibold">{t(locale, 'pricing.popular')}</span>
+          <h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.professional')}</h3>
+          <p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.professional.target')}</p>
+          <p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p>
+          <a href={localizedUrl(locale, '/demo/')} class="btn-primary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a>
+          <p class="mt-8 text-xs font-medium text-stone-500 dark:text-stone-400">{t(locale, 'pricing.everything_in').replace('{plan}', 'Essentials')}</p>
+          <ul class="mt-4 space-y-3">
+            {professionalFeatures.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300">
+                <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm dark:border-navy-700 dark:bg-navy-800/50">
+          <h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.enterprise')}</h3>
+          <p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.enterprise.target')}</p>
+          <p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p>
+          <a href={localizedUrl(locale, '/demo/')} class="btn-secondary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a>
+          <p class="mt-8 text-xs font-medium text-stone-500 dark:text-stone-400">{t(locale, 'pricing.everything_in').replace('{plan}', 'Professional')}</p>
+          <ul class="mt-4 space-y-3">
+            {enterpriseFeatures.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300">
+                <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-stone-50 dark:bg-navy-900">
+    <div class="section-container">
+      <h2 class="text-3xl font-serif font-bold text-center mb-12">{t(locale, 'cta.plans')}</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full max-w-5xl mx-auto text-sm">
+          <thead>
+            <tr class="border-b-2 border-stone-200 dark:border-navy-700">
+              <th class="py-4 px-4 text-left font-medium text-stone-500 dark:text-stone-400"></th>
+              <th class="py-4 px-4 text-center font-semibold text-navy-800 dark:text-stone-200">Essentials</th>
+              <th class="py-4 px-4 text-center font-semibold text-teal-700 dark:text-teal-400">Professional</th>
+              <th class="py-4 px-4 text-center font-semibold text-navy-800 dark:text-stone-200">Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonFeatures.map((row) => (
+              <tr class="border-b border-stone-100 dark:border-navy-800">
+                <td class="py-3 px-4 text-stone-700 dark:text-stone-300">{row.name}</td>
+                {[row.e, row.p, row.ent].map((val) => (
+                  <td class="py-3 px-4 text-center">
+                    {val === true ? (
+                      <svg class="h-5 w-5 text-teal-600 dark:text-teal-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                    ) : val === false ? (
+                      <svg class="h-5 w-5 text-stone-300 dark:text-navy-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                    ) : (
+                      <span class="text-stone-600 dark:text-stone-400">{val}</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="section-container max-w-3xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-center mb-12">FAQ</h2>
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group rounded-xl border border-stone-200 bg-white dark:border-navy-700 dark:bg-navy-800/50">
+            <summary class="cursor-pointer list-none flex items-center justify-between px-6 py-4 text-base font-medium text-navy-800 dark:text-stone-200 [&::-webkit-details-marker]:hidden">
+              <span>{faq.q}</span>
+              <svg class="h-5 w-5 shrink-0 text-stone-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+            </summary>
+            <div class="px-6 pb-4 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-navy-800 dark:bg-navy-950">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-serif font-bold text-white mb-4">{t(locale, 'pricing.cta_heading')}</h2>
+      <p class="text-lg text-stone-300 max-w-2xl mx-auto mb-8">{t(locale, 'pricing.cta_body')}</p>
+      <a href={localizedUrl(locale, '/contact/')} class="btn-primary text-lg">{t(locale, 'cta.quote')}</a>
+    </div>
+  </section>
+
+  <JsonLd data={{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqs.map((faq) => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a,
+      },
+    })),
+  }} />
+</PageLayout>

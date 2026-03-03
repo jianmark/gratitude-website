@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Real-Time Tipping Dashboard for Hotels | Gratitude',
+  description: 'Real-time KPIs via WebSocket, interactive charts, complete tip registry with advanced filters. 5-level RBAC, 2FA protected. Transform guest gratitude into operational intelligence.',
+};
+
+const c = {
+  h1: 'Real-time dashboard',
+  h2: 'Every tip, every feedback, every trend -- at a glance',
+  intro: 'The Gratitude dashboard is the command centre for your digital tipping strategy. KPIs updated in real time via WebSocket, interactive charts to identify trends and seasonality, complete tip registry with advanced filters. Designed for the director who wants data, not complexity. Protected by two-factor authentication and role-based access control.',
+  cta: 'Explore the dashboard -- Request a demo',
+  sub1title: 'Real-Time KPIs',
+  sub1desc: 'Daily tips, monthly total, average amount, adoption rate, comparison with previous month. Dedicated widgets for QR scans, guest feedback and channel breakdown (tablet vs QR). Instant updates without page refresh.',
+  sub2title: 'Interactive Charts',
+  sub2desc: 'Tip trends over time, distribution by sector (pie), period-over-period comparison (bars), staff ranking (horizontal), feedback distribution by star rating. Every chart is exportable and filterable by date, sector, channel.',
+  sub3title: '5-Level RBAC',
+  sub3desc: 'Super Admin, Hotel Admin, Department Manager, Viewer, Operator. Each role sees only what it needs to see. The restaurant manager accesses only their department\'s data. The director has full visibility. Permissions are granular down to individual actions.',
+  sub4title: 'Complete Tip Registry',
+  sub4desc: 'Every tip is recorded with date, time, amount, type (generic/nominated), channel (tablet/QR), posting status, recipients, associated feedback. Advanced filters, search, column sorting. CSV and PDF export with one click.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'Make decisions based on real data, not impressions. Identify peak periods, best-performing departments, most-appreciated staff. The Gratitude dashboard transforms guest gratitude into operational intelligence.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/dashboard-overview.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

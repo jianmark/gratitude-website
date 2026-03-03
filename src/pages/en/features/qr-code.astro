@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'QR Code Multi-Touchpoint Digital Tipping | Gratitude',
+  description: 'QR codes for tips from every corner of your property. Room, bar, spa, restaurant. Card payment via Stripe. Professional print templates. Per-QR analytics.',
+};
+
+const c = {
+  h1: 'QR Codes: tips from every corner of your property',
+  h2: 'Room, bar, spa, restaurant -- wherever there is a QR, there is an opportunity',
+  intro: 'Checkout is not the only moment a guest wishes to express gratitude. The waiter who recommended the perfect wine, the bartender who crafted the ideal cocktail, the receptionist who arranged the transfer. With Gratitude QR Codes, every point in your property becomes a digital tipping touchpoint. The guest scans, selects the amount, pays by card and in under 20 seconds the gesture is complete.',
+  cta: 'Activate Gratitude QR Codes -- Request a demo',
+  sub1title: 'Custom QR for Every Context',
+  sub1desc: 'Create QR codes for individual staff (with photo and name), department (kitchen, reception, housekeeping), room, area (lobby bar, pool, spa) or the entire property. Each QR has its own unique code, protected by HMAC-SHA256 signature against forgery.',
+  sub2title: 'Card Payment via Stripe',
+  sub2desc: 'Visa, Mastercard, American Express, Apple Pay, Google Pay. The guest pays directly from their phone without downloading any application. Stripe Connect ensures PCI Level 1 security and direct fund transfer. Optimised landing page: under 100KB, instant loading.',
+  sub3title: 'Professional Print in One Click',
+  sub3desc: 'From the dashboard, generate print-ready sheets: tent cards for the restaurant, stickers for room doors, table cards for the bar. Each item includes the Gratitude logo, hotel logo and QR code with multilingual instructions.',
+  sub4title: 'Per-QR Analytics',
+  sub4desc: 'Every QR code has its own statistics: scan count, conversion rate, average amount, peak times. Identify which touchpoints generate the most tips and optimise placement. Compare performance over time.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'QR codes open a tipping channel that did not exist before. Guests who never pass through reception -- the external restaurant diner, the spa visitor, the bar patron -- can now express their gratitude. A minimal investment (QR printing) with a measurable return from the dashboard.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/qr-landing-mobile.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

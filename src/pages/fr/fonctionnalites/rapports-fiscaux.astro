@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Rapports fiscaux prets pour le comptable | Gratitude',
+  description: 'Exoneration TVA automatique (Art. 15 DPR 633/72), rapports par employe, export CSV Mexal, ecritures comptables suggerees. Conformite fiscale italienne en un clic.',
+};
+
+const c = {
+  h1: 'Rapports fiscaux prets pour votre comptable',
+  h2: 'Conformite fiscale italienne en un clic',
+  intro: 'La gestion fiscale des pourboires en Italie est complexe : exoneration de TVA, taxe substitutive a 5 %, comptabilite separee. Gratitude genere automatiquement des rapports conformes a la legislation en vigueur : Art. 15 DPR 633/72 pour l\'exoneration de TVA, prestations liberales pour la paie, ecritures comptables debit/credit suggerees. Export PDF professionnel pour votre comptable et CSV pour import direct dans Mexal.',
+  cta: 'Decouvrez les rapports fiscaux -- Demander une demo',
+  sub1title: 'Exoneration TVA automatique',
+  sub1desc: 'Chaque pourboire est enregistre sur Passepartout avec le code TVA "ES" (Exonere Art. 15). Le rapport fiscal regroupe les pourboires par departement, article et code TVA. La conformite n\'est pas optionnelle : elle est integree au processus.',
+  sub2title: 'Rapport par employe',
+  sub2desc: 'Detail pour chaque employe avec code employe (pour correspondance paie), total distribue, total nominatif, total automatique. Pret pour la comptabilisation en tant que prestation liberale avec taxe substitutive a 5 %.',
+  sub3title: 'Export Mexal',
+  sub3desc: 'Fichier CSV au format exact requis par Mexal (comptabilite Passepartout). Code departement, compte debit, compte credit, montant, description. Import direct sans manipulation manuelle. Teste et valide avec l\'environnement Passepartout.',
+  sub4title: 'Ecritures comptables suggerees',
+  sub4desc: 'Pour chaque periode, Gratitude suggere les ecritures comptables : debits au compte transitoire de pourboires, credits au compte employes. Votre comptable recoit un document pret a valider, pas a interpreter.',
+  benefitTitle: 'Avantage pour le directeur',
+  benefit: 'La conformite fiscale n\'est plus un cout en temps et en conseil. Gratitude elimine le risque d\'erreur dans la comptabilisation des pourboires, reduit la charge de travail de votre comptable et garantit que chaque transaction est tracable et conforme. Lors d\'un controle fiscal, chaque pourboire est documente avec une piste d\'audit complete.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/fiscal-report.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

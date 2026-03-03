@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <!-- Blurred hotel lobby background -->
+    <filter id="bgBlur">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <linearGradient id="lobbyBg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c8d5d0"/>
+      <stop offset="0.3" stop-color="#d8e2de"/>
+      <stop offset="0.6" stop-color="#e5ebe8"/>
+      <stop offset="1" stop-color="#cdd6d2"/>
+    </linearGradient>
+    <!-- Warm light from window -->
+    <radialGradient id="warmLight" cx="0.15" cy="0.3" r="0.5">
+      <stop offset="0" stop-color="#f0e8d8" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#f0e8d8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmLight2" cx="0.85" cy="0.4" r="0.4">
+      <stop offset="0" stop-color="#f5efe0" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#f5efe0" stop-opacity="0"/>
+    </radialGradient>
+    <!-- iPad shadow -->
+    <filter id="ipadShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#1a2e2c" flood-opacity="0.3"/>
+    </filter>
+    <!-- Screen clip (landscape) -->
+    <clipPath id="screenClip">
+      <rect x="155" y="170" width="490" height="310" rx="5"/>
+    </clipPath>
+    <!-- Skin tone -->
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8C4A0"/>
+      <stop offset="1" stop-color="#D4A878"/>
+    </linearGradient>
+    <linearGradient id="skinDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D4A878"/>
+      <stop offset="1" stop-color="#C09468"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Blurred hotel lobby background -->
+  <g filter="url(#bgBlur)">
+    <rect width="800" height="600" fill="url(#lobbyBg)"/>
+    <!-- Abstract window/curtain shapes -->
+    <rect x="0" y="0" width="120" height="400" fill="#a8bbb4" opacity="0.5"/>
+    <rect x="20" y="0" width="80" height="350" rx="2" fill="#b8ccc5" opacity="0.4"/>
+    <!-- Curtain right -->
+    <rect x="680" y="0" width="120" height="450" fill="#d5ddd9" opacity="0.5"/>
+    <rect x="700" y="20" width="60" height="400" fill="#e0e8e4" opacity="0.3"/>
+    <!-- Floor/counter -->
+    <rect x="0" y="420" width="800" height="180" fill="#c4b8a8" opacity="0.3"/>
+    <!-- Counter surface -->
+    <rect x="100" y="460" width="600" height="12" rx="3" fill="#b8a890" opacity="0.25"/>
+  </g>
+  <!-- Warm light overlays -->
+  <rect width="800" height="600" fill="url(#warmLight)"/>
+  <rect width="800" height="600" fill="url(#warmLight2)"/>
+
+  <!-- ===== LEFT HAND ===== -->
+  <!-- Left forearm/wrist -->
+  <path d="M40 580 C50 540, 65 480, 85 440 C100 410, 115 395, 130 385 L148 380 L152 420 L135 445 C120 470, 100 520, 80 580 Z"
+        fill="url(#skin)"/>
+  <!-- Left palm -->
+  <path d="M130 385 C138 370, 148 360, 155 355 L158 360 L160 400 L160 470 L152 478 L140 470 L135 445 L148 380 Z"
+        fill="url(#skin)"/>
+  <!-- Left thumb (wrapping over iPad edge) -->
+  <ellipse cx="155" cy="350" rx="12" ry="22" fill="url(#skin)" transform="rotate(-15 155 350)"/>
+  <ellipse cx="152" cy="335" rx="9" ry="12" fill="url(#skinDark)" transform="rotate(-15 152 335)"/>
+  <!-- Left fingers behind iPad -->
+  <path d="M150 470 C150 480, 155 490, 160 495 L165 490 L165 475 L158 468 Z" fill="url(#skinDark)"/>
+  <path d="M142 465 C140 475, 142 485, 148 492 L155 488 L155 472 L148 465 Z" fill="url(#skinDark)"/>
+
+  <!-- ===== RIGHT HAND ===== -->
+  <!-- Right forearm/wrist -->
+  <path d="M760 580 C750 540, 735 480, 715 440 C700 410, 685 395, 670 385 L652 380 L648 420 L665 445 C680 470, 700 520, 720 580 Z"
+        fill="url(#skin)"/>
+  <!-- Right palm -->
+  <path d="M670 385 C662 370, 652 360, 645 355 L642 360 L640 400 L640 470 L648 478 L660 470 L665 445 L652 380 Z"
+        fill="url(#skin)"/>
+  <!-- Right thumb -->
+  <ellipse cx="645" cy="350" rx="12" ry="22" fill="url(#skin)" transform="rotate(15 645 350)"/>
+  <ellipse cx="648" cy="335" rx="9" ry="12" fill="url(#skinDark)" transform="rotate(15 648 335)"/>
+  <!-- Right fingers behind iPad -->
+  <path d="M650 470 C650 480, 645 490, 640 495 L635 490 L635 475 L642 468 Z" fill="url(#skinDark)"/>
+  <path d="M658 465 C660 475, 658 485, 652 492 L645 488 L645 472 L652 465 Z" fill="url(#skinDark)"/>
+
+  <!-- ===== iPad (landscape) ===== -->
+  <!-- iPad body -->
+  <rect x="135" y="150" width="530" height="350" rx="22" fill="#1C1C1E" filter="url(#ipadShadow)"/>
+  <!-- iPad inner bezel -->
+  <rect x="138" y="153" width="524" height="344" rx="20" fill="#2C2C2E"/>
+
+  <!-- Screen -->
+  <rect x="153" y="168" width="494" height="314" rx="6" fill="#111"/>
+
+  <!-- Screenshot clipped to screen -->
+  <g clip-path="url(#screenClip)">
+    <image href="/screenshots/tablet-welcome-real.png" x="155" y="170" width="490" height="310" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+
+  <!-- Subtle screen reflection -->
+  <rect x="155" y="170" width="490" height="155" rx="5" fill="#fff" opacity="0.03"/>
+
+  <!-- Home indicator -->
+  <rect x="365" y="488" width="70" height="3" rx="1.5" fill="#555" opacity="0.4"/>
+
+  <!-- Camera dot (landscape top = right side) -->
+  <circle cx="660" cy="325" r="3" fill="#1a1a1a" opacity="0.5"/>
+  <circle cx="660" cy="325" r="1.5" fill="#222" opacity="0.8"/>
+</svg>

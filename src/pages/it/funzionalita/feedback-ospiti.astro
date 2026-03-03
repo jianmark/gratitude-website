@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Guest Feedback Integrato nel Flusso Mancia | Gratitude',
+  description: 'Rating 1-5 stelle e commento integrati nel flusso mancia. Analisi sentiment, trend nel tempo, alert automatici. Il feedback raccolto nel momento di massima soddisfazione.',
+};
+
+const c = {
+  h1: 'Feedback integrato nel flusso mancia',
+  h2: 'Il momento di massima soddisfazione, catturato',
+  intro: 'Quando un ospite lascia una mancia, e nel momento di massima gratitudine. E il momento perfetto per chiedere un feedback. Gratitude integra un rating 1-5 stelle e un commento opzionale direttamente nel flusso di mancia -- senza interrompere l\'esperienza, senza form separati, senza email di follow-up che nessuno apre. I dati raccolti alimentano una dashboard dedicata con analisi sentiment, trend nel tempo e alert automatici.',
+  cta: 'Scopri il feedback integrato -- Richiedi una demo',
+  sub1title: 'Rating e Commento nel Flusso',
+  sub1desc: 'Dopo la mancia, un\'unica schermata opzionale: 5 stelle touch-friendly e un campo commento di 500 caratteri. L\'ospite puo completare in 5 secondi o saltare con un tocco. Il tasso di completamento e significativamente superiore rispetto ai sondaggi tradizionali perche il feedback e contestuale e immediato.',
+  sub2title: 'Analisi Sentiment Automatica',
+  sub2desc: 'Ogni commento viene analizzato per sentiment (positivo, neutro, negativo) tramite keyword matching. La dashboard mostra la distribuzione sentiment nel tempo, permettendo di identificare tendenze e intervenire tempestivamente.',
+  sub3title: 'Feedback per Staff e Reparto',
+  sub3desc: 'Ogni feedback puo essere associato a un dipendente specifico o a un reparto. La dashboard aggrega i dati: rating medio per dipendente, per settore, trend nel tempo. Un indicatore potentissimo per le decisioni di gestione del personale.',
+  sub4title: 'Alert e Moderazione',
+  sub4desc: 'Commenti critici (rating 1-2 stelle) generano alert automatici. Commenti inappropriati possono essere segnalati e nascosti. Tutti i testi sono sanitizzati lato server per prevenire contenuti malevoli.',
+  benefitTitle: 'Beneficio per il Direttore',
+  benefit: 'Il feedback degli ospiti e la forma piu pura di intelligence operativa. Gratitude lo raccoglie nel momento giusto, lo analizza automaticamente e lo presenta in forma azionabile. Nessun sondaggio da progettare, nessun follow-up da gestire, nessun dato da interpretare manualmente.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/guest-feedback.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

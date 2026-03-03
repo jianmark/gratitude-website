@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Checkout tablette avec pourboire integre | Gratitude',
+  description: 'Presentez la note sur une tablette tactile au checkout. Le client choisit son pourboire d\'un simple geste : pourcentage, montant fixe ou nominatif. 8 langues, PWA installable, integre avec Passepartout.',
+};
+
+const c = {
+  h1: 'Checkout avec pourboire integre',
+  h2: 'La tablette qui transforme chaque depart en opportunite',
+  intro: 'Le moment du checkout capte toute l\'attention du client. Gratitude en tire parti avec une interface tablette elegante et intuitive qui presente la note, propose des options de pourboire personnalisables et recueille les retours -- le tout en moins de 30 secondes. Aucune application a installer, aucune formation complexe pour le personnel. L\'operateur envoie la note en un clic depuis la console ; le client interagit directement avec la tablette. Le pourboire est enregistre comme un supplement exonere de TVA sur le compte chambre, en integration transparente avec votre PMS.',
+  cta: 'Decouvrez la tablette Gratitude -- Demander une demo',
+  sub1title: 'Interface tactile optimisee',
+  sub1desc: 'Zones tactiles de 64dp, police minimum de 16px, debounce intelligent pour eviter les doubles appuis. Concue pour les doigts, pas pour la souris. Options de pourboire claires : pourcentage de la note, montant fixe ou "non merci". Chaque toucher est accompagne d\'un retour haptique. L\'interface se reinitialise automatiquement apres 3 minutes d\'inactivite.',
+  sub2title: 'Pourboire generique ou nominatif',
+  sub2desc: 'Les clients peuvent laisser un pourboire generique (destine au pool de distribution) ou le dedier a un ou plusieurs membres du personnel. La repartition est personnalisable avec des curseurs intuitifs. Le personnel visible est filtre par consentement RGPD : seuls ceux qui ont donne leur autorisation apparaissent dans la selection.',
+  sub3title: '8 langues automatiques',
+  sub3desc: 'Italien, anglais, allemand, francais, espagnol, arabe, russe et chinois. La langue s\'adapte automatiquement selon la preference du client ou peut etre selectionnee d\'un simple geste. Chaque element de l\'interface, des libelles aux messages de confirmation, est traduit nativement -- pas genere par machine.',
+  sub4title: 'PWA installable',
+  sub4desc: 'Progressive Web App installable sur tout iPad ou tablette Android. Fonctionne hors ligne pour la presentation de la note. Mises a jour automatiques sans passer par l\'App Store. Icone Gratitude personnalisee sur l\'ecran d\'accueil de l\'appareil.',
+  benefitTitle: 'Avantage pour le directeur',
+  benefit: 'Eliminez la gestion manuelle des pourboires en especes. Chaque transaction est tracee, auditable et conforme a la reglementation fiscale. Le temps economise a la reception lors de la cloture de caisse se traduit en attention dediee au client au moment le plus important : le depart.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/tablet-checkout.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

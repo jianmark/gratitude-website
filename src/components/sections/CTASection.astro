@@ -1,0 +1,27 @@
+---
+import { getLocale, t, localizedUrl, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+---
+
+<section class="section-padding bg-teal-200 dark:bg-teal-900">
+  <div class="section-container text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-teal-900 dark:text-white">
+      {t(locale, 'final_cta.heading')}
+    </h2>
+    <p class="text-lg text-teal-800 dark:text-teal-100 max-w-2xl mx-auto mb-8">
+      {t(locale, 'final_cta.subheading')}
+    </p>
+    <a
+      href={localizedUrl(locale, '/demo/')}
+      class="btn-primary text-lg px-8 py-4"
+      data-track-cta={t(locale, 'cta.demo')}
+      data-track-source="final-cta"
+    >
+      {t(locale, 'cta.demo')}
+    </a>
+    <p class="text-sm text-teal-700 dark:text-teal-300 mt-4">
+      {t(locale, 'final_cta.below')}
+    </p>
+  </div>
+</section>

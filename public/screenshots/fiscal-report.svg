@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F0F4F8"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background transparent -->
+
+  <!-- Browser chrome -->
+  <rect x="30" y="20" width="740" height="560" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="30" y="20" width="740" height="32" rx="10" fill="#F1F5F9"/>
+  <rect x="30" y="42" width="740" height="10" fill="#F1F5F9"/>
+  <circle cx="50" cy="36" r="5" fill="#FF5F57"/>
+  <circle cx="68" cy="36" r="5" fill="#FEBC2E"/>
+  <circle cx="86" cy="36" r="5" fill="#28C840"/>
+  <rect x="130" y="28" width="280" height="16" rx="4" fill="#E2E8F0"/>
+  <text x="142" y="40" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">gratitude.hospitalityai.app/dashboard/fiscal</text>
+
+  <!-- Sidebar (compact) -->
+  <rect x="30" y="52" width="150" height="528" fill="#FFFFFF"/>
+  <rect x="179" y="52" width="1" height="528" fill="#E2E8F0"/>
+  <rect x="46" y="64" width="26" height="26" rx="6" fill="#059669"/>
+  <text x="53" y="82" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">G</text>
+  <text x="80" y="74" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#059669">Gratitude</text>
+  <text x="80" y="86" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Dashboard</text>
+
+  <!-- Menu items -->
+  <text x="58" y="118" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Overview</text>
+  <text x="58" y="138" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Distribuzione</text>
+  <text x="58" y="158" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Report</text>
+  <!-- Active -->
+  <rect x="42" y="168" width="126" height="28" rx="6" fill="#ECFDF5"/>
+  <rect x="42" y="168" width="3" height="28" rx="1" fill="#059669"/>
+  <text x="58" y="186" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#059669">Report Fiscale</text>
+
+  <!-- Main content -->
+  <!-- Header -->
+  <text x="200" y="76" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Report Fiscale</text>
+  <text x="200" y="92" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#94A3B8">Riepilogo per commercialista e import Mexal</text>
+
+  <!-- Export buttons -->
+  <rect x="586" y="62" width="92" height="26" rx="6" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="632" y="79" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" fill="#DC2626" text-anchor="middle">PDF Commerc.</text>
+  <rect x="686" y="62" width="68" height="26" rx="6" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1"/>
+  <text x="720" y="79" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" fill="#16A34A" text-anchor="middle">CSV Mexal</text>
+
+  <!-- Selectors row -->
+  <rect x="196" y="98" width="70" height="24" rx="5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="231" y="114" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#334155" text-anchor="middle">2026</text>
+  <rect x="274" y="98" width="82" height="24" rx="5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="315" y="114" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#334155" text-anchor="middle">Febbraio</text>
+  <rect x="364" y="98" width="82" height="24" rx="5" fill="#059669"/>
+  <text x="405" y="114" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#FFFFFF" text-anchor="middle">Genera report</text>
+
+  <!-- Summary section -->
+  <rect x="196" y="132" width="556" height="80" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="210" y="150" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#0F172A">Riepilogo Febbraio 2026 — Hotel Aurora Palace</text>
+
+  <!-- Summary KPIs row -->
+  <text x="220" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#059669">&#8364;2.070</text>
+  <text x="220" y="194" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Totale mance</text>
+
+  <text x="318" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0F172A">53</text>
+  <text x="318" y="194" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">N. transazioni</text>
+
+  <text x="398" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0F172A">&#8364;1.320</text>
+  <text x="398" y="194" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Generiche</text>
+
+  <text x="498" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0F172A">&#8364;750</text>
+  <text x="498" y="194" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Nominative</text>
+
+  <text x="588" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0F172A">&#8364;1.420</text>
+  <text x="588" y="194" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Da Tablet</text>
+
+  <text x="688" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0F172A">&#8364;650</text>
+  <text x="688" y="194" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Da QR</text>
+
+  <!-- Department detail table -->
+  <rect x="196" y="222" width="556" height="134" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="210" y="242" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">Dettaglio per Reparto / Articolo</text>
+
+  <!-- Table header -->
+  <rect x="196" y="250" width="556" height="22" fill="#F8FAFC"/>
+  <text x="210" y="264" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">COD. REPARTO</text>
+  <text x="310" y="264" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">COD. ARTICOLO</text>
+  <text x="420" y="264" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">N. TRANS.</text>
+  <text x="500" y="264" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">IMPORTO TOTALE</text>
+  <text x="620" y="264" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">COD. IVA</text>
+
+  <!-- Department row 1 -->
+  <text x="210" y="290" font-family="'Courier New', monospace" font-size="9" fill="#334155">EXTRA</text>
+  <text x="310" y="290" font-family="'Courier New', monospace" font-size="9" fill="#334155">MANCIA</text>
+  <text x="420" y="290" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#334155">38</text>
+  <text x="500" y="290" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#0F172A">&#8364;1.320,00</text>
+  <rect x="620" y="280" width="22" height="14" rx="3" fill="#DBEAFE"/>
+  <text x="631" y="290" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="500" fill="#1E40AF" text-anchor="middle">ES</text>
+  <text x="650" y="290" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Art.15 DPR 633/72</text>
+  <line x1="204" y1="298" x2="744" y2="298" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Department row 2 -->
+  <text x="210" y="318" font-family="'Courier New', monospace" font-size="9" fill="#334155">EXTRA</text>
+  <text x="310" y="318" font-family="'Courier New', monospace" font-size="9" fill="#334155">MANCIA_NOM</text>
+  <text x="420" y="318" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#334155">15</text>
+  <text x="500" y="318" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#0F172A">&#8364;750,00</text>
+  <rect x="620" y="308" width="22" height="14" rx="3" fill="#DBEAFE"/>
+  <text x="631" y="318" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="500" fill="#1E40AF" text-anchor="middle">ES</text>
+  <text x="650" y="318" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Art.15 DPR 633/72</text>
+  <line x1="204" y1="326" x2="744" y2="326" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Total row -->
+  <text x="210" y="346" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F172A">TOTALE</text>
+  <text x="420" y="346" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F172A">53</text>
+  <text x="500" y="346" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#059669">&#8364;2.070,00</text>
+
+  <!-- Employee distribution table -->
+  <rect x="196" y="366" width="556" height="120" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="210" y="386" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#0F172A">Distribuzione per Dipendente</text>
+
+  <!-- Table header -->
+  <rect x="196" y="394" width="556" height="22" fill="#F8FAFC"/>
+  <text x="210" y="408" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">NOME</text>
+  <text x="310" y="408" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">COD. DIP.</text>
+  <text x="380" y="408" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">SETTORE</text>
+  <text x="480" y="408" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">NOMINATIVE</text>
+  <text x="560" y="408" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">AUTOMATICHE</text>
+  <text x="660" y="408" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748B">TOTALE</text>
+
+  <!-- Employee rows -->
+  <text x="210" y="434" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" fill="#0F172A">Mario Rossi</text>
+  <text x="310" y="434" font-family="'Courier New', monospace" font-size="8" fill="#64748B">DIP001</text>
+  <text x="380" y="434" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">Ricevimento</text>
+  <text x="480" y="434" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">&#8364;85,00</text>
+  <text x="560" y="434" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">&#8364;211,20</text>
+  <text x="660" y="434" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#059669">&#8364;296,20</text>
+  <line x1="204" y1="442" x2="744" y2="442" stroke="#F1F5F9" stroke-width="1"/>
+
+  <text x="210" y="460" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" fill="#0F172A">Lucia Bianchi</text>
+  <text x="310" y="460" font-family="'Courier New', monospace" font-size="8" fill="#64748B">DIP002</text>
+  <text x="380" y="460" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">Cucina</text>
+  <text x="480" y="460" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">&#8364;120,00</text>
+  <text x="560" y="460" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">&#8364;198,00</text>
+  <text x="660" y="460" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#059669">&#8364;318,00</text>
+  <line x1="204" y1="468" x2="744" y2="468" stroke="#F1F5F9" stroke-width="1"/>
+
+  <text x="210" y="482" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" fill="#0F172A">Anna Ferrari</text>
+  <text x="310" y="482" font-family="'Courier New', monospace" font-size="8" fill="#64748B">DIP005</text>
+  <text x="380" y="482" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">Sala Ristorante</text>
+  <text x="480" y="482" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">&#8364;30,00</text>
+  <text x="560" y="482" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">&#8364;158,40</text>
+  <text x="660" y="482" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#059669">&#8364;188,40</text>
+
+  <!-- VAT Notice -->
+  <rect x="196" y="496" width="556" height="36" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="210" y="512" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1E40AF">Codice esenzione IVA: ES — Art. 15 DPR 633/72</text>
+  <text x="210" y="524" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#3B82F6">Le mance sono esenti IVA in quanto liberalita. Non concorrono alla formazione della base imponibile.</text>
+
+  <!-- Accounting entries hint -->
+  <rect x="196" y="540" width="556" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="210" y="558" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">Scritture contabili suggerite</text>
+  <text x="400" y="558" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Dare: Debiti vs clienti | Avere: Mance dipendenti | &#8364;2.070,00</text>
+</svg>

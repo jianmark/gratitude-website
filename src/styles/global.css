@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Font loading */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.woff2') format('woff2');
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus visible for keyboard navigation */
+  :focus-visible {
+    outline: 3px solid theme('colors.teal.500');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Remove default focus ring for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Dark mode transitions */
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /* High contrast mode */
+  html.high-contrast {
+    --force-contrast: 1;
+  }
+  html.high-contrast.dark {
+    background: #000;
+    color: #fff;
+  }
+  html.high-contrast:not(.dark) {
+    background: #fff;
+    color: #000;
+  }
+
+  /* Font size accessibility */
+  html.font-large {
+    font-size: 20px;
+  }
+  html.font-xlarge {
+    font-size: 24px;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 dark:bg-navy-950 dark:text-stone-200;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply text-navy-800 dark:text-stone-100;
+  }
+}
+
+@layer components {
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-teal-600 rounded-lg transition-all duration-200 hover:bg-teal-700 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 active:scale-[0.98] shadow-sm hover:shadow-md;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .btn-primary:hover {
+    @apply bg-teal-700;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-navy-800 bg-transparent border-2 border-navy-800 rounded-lg transition-all duration-200 hover:bg-navy-800 hover:text-white focus-visible:ring-2 focus-visible:ring-navy-800 focus-visible:ring-offset-2 active:scale-[0.98] dark:text-stone-200 dark:border-stone-200 dark:hover:bg-stone-200 dark:hover:text-navy-950;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-navy-700 rounded-lg transition-colors duration-200 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-navy-800;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Section styling */
+  .section-padding {
+    @apply px-4 py-16 md:px-8 lg:py-24;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full;
+  }
+
+  .badge-teal {
+    @apply badge bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300;
+  }
+
+  .badge-gold {
+    @apply badge bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300;
+  }
+}
+
+@layer utilities {
+  /* Scroll sentinel elements for analytics */
+  .scroll-sentinel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}

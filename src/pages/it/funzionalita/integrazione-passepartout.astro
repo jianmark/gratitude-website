@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Integrazione Passepartout Welcome per Mance | Gratitude',
+  description: 'Integrazione nativa con Passepartout Welcome. Lettura prenotazioni, addebito mance esenti IVA, storno automatico. Circuit breaker e outbox pattern: nessuna mancia persa.',
+};
+
+const c = {
+  h1: 'Integrazione nativa con Passepartout Welcome',
+  h2: 'Il vostro gestionale, potenziato',
+  intro: 'Gratitude non e un sistema parallelo. Si integra direttamente con Passepartout Welcome tramite API REST, leggendo le prenotazioni in tempo reale e scrivendo le mance come addebiti extra in esenzione IVA. La connessione e protetta da circuit breaker e outbox pattern: anche se il gestionale e temporaneamente irraggiungibile, nessuna mancia viene mai persa. Il sistema riprova automaticamente fino al successo.',
+  cta: 'Scopri l\'integrazione Passepartout -- Richiedi una demo',
+  sub1title: 'Lettura Prenotazioni',
+  sub1desc: 'Dati ospite, camera, date soggiorno, totali conto, dettaglio addebiti -- tutto letto in tempo reale da Passepartout. L\'operatore non deve inserire nulla manualmente. Il conto presentato al tablet e sempre aggiornato.',
+  sub2title: 'Addebito Automatico',
+  sub2desc: 'La mancia viene addebitata come extra sul conto camera con codice articolo MANCIA (o MANCIA_NOM per le nominative), reparto EXTRA, codice IVA Esente Art. 15. Nessun intervento manuale richiesto.',
+  sub3title: 'Storno Automatico',
+  sub3desc: 'Se una mancia va annullata, Gratitude invia uno storno automatico a Passepartout con importo negativo. L\'operazione e tracciata nell\'audit log con motivo e responsabile.',
+  sub4title: 'Outbox Pattern -- Zero Mance Perse',
+  sub4desc: 'Ogni mancia da inviare a Passepartout viene scritta in una coda di eventi persistente nella stessa transazione del database. Un worker dedicato processa la coda in background. Se Passepartout e offline, il worker ripete il tentativo con backoff esponenziale (1min, 5min, 15min, 1h, 6h). Dopo 5 tentativi falliti, l\'evento entra in dead letter e la direzione viene avvisata. Nessuna mancia va mai persa.',
+  benefitTitle: 'Beneficio per il Direttore',
+  benefit: 'L\'integrazione nativa elimina la doppia registrazione e il rischio di disallineamento tra il sistema mance e il gestionale. Ogni mancia appare automaticamente nel conto dell\'ospite su Passepartout, pronta per la fatturazione. Il circuit breaker protegge il flusso operativo: se Passepartout rallenta, Gratitude continua a funzionare senza interruzioni.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/passepartout-integration.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

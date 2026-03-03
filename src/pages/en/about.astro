@@ -1,0 +1,67 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { t, localizedUrl } from '@/i18n/utils';
+const locale = 'en';
+const values = [
+  { title: 'Reliability', body: 'No tip lost. Ever. Our outbox pattern guarantees it.' },
+  { title: 'Transparency', body: 'Every cent tracked. Every action audited.' },
+  { title: 'Security', body: '110+ vulnerabilities tested. Security by default, not by afterthought.' },
+  { title: 'Simplicity', body: 'Powerful for those who manage, simple for those who use.' },
+];
+---
+
+<PageLayout title={t(locale, 'meta.about.title')} description={t(locale, 'meta.about.description')}>
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">{t(locale, 'about.heading')}</h1>
+      <p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-3xl mx-auto">Technology in the service of hospitality</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="section-container max-w-4xl mx-auto">
+      <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-6">SG Informatica</h2>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">SG Informatica is an Italian company specialising in technology solutions for the hospitality sector. For years, we have been supporting hotels and accommodation properties in their digital transformation, with an approach that places guest experience and operational efficiency at the centre.</p>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">Our deep knowledge of the Passepartout ecosystem -- from hotel management to accounting -- allowed us to identify a concrete, unmet need: tip management in the cashless era. From this observation, Gratitude was born.</p>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed">We are not a startup experimenting in hospitality. We are hospitality tech professionals who built a specific solution for a real problem, with the technical expertise to do it properly: secure, compliant, integrated.</p>
+    </div>
+  </section>
+
+  <section class="section-padding bg-stone-50 dark:bg-navy-900">
+    <div class="section-container max-w-4xl mx-auto">
+      <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-6">Why Gratitude</h2>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">Gratitude was born from a conviction: guest gratitude towards hotel staff deserves a tool worthy of it. Not a workaround, not a generic app, not an American service adapted for the European market.</p>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">Gratitude was designed from within Italian hospitality, for Italian and international hospitality. Every feature responds to a real operational need. Every technical decision prioritises security and reliability over speed to market. Every integration has been field-tested, not lab-tested.</p>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed">The name itself tells our mission: transforming a natural gesture -- a thank you -- into measurable value for those who serve and those who manage.</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="section-container max-w-5xl mx-auto">
+      <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 text-center mb-12">Our values</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {values.map((v) => (
+          <div class="rounded-2xl border border-stone-200 bg-white p-8 dark:border-navy-700 dark:bg-navy-800/50">
+            <h3 class="text-lg font-semibold text-navy-800 dark:text-stone-200 mb-2">{v.title}</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-stone-50 dark:bg-navy-900">
+    <div class="section-container max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-6">The team</h2>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-8">The Gratitude team brings together expertise in software engineering, cybersecurity, Italian fiscal compliance and hospitality management. Every member has direct experience in the hotel sector, because we believe the best technology comes from deep understanding of the domain in which it operates.</p>
+    </div>
+  </section>
+
+  <section class="section-padding bg-navy-800 dark:bg-navy-950">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-serif font-bold text-white mb-4">Let's connect</h2>
+      <p class="text-lg text-stone-300 max-w-2xl mx-auto mb-8">Discover how Gratitude can transform tip management at your property.</p>
+      <a href={localizedUrl(locale, '/demo/')} class="btn-primary text-lg">{t(locale, 'cta.demo')}</a>
+    </div>
+  </section>
+</PageLayout>

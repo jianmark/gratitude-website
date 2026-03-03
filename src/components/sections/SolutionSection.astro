@@ -1,0 +1,69 @@
+---
+import { getLocale, t, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+---
+
+<section class="section-padding" id="solution">
+  <div class="section-container">
+    <p class="text-sm font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider text-center mb-4">
+      {t(locale, 'solution.section_title')}
+    </p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 max-w-3xl mx-auto">
+      {t(locale, 'solution.heading')}
+    </h2>
+    <p class="text-base md:text-lg text-stone-600 dark:text-stone-300 text-center max-w-3xl mx-auto mb-4">
+      {t(locale, 'solution.body')}
+    </p>
+    <p class="text-base font-semibold text-navy-800 dark:text-stone-200 text-center mb-12">
+      {t(locale, 'solution.dual')}
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+      <!-- Tablet channel -->
+      <div class="group relative p-8 rounded-2xl bg-white dark:bg-navy-800 border border-stone-200 dark:border-navy-700 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v15a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">{t(locale, 'solution.tablet.title')}</h3>
+        <p class="text-stone-600 dark:text-stone-300 leading-relaxed">{t(locale, 'solution.tablet.body')}</p>
+        <div class="mt-6 rounded-xl overflow-hidden border border-stone-200 dark:border-navy-600">
+          <img
+            src="/screenshots/tablet-checkout.svg"
+            alt="Gratitude tablet interface"
+            class="w-full h-48 object-cover"
+            loading="lazy"
+            width="600"
+            height="400"
+            onerror="this.parentElement.style.display='none'"
+          />
+        </div>
+      </div>
+
+      <!-- QR channel -->
+      <div class="group relative p-8 rounded-2xl bg-white dark:bg-navy-800 border border-stone-200 dark:border-navy-700 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">{t(locale, 'solution.qr.title')}</h3>
+        <p class="text-stone-600 dark:text-stone-300 leading-relaxed">{t(locale, 'solution.qr.body')}</p>
+        <div class="mt-6 rounded-xl overflow-hidden border border-stone-200 dark:border-navy-600">
+          <img
+            src="/screenshots/qr-landing-mobile.svg"
+            alt="Gratitude QR landing page"
+            class="w-full h-48 object-cover"
+            loading="lazy"
+            width="600"
+            height="400"
+            onerror="this.parentElement.style.display='none'"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

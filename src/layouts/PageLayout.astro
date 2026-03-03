@@ -1,0 +1,103 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import { getLocale, t, type Locale } from '@/i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, ogImage, noindex } = Astro.props;
+const locale = getLocale(Astro.url) as Locale;
+const siteUrl = 'https://gratitude.esseginformatica.it';
+
+// Build breadcrumb data from URL path
+const pathname = Astro.url.pathname;
+const segments = pathname.split('/').filter(Boolean);
+
+// Map URL slugs to human-readable names using nav translations and slug mappings
+const slugToNavKey: Record<string, string> = {
+  'funzionalita': 'nav.features',
+  'features': 'nav.features',
+  'funktionen': 'nav.features',
+  'fonctionnalites': 'nav.features',
+  'funcionalidades': 'nav.features',
+  'prezzi': 'nav.pricing',
+  'pricing': 'nav.pricing',
+  'preise': 'nav.pricing',
+  'tarifs': 'nav.pricing',
+  'precios': 'nav.pricing',
+  'chi-siamo': 'nav.about',
+  'about': 'nav.about',
+  'ueber-uns': 'nav.about',
+  'a-propos': 'nav.about',
+  'nosotros': 'nav.about',
+  'contatti': 'nav.contact',
+  'contact': 'nav.contact',
+  'kontakt': 'nav.contact',
+  'contacto': 'nav.contact',
+  'demo': 'nav.demo',
+  'privacy': 'nav.privacy',
+  'datenschutz': 'nav.privacy',
+  'confidentialite': 'nav.privacy',
+  'privacidad': 'nav.privacy',
+};
+
+function segmentName(slug: string): string {
+  const navKey = slugToNavKey[slug];
+  if (navKey) {
+    const translated = t(locale, navKey);
+    if (translated !== navKey) return translated;
+  }
+  // Fallback: capitalize and replace dashes with spaces
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+// Build breadcrumb items (skip the locale segment)
+const breadcrumbItems: Array<{ name: string; item?: string }> = [
+  { name: t(locale, 'nav.home'), item: `${siteUrl}/${locale}/` },
+];
+
+// Path segments after locale
+const pathSegments = segments.slice(1);
+for (let i = 0; i < pathSegments.length; i++) {
+  const slug = pathSegments[i];
+  const isLast = i === pathSegments.length - 1;
+  const pathUp = `/${segments[0]}/${pathSegments.slice(0, i + 1).join('/')}/`;
+
+  if (isLast) {
+    breadcrumbItems.push({ name: segmentName(slug) });
+  } else {
+    breadcrumbItems.push({ name: segmentName(slug), item: `${siteUrl}${pathUp}` });
+  }
+}
+
+// Only generate breadcrumb schema if there is more than just Home
+const breadcrumbSchema = pathSegments.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': breadcrumbItems.map((crumb, idx) => {
+    const entry: Record<string, any> = {
+      '@type': 'ListItem',
+      'position': idx + 1,
+      'name': crumb.name,
+    };
+    if (crumb.item) entry.item = crumb.item;
+    return entry;
+  }),
+} : null;
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} noindex={noindex}>
+  <Header />
+  <main id="main-content" class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+  {breadcrumbSchema && <JsonLd data={breadcrumbSchema} />}
+</BaseLayout>

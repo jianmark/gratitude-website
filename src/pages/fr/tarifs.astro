@@ -1,0 +1,66 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import { t, localizedUrl } from '@/i18n/utils';
+const locale = 'fr';
+const essentialsFeatures = ['Tablette checkout avec pourboire integre','Jusqu\'a 5 QR codes actifs','Tableau de bord de base (apercu + registre)','Distribution automatique (pourcentage fixe)','Rapports PDF mensuels','Integration Passepartout Welcome','5 langues (IT, EN, DE, FR, ES)','Support par e-mail','1 utilisateur tableau de bord'];
+const essentialsNotIncluded = ['QR codes illimites','Distribution par heures travaillees','Rapports fiscaux Mexal','Feedback client','Gamification du personnel','Notifications employes','Paiements Stripe QR','Support prioritaire'];
+const professionalFeatures = ['QR codes illimites avec analytics','Tableau de bord complet (tous les modules)','Distribution par heures travaillees','Rapports fiscaux PDF + CSV Mexal','Feedback client avec analyse de sentiment','Paiements Stripe QR','Notifications e-mail aux employes','Gamification et classement du personnel','Modeles d\'impression QR (carte, chevalet, autocollant)','8 langues (IT, EN, DE, FR, ES, AR, RU, ZH)','Support prioritaire','Jusqu\'a 5 utilisateurs tableau de bord','Formation d\'equipe dediee'];
+const enterpriseFeatures = ['Multi-etablissement (gestion centralisee)','APIs personnalisees','Branding white-label complet','SLA garanti avec support dedie','Utilisateurs tableau de bord illimites','Integration Telegram pour les notifications','Monitoring avance et alertes systeme','Self-hosted sur infrastructure client','Onboarding premium avec chef de projet dedie','Rapports personnalises sur demande','Audit de securite periodique'];
+const faqs = [
+  { q: 'Combien coute Gratitude ?', a: 'Le prix depend de la taille de l\'etablissement, du nombre de chambres et des fonctionnalites selectionnees. Contactez-nous pour un devis transparent et sans engagement.' },
+  { q: 'Y a-t-il des frais d\'installation ?', a: 'L\'installation et la configuration initiale sont incluses dans tous les plans. Notre equipe configure Gratitude sur votre infrastructure, connecte votre PMS et forme votre personnel.' },
+  { q: 'Quels sont les couts pour les paiements Stripe QR ?', a: 'Les paiements QR utilisent Stripe Connect. Les frais standard Stripe s\'appliquent a chaque transaction (voir stripe.com/pricing). Gratitude n\'ajoute aucun frais de transaction supplementaire.' },
+  { q: 'Dois-je acheter du materiel ?', a: 'Non. Gratitude fonctionne sur tout iPad ou tablette Android existant en tant que PWA. Aucun materiel dedie n\'est requis.' },
+  { q: 'Puis-je changer de plan a tout moment ?', a: 'Oui. Les mises a niveau sont possibles a tout moment. Les retrogradations sont possibles a la fin de la periode contractuelle.' },
+  { q: 'Suis-je proprietaire de mes donnees ?', a: 'Absolument. Les donnees sont la propriete exclusive de l\'etablissement. Avec le plan Enterprise, vous pouvez heberger Gratitude sur votre propre infrastructure. Dans tous les cas, nous offrons un export complet des donnees a tout moment.' },
+  { q: 'Comment fonctionne le support ?', a: 'Essentials inclut un support par e-mail pendant les heures ouvrables. Professional inclut un support prioritaire avec des temps de reponse garantis. Enterprise inclut un interlocuteur dedie et un SLA personnalise.' },
+  { q: 'Gratitude fonctionne-t-il sans Passepartout ?', a: 'Gratitude est optimise pour Passepartout Welcome, mais le module QR avec paiement Stripe fonctionne de maniere independante. Contactez-nous pour discuter d\'integrations avec d\'autres PMS.' },
+  { q: 'Combien de temps prend l\'installation ?', a: 'En general, 1 jour ouvrable pour les plans Essentials et Professional. Le plan Enterprise comprend un onboarding structure avec un chef de projet dedie, generalement 3 a 5 jours.' },
+  { q: 'Existe-t-il une periode d\'essai ?', a: 'Nous proposons une demo complete et personnalisee. Contactez-nous pour l\'organiser, sans engagement.' },
+];
+const comparisonFeatures = [
+  { name: 'Tablette checkout', e: true, p: true, ent: true },
+  { name: 'QR Codes', e: '5', p: 'Illimites', ent: 'Illimites' },
+  { name: 'Tableau de bord', e: 'Base', p: 'Complet', ent: 'Complet' },
+  { name: 'Langues', e: '5', p: '8', ent: '8' },
+  { name: 'Utilisateurs', e: '1', p: '5', ent: 'Illimites' },
+  { name: 'Distribution par heures', e: false, p: true, ent: true },
+  { name: 'Rapports fiscaux Mexal', e: false, p: true, ent: true },
+  { name: 'Feedback client', e: false, p: true, ent: true },
+  { name: 'Paiements Stripe QR', e: false, p: true, ent: true },
+  { name: 'Gamification', e: false, p: true, ent: true },
+  { name: 'Notifications', e: false, p: true, ent: true },
+  { name: 'Multi-etablissement', e: false, p: false, ent: true },
+  { name: 'White-label', e: false, p: false, ent: true },
+  { name: 'APIs personnalisees', e: false, p: false, ent: true },
+  { name: 'Self-hosted', e: false, p: false, ent: true },
+  { name: 'SLA garanti', e: false, p: false, ent: true },
+  { name: 'Support', e: 'E-mail', p: 'Prioritaire', ent: 'Dedie' },
+];
+---
+
+<PageLayout title={t(locale, 'meta.pricing.title')} description={t(locale, 'meta.pricing.description')}>
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900"><div class="section-container text-center"><h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">{t(locale, 'pricing.heading')}</h1><p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-3xl mx-auto">{t(locale, 'pricing.subheading')}</p></div></section>
+  <section class="section-padding"><div class="section-container"><div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm dark:border-navy-700 dark:bg-navy-800/50"><h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.essentials')}</h3><p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.essentials.target')}</p><p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p><a href={localizedUrl(locale, '/demo/')} class="btn-secondary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a><ul class="mt-8 space-y-3">{essentialsFeatures.map((f) => (<li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300"><svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg><span>{f}</span></li>))}</ul><div class="mt-6 pt-6 border-t border-stone-200 dark:border-navy-700"><p class="text-xs font-medium text-stone-400 dark:text-stone-500 uppercase mb-3">{t(locale, 'pricing.not_included')}</p><ul class="space-y-2">{essentialsNotIncluded.map((f) => (<li class="flex items-start gap-2 text-sm text-stone-400 dark:text-stone-500"><svg class="h-5 w-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg><span>{f}</span></li>))}</ul></div></div>
+    <div class="rounded-2xl border-2 border-teal-500 bg-white p-8 shadow-lg relative dark:border-teal-400 dark:bg-navy-800/50"><span class="absolute -top-3 left-1/2 -translate-x-1/2 badge-teal px-4 py-1 text-xs font-semibold">{t(locale, 'pricing.popular')}</span><h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.professional')}</h3><p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.professional.target')}</p><p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p><a href={localizedUrl(locale, '/demo/')} class="btn-primary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a><p class="mt-8 text-xs font-medium text-stone-500 dark:text-stone-400">{t(locale, 'pricing.everything_in').replace('{plan}', 'Essentials')}</p><ul class="mt-4 space-y-3">{professionalFeatures.map((f) => (<li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300"><svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg><span>{f}</span></li>))}</ul></div>
+    <div class="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm dark:border-navy-700 dark:bg-navy-800/50"><h3 class="text-xl font-bold text-navy-800 dark:text-stone-100">{t(locale, 'pricing.enterprise')}</h3><p class="mt-2 text-sm text-stone-500 dark:text-stone-400">{t(locale, 'pricing.enterprise.target')}</p><p class="mt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">{t(locale, 'pricing.contact')}</p><a href={localizedUrl(locale, '/demo/')} class="btn-secondary w-full mt-6 text-center">{t(locale, 'cta.demo.short')}</a><p class="mt-8 text-xs font-medium text-stone-500 dark:text-stone-400">{t(locale, 'pricing.everything_in').replace('{plan}', 'Professional')}</p><ul class="mt-4 space-y-3">{enterpriseFeatures.map((f) => (<li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300"><svg class="h-5 w-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg><span>{f}</span></li>))}</ul></div>
+  </div></div></section>
+  <section class="section-padding bg-stone-50 dark:bg-navy-900"><div class="section-container"><h2 class="text-3xl font-serif font-bold text-center mb-12">{t(locale, 'cta.plans')}</h2><div class="overflow-x-auto"><table class="w-full max-w-5xl mx-auto text-sm"><thead><tr class="border-b-2 border-stone-200 dark:border-navy-700"><th class="py-4 px-4 text-left"></th><th class="py-4 px-4 text-center font-semibold text-navy-800 dark:text-stone-200">Essentials</th><th class="py-4 px-4 text-center font-semibold text-teal-700 dark:text-teal-400">Professional</th><th class="py-4 px-4 text-center font-semibold text-navy-800 dark:text-stone-200">Enterprise</th></tr></thead><tbody>{comparisonFeatures.map((row) => (<tr class="border-b border-stone-100 dark:border-navy-800"><td class="py-3 px-4 text-stone-700 dark:text-stone-300">{row.name}</td>{[row.e, row.p, row.ent].map((val) => (<td class="py-3 px-4 text-center">{val === true ? (<svg class="h-5 w-5 text-teal-600 dark:text-teal-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>) : val === false ? (<svg class="h-5 w-5 text-stone-300 dark:text-navy-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>) : (<span class="text-stone-600 dark:text-stone-400">{val}</span>)}</td>))}</tr>))}</tbody></table></div></div></section>
+  <section class="section-padding"><div class="section-container max-w-3xl mx-auto"><h2 class="text-3xl font-serif font-bold text-center mb-12">FAQ</h2><div class="space-y-4">{faqs.map((faq) => (<details class="group rounded-xl border border-stone-200 bg-white dark:border-navy-700 dark:bg-navy-800/50"><summary class="cursor-pointer list-none flex items-center justify-between px-6 py-4 text-base font-medium text-navy-800 dark:text-stone-200 [&::-webkit-details-marker]:hidden"><span>{faq.q}</span><svg class="h-5 w-5 shrink-0 text-stone-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg></summary><div class="px-6 pb-4 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{faq.a}</div></details>))}</div></div></section>
+  <section class="section-padding bg-navy-800 dark:bg-navy-950"><div class="section-container text-center"><h2 class="text-3xl font-serif font-bold text-white mb-4">{t(locale, 'pricing.cta_heading')}</h2><p class="text-lg text-stone-300 max-w-2xl mx-auto mb-8">{t(locale, 'pricing.cta_body')}</p><a href={localizedUrl(locale, '/contact/')} class="btn-primary text-lg">{t(locale, 'cta.quote')}</a></div></section>
+
+  <JsonLd data={{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqs.map((faq) => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a,
+      },
+    })),
+  }} />
+</PageLayout>

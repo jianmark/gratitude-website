@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Report Fiscali Mance per Commercialista | Gratitude',
+  description: 'Report fiscali automatici conformi alla normativa italiana. Esenzione IVA Art. 15 DPR 633/72. Export PDF professionale e CSV per Mexal. Scritture contabili suggerite.',
+};
+
+const c = {
+  h1: 'Report fiscali pronti per il commercialista',
+  h2: 'Art. 15 DPR 633/72 -- compliance in un clic',
+  intro: 'La gestione fiscale delle mance in Italia e complessa: esenzione IVA, tassazione sostitutiva al 5%, contabilizzazione separata. Gratitude genera automaticamente report conformi alla normativa vigente: Art. 15 DPR 633/72 per l\'esenzione IVA, erogazioni liberali per la busta paga, scritture contabili dare/avere suggerite. Export PDF professionale per il commercialista e CSV per import diretto in Mexal.',
+  cta: 'Scopri i report fiscali -- Richiedi una demo',
+  sub1title: 'Esenzione IVA Automatica',
+  sub1desc: 'Ogni mancia viene addebitata su Passepartout con codice IVA "ES" (Esente Art. 15). Il report fiscale raggruppa le mance per reparto, articolo e codice IVA. La conformita non e un\'opzione: e integrata nel flusso.',
+  sub2title: 'Report per Dipendente',
+  sub2desc: 'Dettaglio per ogni dipendente con codice dipendente (per match con la busta paga), totale distribuito, totale nominativo, totale automatico. Pronto per la contabilizzazione come erogazione liberale con tassazione sostitutiva al 5%.',
+  sub3title: 'Export Mexal',
+  sub3desc: 'File CSV nel formato esatto richiesto da Mexal (Passepartout contabilita). Codice reparto, conto dare, conto avere, importo, descrizione. Import diretto senza manipolazione manuale. Testato e validato con l\'ambiente Passepartout.',
+  sub4title: 'Scritture Contabili Suggerite',
+  sub4desc: 'Per ogni periodo, Gratitude suggerisce le scritture contabili: addebiti al conto transitorio mance, accrediti al conto dipendenti. Il commercialista riceve un documento pronto da validare, non da interpretare.',
+  benefitTitle: 'Beneficio per il Direttore',
+  benefit: 'La compliance fiscale non e piu un costo in tempo e consulenza. Gratitude elimina il rischio di errore nella contabilizzazione delle mance, riduce il lavoro del commercialista e garantisce che ogni operazione sia tracciabile e conforme. In sede di verifica fiscale, ogni mancia e documentata con audit trail completo.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/fiscal-report.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

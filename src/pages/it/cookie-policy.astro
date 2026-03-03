@@ -1,0 +1,159 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { t, localizedUrl } from '@/i18n/utils';
+const locale = 'it';
+const lastUpdated = '3 marzo 2026';
+---
+
+<PageLayout title={t(locale, 'meta.cookie.title')} description={t(locale, 'meta.cookie.description')}>
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">{t(locale, 'cookie.heading')}</h1>
+      <p class="text-sm text-stone-500 dark:text-stone-400">Ultimo aggiornamento: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="section-container max-w-4xl mx-auto">
+      <div class="space-y-10">
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">1. Cosa sono i cookie</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">I cookie sono piccoli file di testo che i siti web visitati inviano al browser dell'utente, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva. I cookie sono utilizzati per diverse finalita, come consentire la navigazione efficiente tra le pagine, ricordare le preferenze e, in generale, migliorare l'esperienza di navigazione.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">2. Titolare del trattamento</h2>
+          <div class="p-4 bg-stone-50 dark:bg-navy-800/50 rounded-lg text-sm text-stone-600 dark:text-stone-400">
+            <p class="font-semibold text-navy-800 dark:text-stone-100">SG Informatica di Gianmarco Gianni</p>
+            <p>Via Romagna, 1/A — 61011 Gabicce Mare (PU), Italia</p>
+            <p>P.IVA: IT02640570418</p>
+            <p>Email: <a href="mailto:info@sginformatica.com" class="text-teal-600 dark:text-teal-400 hover:underline">info@sginformatica.com</a></p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">3. Tipologie di cookie utilizzati</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">Il sito gratitude.esseginformatica.it utilizza le seguenti categorie di cookie:</p>
+
+          <div class="space-y-6">
+            <div class="p-4 border border-stone-200 dark:border-navy-700 rounded-lg">
+              <h3 class="font-semibold text-navy-800 dark:text-stone-100 mb-2">Cookie strettamente necessari</h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400 mb-2">Questi cookie sono essenziali per il corretto funzionamento del sito web e non possono essere disattivati. Vengono impostati in risposta ad azioni dell'utente come la scelta della lingua, del tema (chiaro/scuro) e delle preferenze di accessibilita.</p>
+              <div class="mt-3 overflow-x-auto">
+                <table class="w-full text-xs text-stone-600 dark:text-stone-400">
+                  <thead>
+                    <tr class="border-b border-stone-200 dark:border-navy-700">
+                      <th class="text-left py-2 pr-4 font-medium">Cookie</th>
+                      <th class="text-left py-2 pr-4 font-medium">Finalita</th>
+                      <th class="text-left py-2 font-medium">Durata</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-stone-100 dark:border-navy-800">
+                      <td class="py-2 pr-4 font-mono">theme</td>
+                      <td class="py-2 pr-4">Preferenza tema chiaro/scuro</td>
+                      <td class="py-2">Permanente (localStorage)</td>
+                    </tr>
+                    <tr class="border-b border-stone-100 dark:border-navy-800">
+                      <td class="py-2 pr-4 font-mono">a11y-font</td>
+                      <td class="py-2 pr-4">Preferenza dimensione carattere</td>
+                      <td class="py-2">Permanente (localStorage)</td>
+                    </tr>
+                    <tr class="border-b border-stone-100 dark:border-navy-800">
+                      <td class="py-2 pr-4 font-mono">a11y-contrast</td>
+                      <td class="py-2 pr-4">Preferenza contrasto elevato</td>
+                      <td class="py-2">Permanente (localStorage)</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-4 font-mono">CookieScriptConsent</td>
+                      <td class="py-2 pr-4">Memorizza le preferenze cookie dell'utente</td>
+                      <td class="py-2">1 anno</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="p-4 border border-stone-200 dark:border-navy-700 rounded-lg">
+              <h3 class="font-semibold text-navy-800 dark:text-stone-100 mb-2">Cookie di performance / analisi</h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400 mb-2">Questi cookie ci permettono di contare le visite e le fonti di traffico, per misurare e migliorare le prestazioni del sito. Ci aiutano a capire quali pagine sono le piu popolari e come gli utenti si muovono nel sito. Tutti i dati raccolti sono aggregati e anonimi.</p>
+              <div class="mt-3 overflow-x-auto">
+                <table class="w-full text-xs text-stone-600 dark:text-stone-400">
+                  <thead>
+                    <tr class="border-b border-stone-200 dark:border-navy-700">
+                      <th class="text-left py-2 pr-4 font-medium">Servizio</th>
+                      <th class="text-left py-2 pr-4 font-medium">Finalita</th>
+                      <th class="text-left py-2 font-medium">Tipo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-stone-100 dark:border-navy-800">
+                      <td class="py-2 pr-4 font-medium">Plausible Analytics</td>
+                      <td class="py-2 pr-4">Statistiche di navigazione aggregate e anonime. Nessun cookie, conforme GDPR by design.</td>
+                      <td class="py-2">Cookieless</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-4 font-medium">Microsoft Clarity</td>
+                      <td class="py-2 pr-4">Heatmap, scroll map e registrazione sessioni anonimizzate per analisi dell'esperienza utente.</td>
+                      <td class="py-2">Cookie di prima parte</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="p-4 border border-stone-200 dark:border-navy-700 rounded-lg">
+              <h3 class="font-semibold text-navy-800 dark:text-stone-100 mb-2">Cookie di targeting / marketing</h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400">Questo sito <strong>non utilizza</strong> cookie di targeting o marketing. Non vengono installati cookie pubblicitari di terze parti. Non effettuiamo profilazione degli utenti.</p>
+            </div>
+
+            <div class="p-4 border border-stone-200 dark:border-navy-700 rounded-lg">
+              <h3 class="font-semibold text-navy-800 dark:text-stone-100 mb-2">Cookie di funzionalita</h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400">I cookie di funzionalita utilizzati dal sito coincidono con i cookie strettamente necessari descritti sopra (tema, lingua, accessibilita). Non sono presenti ulteriori cookie di funzionalita.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">4. Gestione delle preferenze</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">L'utente puo gestire le proprie preferenze relative ai cookie in qualsiasi momento:</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400 mt-2">
+            <li><strong>Banner cookie</strong>: al primo accesso al sito, un banner permette di accettare tutti i cookie, rifiutare quelli non necessari o personalizzare le preferenze per categoria.</li>
+            <li><strong>Modifica successiva</strong>: e possibile modificare le preferenze in qualsiasi momento tramite il pulsante "Gestisci cookie" presente in fondo a ogni pagina del sito.</li>
+            <li><strong>Impostazioni del browser</strong>: l'utente puo configurare il proprio browser per rifiutare automaticamente i cookie o per essere avvisato prima dell'installazione di un cookie.</li>
+          </ul>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-3">La disattivazione dei cookie tecnici potrebbe compromettere alcune funzionalita del sito (come la memorizzazione del tema o della lingua).</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">5. Trasferimento dei dati</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">I dati raccolti tramite cookie non vengono trasferiti a terzi, ad eccezione dei servizi di analisi sopra indicati (Plausible Analytics e Microsoft Clarity). Plausible Analytics e ospitato all'interno dell'Unione Europea. Microsoft Clarity opera in conformita alle clausole contrattuali standard (SCC) per il trasferimento di dati.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">6. Base giuridica</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">I cookie strettamente necessari sono installati sulla base dell'art. 122 del D.Lgs. 196/2003 e dell'art. 5, par. 3 della Direttiva 2002/58/CE (Direttiva ePrivacy), in quanto indispensabili per l'erogazione del servizio richiesto dall'utente. Per i cookie di performance e analisi, la base giuridica e il consenso dell'utente (art. 6, par. 1, lett. a, GDPR), espresso tramite il banner cookie.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">7. Diritti dell'utente</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Per informazioni complete sui diritti dell'utente in materia di protezione dei dati personali, si rimanda alla nostra <a href={localizedUrl(locale, '/privacy/')} class="text-teal-600 dark:text-teal-400 hover:underline">Informativa Privacy</a>.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">8. Aggiornamenti</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">La presente Cookie Policy puo essere aggiornata periodicamente. L'utente e invitato a consultare questa pagina per rimanere informato sulle modalita di utilizzo dei cookie.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-16 rounded-xl border border-stone-200 bg-stone-50 p-6 dark:border-navy-700 dark:bg-navy-800/50 text-center">
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-2">Per domande sull'utilizzo dei cookie, contatti:</p>
+        <p class="font-medium text-navy-800 dark:text-stone-100">SG Informatica di Gianmarco Gianni</p>
+        <a href="mailto:info@sginformatica.com" class="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 font-medium">info@sginformatica.com</a>
+        <p class="text-xs text-stone-500 dark:text-stone-500 mt-2">P.IVA: IT02640570418 — Via Romagna, 1/A — 61011 Gabicce Mare (PU)</p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

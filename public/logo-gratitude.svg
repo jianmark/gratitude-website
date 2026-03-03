@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" fill="none">
+  <defs>
+    <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#52AFA2"/>
+      <stop offset="0.5" stop-color="#3B9B8F"/>
+      <stop offset="1" stop-color="#2B766E"/>
+    </linearGradient>
+    <linearGradient id="tealLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#AEE1D6"/>
+      <stop offset="1" stop-color="#7DCBBE"/>
+    </linearGradient>
+    <radialGradient id="coinGrad" cx="0.4" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#F5D76E"/>
+      <stop offset="0.5" stop-color="#E9B84A"/>
+      <stop offset="1" stop-color="#D4A030"/>
+    </radialGradient>
+    <radialGradient id="coinGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F5E6A0" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#F5E6A0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0" stop-color="#3B9B8F"/>
+      <stop offset="1" stop-color="#AEE1D6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Heart shape -->
+  <path d="M200 75 C200 75, 158 28, 118 28 C78 28, 48 58, 48 98 C48 148, 88 178, 200 210"
+        stroke="url(#tealGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M200 75 C200 75, 242 28, 282 28 C322 28, 352 58, 352 98 C352 148, 312 178, 200 210"
+        stroke="url(#tealLight)" stroke-width="14" stroke-linecap="round" fill="none"/>
+
+  <!-- Hand -->
+  <path d="M120 195 C120 195, 135 220, 160 228 C185 236, 200 238, 220 234 C240 230, 260 222, 275 210 C290 198, 300 192, 310 195 C320 198, 315 208, 300 220 C285 232, 255 252, 220 258 C185 264, 155 260, 135 248 C115 236, 95 215, 95 215"
+        stroke="url(#tealGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M140 210 C155 225, 175 233, 200 235 C225 237, 245 228, 260 218"
+        stroke="url(#tealLight)" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.5"/>
+
+  <!-- Coin glow -->
+  <circle cx="210" cy="175" r="45" fill="url(#coinGlow)"/>
+  <!-- Coin -->
+  <circle cx="210" cy="175" r="28" fill="url(#coinGrad)"/>
+  <circle cx="210" cy="175" r="22" fill="none" stroke="#D4A030" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="210" cy="175" r="15" fill="none" stroke="#C49028" stroke-width="1" opacity="0.3"/>
+
+  <!-- Stem -->
+  <path d="M210 155 C210 140, 208 125, 205 110"
+        stroke="url(#leafGrad)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Leaves -->
+  <path d="M205 110 C195 105, 185 108, 182 118 C179 128, 190 130, 200 120" fill="url(#leafGrad)" opacity="0.8"/>
+  <path d="M208 120 C218 115, 228 118, 230 128 C232 138, 220 138, 212 128" fill="url(#leafGrad)" opacity="0.6"/>
+  <path d="M205 110 C200 100, 203 90, 210 85 C217 90, 220 100, 215 110" fill="url(#leafGrad)" opacity="0.7"/>
+
+  <!-- Text -->
+  <text x="200" y="296" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="700" fill="#224D49" text-anchor="middle" letter-spacing="4">GRATITUDE</text>
+  <text x="200" y="322" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="400" fill="#3B9B8F" text-anchor="middle" letter-spacing="3">TIPS MANAGEMENT SYSTEM</text>
+</svg>

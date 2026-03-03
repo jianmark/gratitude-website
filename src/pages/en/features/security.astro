@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Enterprise Security for Hotels | Gratitude',
+  description: 'TLS 1.3, AES-256-GCM, 2FA TOTP, immutable audit log. 110+ vulnerabilities tested with penetration testing. GDPR compliant. Self-hosted available. The most secure digital tipping platform.',
+};
+
+const c = {
+  h1: 'Enterprise security. Guaranteed compliance.',
+  h2: '110+ vulnerabilities tested and resolved. Your most secure technology partner.',
+  intro: 'Security is not a feature: it is the foundation. Gratitude was designed with a security-by-default approach and subjected to over 110 penetration tests with complete remediation. AES-256-GCM encryption for all sensitive data, TOTP two-factor authentication, JWT on httpOnly cookies, Redis rate limiting per endpoint, immutable append-only audit log. GDPR compliant, Italian fiscal law compliant, audit-ready.',
+  cta: 'Discover Gratitude security -- Request a demo',
+  sub1title: 'End-to-End Encryption',
+  sub1desc: 'AES-256-GCM with PBKDF2-SHA512 derived key (310,000 iterations). Staff photos, PMS credentials, TOTP secrets: all encrypted at rest. TLS 1.3 for all traffic in transit. HSTS, strict CSP, X-Frame-Options DENY.',
+  sub2title: 'Two-Factor Authentication',
+  sub2desc: 'TOTP (Google Authenticator, Authy) mandatory for dashboard access. 10 single-use recovery codes hashed with bcrypt. Password policy: minimum 12 characters with complexity, 90-day expiry, forced change on first login. Lockout after 5 attempts: 15 minutes.',
+  sub3title: 'GDPR by Design',
+  sub3desc: 'Explicit consent for employee visibility to guests. Guest email never stored in the database (fire-and-forget for receipts). IP anonymised in logs. Right to erasure implemented. No tracking cookies on QR landing page.',
+  sub4title: 'Immutable Audit Log',
+  sub4desc: 'Every critical action is recorded in an append-only log: logins, tips, distributions, configuration changes, administrative access. The log cannot be modified or deleted. Filterable by date, user, event type. Ready for any audit.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'In an industry where guest trust is the most precious asset, data security is non-negotiable. Gratitude offers a level of protection that exceeds legal requirements and protects you during audits. 110+ vulnerabilities tested and resolved is not a marketing claim: it is the result of a documented penetration test.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/security-shield.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

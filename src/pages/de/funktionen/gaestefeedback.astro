@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Gaestefeedback im Trinkgeld-Prozess | Gratitude',
+  description: '1-5 Sterne-Bewertung und Kommentar integriert in den Trinkgeld-Prozess. Sentimentanalyse, Trends im Zeitverlauf, automatische Benachrichtigungen. Feedback bei hoechster Zufriedenheit erfasst.',
+};
+
+const c = {
+  h1: 'Feedback integriert in den Trinkgeld-Prozess',
+  h2: 'Hoechste Zufriedenheit, festgehalten',
+  intro: 'Wenn ein Gast Trinkgeld gibt, befindet er sich im Moment hoechster Dankbarkeit. Es ist der perfekte Zeitpunkt fuer Feedback. Gratitude integriert eine 1-5-Sterne-Bewertung und einen optionalen Kommentar direkt in den Trinkgeld-Prozess -- ohne das Erlebnis zu unterbrechen, ohne separate Formulare, ohne Follow-up-E-Mails, die niemand oeffnet. Die gesammelten Daten speisen ein dediziertes Dashboard mit Sentimentanalyse, Trends im Zeitverlauf und automatischen Benachrichtigungen.',
+  cta: 'Integriertes Feedback entdecken -- Demo anfordern',
+  sub1title: 'Bewertung und Kommentar im Prozess',
+  sub1desc: 'Nach dem Trinkgeld ein einziger optionaler Bildschirm: 5 touch-freundliche Sterne und ein 500-Zeichen-Kommentarfeld. Der Gast kann in 5 Sekunden abschliessen oder mit einem Tippen ueberspringen. Die Abschlussrate ist deutlich hoeher als bei traditionellen Umfragen, weil das Feedback kontextuell und unmittelbar ist.',
+  sub2title: 'Automatische Sentimentanalyse',
+  sub2desc: 'Jeder Kommentar wird auf Sentiment analysiert (positiv, neutral, negativ) mittels Keyword-Matching. Das Dashboard zeigt die Sentimentverteilung im Zeitverlauf und ermoeglicht, Trends zu erkennen und zeitnah einzugreifen.',
+  sub3title: 'Feedback nach Mitarbeiter und Abteilung',
+  sub3desc: 'Jedes Feedback kann einem bestimmten Mitarbeiter oder einer Abteilung zugeordnet werden. Das Dashboard aggregiert die Daten: Durchschnittsbewertung pro Mitarbeiter, pro Abteilung, Trends im Zeitverlauf. Ein aussagekraeftiger Indikator fuer Personalentscheidungen.',
+  sub4title: 'Benachrichtigungen und Moderation',
+  sub4desc: 'Kritische Kommentare (1-2 Sterne) generieren automatische Benachrichtigungen. Unangemessene Kommentare koennen markiert und ausgeblendet werden. Alle Texte werden serverseitig bereinigt, um schaedliche Inhalte zu verhindern.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'Gaestefeedback ist die reinste Form operativer Intelligenz. Gratitude sammelt es im richtigen Moment, analysiert es automatisch und praesentiert es in umsetzbarer Form. Keine Umfragen zu entwerfen, kein Follow-up zu verwalten, keine Daten manuell zu interpretieren.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/guest-feedback.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

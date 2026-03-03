@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Tablet Checkout with Integrated Tipping | Gratitude',
+  description: 'Present the bill on a touch tablet at checkout. The guest chooses their tip with a tap: percentage, fixed amount or nominated. 8 languages, installable PWA, integrated with Passepartout.',
+};
+
+const c = {
+  h1: 'Checkout with integrated tipping',
+  h2: 'The tablet that turns every departure into an opportunity',
+  intro: 'The checkout moment captures peak guest attention. Gratitude capitalises on it with an elegant, intuitive tablet interface that presents the bill, offers customisable tipping options and collects feedback -- all in under 30 seconds. No app to install, no complex staff training. The operator sends the bill with one click from the console; the guest interacts directly with the tablet. The tip is posted as a VAT-exempt charge to the room folio, in seamless integration with your PMS.',
+  cta: 'Discover the Gratitude tablet -- Request a demo',
+  sub1title: 'Touch-Friendly Interface',
+  sub1desc: '64dp touch targets, 16px minimum font size, intelligent debounce to prevent double taps. Designed for fingers, not mice. Clear tipping options: percentage of bill, fixed amount, or "no thank you". Every touch is accompanied by haptic feedback. The interface resets automatically after 3 minutes of inactivity.',
+  sub2title: 'Generic or Nominated Tips',
+  sub2desc: 'Guests can leave a generic tip (destined for the distribution pool) or nominate it to one or more specific staff members. The split is customisable with intuitive sliders. Visible staff are filtered by GDPR consent: only those who have granted permission appear in the selection.',
+  sub3title: '8 Automatic Languages',
+  sub3desc: 'Italian, English, German, French, Spanish, Arabic, Russian and Chinese. The language adapts automatically based on the guest\'s preference or can be selected with a tap. Every interface element, from labels to confirmation messages, is natively translated -- not machine-generated.',
+  sub4title: 'Installable PWA',
+  sub4desc: 'Progressive Web App installable on any iPad or Android tablet. Works offline for bill presentation. Automatic updates without the App Store. Custom Gratitude icon on the device home screen.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'Eliminate manual cash tip handling. Every transaction is tracked, auditable and tax-compliant. Time saved at reception during cash-closing translates to dedicated attention to guests at the most important moment: departure.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/tablet-checkout.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

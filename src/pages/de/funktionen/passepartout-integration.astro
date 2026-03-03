@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Native Passepartout Welcome Integration | Gratitude',
+  description: 'Native Integration mit Passepartout Welcome. Echtzeit-Reservierungslesung, steuerbefreite Trinkgeldbuchung, automatischer Storno. Circuit Breaker und Outbox-Pattern: kein Trinkgeld geht verloren.',
+};
+
+const c = {
+  h1: 'Native Integration mit Passepartout Welcome',
+  h2: 'Ihr PMS, erweitert',
+  intro: 'Gratitude ist kein Parallelsystem. Es integriert sich direkt ueber REST-API in Passepartout Welcome, liest Reservierungen in Echtzeit und verbucht Trinkgelder als steuerbefreite Zusatzposten. Die Verbindung ist durch Circuit Breaker und Outbox-Pattern geschuetzt: Selbst wenn das PMS voruebergehend nicht erreichbar ist, geht kein Trinkgeld verloren. Das System wiederholt automatisch bis zum Erfolg.',
+  cta: 'Passepartout-Integration entdecken -- Demo anfordern',
+  sub1title: 'Reservierungslesung',
+  sub1desc: 'Gastdaten, Zimmer, Aufenthaltsdaten, Kontosummen, Addebitidetails -- alles in Echtzeit aus Passepartout gelesen. Der Mitarbeiter muss nichts manuell eingeben. Die auf dem Tablet praesentierte Rechnung ist immer aktuell.',
+  sub2title: 'Automatische Verbuchung',
+  sub2desc: 'Das Trinkgeld wird als Zusatzposition auf dem Zimmerkonto verbucht mit Artikelcode MANCIA (oder MANCIA_NOM fuer gewidmete Trinkgelder), Abteilung EXTRA, MwSt.-Code Befreit Art. 15. Kein manueller Eingriff erforderlich.',
+  sub3title: 'Automatischer Storno',
+  sub3desc: 'Wenn ein Trinkgeld storniert werden muss, sendet Gratitude einen automatischen Storno an Passepartout mit negativem Betrag. Der Vorgang wird im Audit-Log mit Grund und verantwortlichem Benutzer nachverfolgt.',
+  sub4title: 'Outbox-Pattern -- Null Trinkgelder verloren',
+  sub4desc: 'Jedes an Passepartout zu sendende Trinkgeld wird in derselben Datenbanktransaktion in eine persistente Ereigniswarteschlange geschrieben. Ein dedizierter Worker verarbeitet die Warteschlange im Hintergrund. Ist Passepartout offline, wiederholt der Worker mit exponentiellem Backoff (1Min, 5Min, 15Min, 1Std, 6Std). Nach 5 fehlgeschlagenen Versuchen geht das Ereignis in Dead Letter und die Direktion wird benachrichtigt. Kein Trinkgeld geht jemals verloren.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'Die native Integration eliminiert Doppelerfassung und das Risiko von Abweichungen zwischen Trinkgeldsystem und PMS. Jedes Trinkgeld erscheint automatisch auf dem Gaestekonto in Passepartout, bereit zur Fakturierung. Der Circuit Breaker schuetzt den operativen Ablauf: Wenn Passepartout langsamer wird, arbeitet Gratitude ohne Unterbrechung weiter.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/passepartout-integration.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

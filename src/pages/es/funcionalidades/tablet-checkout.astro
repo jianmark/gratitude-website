@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Checkout en tablet con propina integrada | Gratitude',
+  description: 'Presente la cuenta en una tablet tactil durante el checkout. El huesped elige su propina con un toque: porcentaje, importe fijo o nominativa. 8 idiomas, PWA instalable, integrado con Passepartout.',
+};
+
+const c = {
+  h1: 'Checkout con propina integrada',
+  h2: 'La tablet que convierte cada salida en una oportunidad',
+  intro: 'El momento del checkout capta la maxima atencion del huesped. Gratitude lo aprovecha con una interfaz de tablet elegante e intuitiva que presenta la cuenta, ofrece opciones de propina personalizables y recoge la opinion del cliente -- todo en menos de 30 segundos. Sin aplicaciones que instalar, sin formacion compleja para el personal. El operador envia la cuenta con un clic desde la consola; el huesped interactua directamente con la tablet. La propina se registra como un cargo exento de IVA en la cuenta de la habitacion, en perfecta integracion con su PMS.',
+  cta: 'Descubra la tablet Gratitude -- Solicitar una demo',
+  sub1title: 'Interfaz tactil optimizada',
+  sub1desc: 'Objetivos tactiles de 64dp, tamano de fuente minimo de 16px, debounce inteligente para evitar dobles toques. Disenada para dedos, no para raton. Opciones de propina claras: porcentaje de la cuenta, importe fijo o "no, gracias". Cada toque va acompanado de retroalimentacion haptica. La interfaz se reinicia automaticamente tras 3 minutos de inactividad.',
+  sub2title: 'Propina generica o nominativa',
+  sub2desc: 'Los huespedes pueden dejar una propina generica (destinada al pool de distribucion) o dedicarla a uno o varios miembros del personal. La distribucion es personalizable con controles deslizantes intuitivos. El personal visible se filtra por consentimiento RGPD: solo quienes han dado su autorizacion aparecen en la seleccion.',
+  sub3title: '8 idiomas automaticos',
+  sub3desc: 'Italiano, ingles, aleman, frances, espanol, arabe, ruso y chino. El idioma se adapta automaticamente segun la preferencia del huesped o puede seleccionarse con un toque. Cada elemento de la interfaz, desde las etiquetas hasta los mensajes de confirmacion, esta traducido de forma nativa -- no generado por maquina.',
+  sub4title: 'PWA instalable',
+  sub4desc: 'Progressive Web App instalable en cualquier iPad o tablet Android. Funciona sin conexion para la presentacion de la cuenta. Actualizaciones automaticas sin pasar por la App Store. Icono personalizado Gratitude en la pantalla de inicio del dispositivo.',
+  benefitTitle: 'Beneficio para el director',
+  benefit: 'Elimine la gestion manual de propinas en efectivo. Cada transaccion esta rastreada, es auditable y cumple con la normativa fiscal. El tiempo ahorrado en la recepcion durante el cierre de caja se traduce en atencion dedicada al huesped en el momento mas importante: la salida.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/tablet-checkout.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

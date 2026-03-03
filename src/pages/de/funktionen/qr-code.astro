@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'QR-Code Multi-Touchpoint Digitales Trinkgeld | Gratitude',
+  description: 'QR-Codes fuer Trinkgeld von jedem Punkt Ihres Hauses. Zimmer, Bar, Spa, Restaurant. Kartenzahlung ueber Stripe. Professionelle Druckvorlagen. Analytik pro QR.',
+};
+
+const c = {
+  h1: 'QR-Codes: Trinkgeld von jedem Punkt Ihres Hauses',
+  h2: 'Zimmer, Bar, Spa, Restaurant -- wo ein QR ist, ist eine Chance',
+  intro: 'Der Checkout ist nicht der einzige Moment, in dem ein Gast seine Dankbarkeit ausdruecken moechte. Der Kellner, der den perfekten Wein empfohlen hat, der Barkeeper, der den idealen Cocktail gemixt hat, die Rezeptionistin, die den Transfer organisiert hat. Mit Gratitude-QR-Codes wird jeder Punkt in Ihrem Haus zu einem digitalen Trinkgeld-Touchpoint. Der Gast scannt, waehlt den Betrag, zahlt per Karte und in unter 20 Sekunden ist die Geste vollbracht.',
+  cta: 'Aktivieren Sie Gratitude-QR-Codes -- Demo anfordern',
+  sub1title: 'Individuelle QR fuer jeden Kontext',
+  sub1desc: 'Erstellen Sie QR-Codes fuer einzelne Mitarbeiter (mit Foto und Namen), Abteilungen (Kueche, Empfang, Housekeeping), Zimmer, Bereiche (Lobby-Bar, Pool, Spa) oder das gesamte Haus. Jeder QR hat seinen eigenen einzigartigen Code, durch HMAC-SHA256-Signatur gegen Faelschung geschuetzt.',
+  sub2title: 'Kartenzahlung ueber Stripe',
+  sub2desc: 'Visa, Mastercard, American Express, Apple Pay, Google Pay. Der Gast zahlt direkt vom Handy, ohne eine App herunterzuladen. Stripe Connect gewaehrleistet PCI-Level-1-Sicherheit und direkte Geldueberweisungen. Optimierte Landing Page: unter 100KB, sofortiges Laden.',
+  sub3title: 'Professioneller Druck mit einem Klick',
+  sub3desc: 'Generieren Sie vom Dashboard druckfertige Blaetter: Tischaufsteller fuers Restaurant, Aufkleber fuer Zimmertueren, Tischkarten fuer die Bar. Jedes Produkt enthaelt das Gratitude-Logo, das Hotellogo und den QR-Code mit mehrsprachigen Anleitungen.',
+  sub4title: 'Analytik pro QR',
+  sub4desc: 'Jeder QR-Code hat eigene Statistiken: Anzahl Scans, Konversionsrate, Durchschnittsbetrag, Spitzenzeiten. Identifizieren Sie, welche Touchpoints das meiste Trinkgeld generieren, und optimieren Sie die Platzierung. Vergleichen Sie Leistung im Zeitverlauf.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'QR-Codes eroeffnen einen Trinkgeld-Kanal, der zuvor nicht existierte. Gaeste, die nie durch die Rezeption kommen -- der externe Restaurantbesucher, der Spa-Gast, der Bar-Besucher -- koennen nun ihre Dankbarkeit ausdruecken. Eine minimale Investition (QR-Druck) mit messbarer Rendite ueber das Dashboard.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/qr-landing-mobile.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

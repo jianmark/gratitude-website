@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Tableau de bord en temps reel pour pourboires | Gratitude',
+  description: 'KPIs en temps reel via WebSocket, graphiques interactifs, registre complet des pourboires avec filtres avances. RBAC a 5 niveaux, protege par 2FA. Transformez la gratitude des clients en intelligence operationnelle.',
+};
+
+const c = {
+  h1: 'Tableau de bord en temps reel',
+  h2: 'Chaque pourboire, chaque retour, chaque tendance -- en un coup d\'oeil',
+  intro: 'Le tableau de bord Gratitude est le centre de commande de votre strategie de pourboire numerique. KPIs mis a jour en temps reel via WebSocket, graphiques interactifs pour identifier tendances et saisonnalite, registre complet des pourboires avec filtres avances. Concu pour le directeur qui veut des donnees, pas de la complexite. Protege par l\'authentification a deux facteurs et le controle d\'acces base sur les roles.',
+  cta: 'Explorez le tableau de bord -- Demander une demo',
+  sub1title: 'KPIs en temps reel',
+  sub1desc: 'Pourboires du jour, total mensuel, montant moyen, taux d\'adoption, comparaison avec le mois precedent. Widgets dedies pour les scans QR, les retours clients et la repartition par canal (tablette vs QR). Mises a jour instantanees sans recharger la page.',
+  sub2title: 'Graphiques interactifs',
+  sub2desc: 'Tendances des pourboires dans le temps, repartition par secteur (camembert), comparaison periode sur periode (barres), classement du personnel (horizontal), repartition des retours par etoiles. Chaque graphique est exportable et filtrable par date, secteur, canal.',
+  sub3title: 'RBAC a 5 niveaux',
+  sub3desc: 'Super Admin, Admin Hotel, Responsable de departement, Lecteur, Operateur. Chaque role ne voit que ce qu\'il doit voir. Le responsable du restaurant n\'accede qu\'aux donnees de son departement. Le directeur a une visibilite complete. Les autorisations sont granulaires jusqu\'a l\'action individuelle.',
+  sub4title: 'Registre complet des pourboires',
+  sub4desc: 'Chaque pourboire est enregistre avec date, heure, montant, type (generique/nominatif), canal (tablette/QR), statut de comptabilisation, destinataires, retour associe. Filtres avances, recherche, tri par colonne. Export CSV et PDF en un clic.',
+  benefitTitle: 'Avantage pour le directeur',
+  benefit: 'Prenez des decisions basees sur des donnees reelles, pas sur des impressions. Identifiez les periodes de pointe, les departements les plus performants, le personnel le plus apprecie. Le tableau de bord Gratitude transforme la gratitude des clients en intelligence operationnelle.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/dashboard-overview.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

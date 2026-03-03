@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Guest Feedback Integrated into Tipping Flow | Gratitude',
+  description: '1-5 star rating and comment integrated into the tipping flow. Sentiment analysis, trends over time, automatic alerts. Feedback captured at peak satisfaction.',
+};
+
+const c = {
+  h1: 'Feedback integrated into the tipping flow',
+  h2: 'Peak satisfaction, captured',
+  intro: 'When a guest leaves a tip, they are at their peak moment of gratitude. It is the perfect time to ask for feedback. Gratitude integrates a 1-5 star rating and optional comment directly into the tipping flow -- without interrupting the experience, without separate forms, without follow-up emails that nobody opens. The data collected feeds a dedicated dashboard with sentiment analysis, trends over time and automatic alerts.',
+  cta: 'Discover integrated feedback -- Request a demo',
+  sub1title: 'Rating and Comment in the Flow',
+  sub1desc: 'After the tip, a single optional screen: 5 touch-friendly stars and a 500-character comment field. The guest can complete in 5 seconds or skip with a tap. The completion rate is significantly higher than traditional surveys because the feedback is contextual and immediate.',
+  sub2title: 'Automatic Sentiment Analysis',
+  sub2desc: 'Every comment is analysed for sentiment (positive, neutral, negative) via keyword matching. The dashboard shows sentiment distribution over time, enabling you to identify trends and intervene promptly.',
+  sub3title: 'Feedback by Staff and Department',
+  sub3desc: 'Every feedback can be associated with a specific employee or department. The dashboard aggregates data: average rating per employee, per sector, trends over time. A powerful indicator for staff management decisions.',
+  sub4title: 'Alerts and Moderation',
+  sub4desc: 'Critical comments (1-2 star rating) generate automatic alerts. Inappropriate comments can be flagged and hidden. All text is sanitised server-side to prevent malicious content.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'Guest feedback is the purest form of operational intelligence. Gratitude collects it at the right moment, analyses it automatically and presents it in actionable form. No surveys to design, no follow-ups to manage, no data to interpret manually.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/guest-feedback.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

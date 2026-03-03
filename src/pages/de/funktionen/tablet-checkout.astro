@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Tablet-Checkout mit integriertem Trinkgeld | Gratitude',
+  description: 'Praesentieren Sie die Rechnung auf einem Touch-Tablet beim Checkout. Der Gast waehlt sein Trinkgeld mit einem Tippen: Prozentsatz, Festbetrag oder gewidmet. 8 Sprachen, installierbare PWA, integriert mit Passepartout.',
+};
+
+const c = {
+  h1: 'Checkout mit integriertem Trinkgeld',
+  h2: 'Das Tablet, das jede Abreise in eine Chance verwandelt',
+  intro: 'Der Checkout-Moment erfasst die volle Aufmerksamkeit des Gastes. Gratitude nutzt dies mit einer eleganten, intuitiven Tablet-Oberflaeche, die die Rechnung praesentiert, anpassbare Trinkgeldoptionen bietet und Feedback sammelt -- alles in unter 30 Sekunden. Keine App zu installieren, keine komplexe Schulung fuer das Personal. Der Mitarbeiter sendet die Rechnung mit einem Klick von der Konsole; der Gast interagiert direkt mit dem Tablet. Das Trinkgeld wird als steuerbefreite Position auf dem Zimmerkonto verbucht, nahtlos integriert in Ihr PMS.',
+  cta: 'Entdecken Sie das Gratitude-Tablet -- Demo anfordern',
+  sub1title: 'Touch-freundliche Oberflaeche',
+  sub1desc: '64dp-Tippziele, mindestens 16px Schriftgroesse, intelligenter Debounce gegen Doppeltippen. Fuer Finger konzipiert, nicht fuer Maeuse. Klare Trinkgeldoptionen: Prozentsatz der Rechnung, Festbetrag oder "Nein danke". Jedes Tippen wird durch haptisches Feedback begleitet. Die Oberflaeche setzt sich nach 3 Minuten Inaktivitaet automatisch zurueck.',
+  sub2title: 'Allgemeines oder gewidmetes Trinkgeld',
+  sub2desc: 'Gaeste koennen ein allgemeines Trinkgeld hinterlassen (fuer den Verteilungspool bestimmt) oder es einem oder mehreren bestimmten Mitarbeitern widmen. Die Aufteilung ist mit intuitiven Schiebereglern anpassbar. Sichtbare Mitarbeiter werden nach DSGVO-Einwilligung gefiltert: Nur wer zugestimmt hat, erscheint in der Auswahl.',
+  sub3title: '8 automatische Sprachen',
+  sub3desc: 'Italienisch, Englisch, Deutsch, Franzoesisch, Spanisch, Arabisch, Russisch und Chinesisch. Die Sprache passt sich automatisch an die Praeferenz des Gastes an oder kann per Tippen gewaehlt werden. Jedes Oberflaechenelement, von Beschriftungen bis zu Bestaetigungsmeldungen, ist nativ uebersetzt -- nicht maschinell generiert.',
+  sub4title: 'Installierbare PWA',
+  sub4desc: 'Progressive Web App, installierbar auf jedem iPad oder Android-Tablet. Funktioniert offline fuer die Rechnungspraesentation. Automatische Updates ohne App Store. Individuelles Gratitude-Symbol auf dem Startbildschirm des Geraetes.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'Eliminieren Sie die manuelle Verwaltung von Bargeld-Trinkgeldern. Jede Transaktion wird nachverfolgt, ist prueffaehig und steuerkonform. Die an der Rezeption beim Kassenabschluss eingesparte Zeit uebersetzt sich in persoenliche Aufmerksamkeit fuer den Gast im wichtigsten Moment: der Abreise.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/tablet-checkout.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

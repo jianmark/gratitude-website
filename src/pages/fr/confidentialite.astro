@@ -1,0 +1,148 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { t, localizedUrl } from '@/i18n/utils';
+const locale = 'fr';
+const lastUpdated = '3 mars 2026';
+---
+
+<PageLayout title={t(locale, 'meta.privacy.title')} description={t(locale, 'meta.privacy.description')}>
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">{t(locale, 'privacy.heading')}</h1>
+      <p class="text-sm text-stone-500 dark:text-stone-400">Dernière mise à jour : {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="section-container max-w-4xl mx-auto">
+      <div class="space-y-10">
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">1. Responsable du traitement</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Le responsable du traitement des données personnelles collectées via le site gratitude.esseginformatica.it et les services associés est :</p>
+          <div class="mt-3 p-4 bg-stone-50 dark:bg-navy-800/50 rounded-lg text-sm text-stone-600 dark:text-stone-400">
+            <p class="font-semibold text-navy-800 dark:text-stone-100">SG Informatica di Gianmarco Gianni</p>
+            <p>Via Romagna, 1/A — 61011 Gabicce Mare (PU), Italie</p>
+            <p>N° TVA : IT02640570418</p>
+            <p>E-mail : <a href="mailto:info@sginformatica.com" class="text-teal-600 dark:text-teal-400 hover:underline">info@sginformatica.com</a></p>
+            <p>Téléphone : <a href="tel:+390541950360" class="text-teal-600 dark:text-teal-400 hover:underline">+39 0541 950360</a></p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">2. Données collectées</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-3">Via le site, nous collectons uniquement les données fournies volontairement par l'utilisateur à travers les formulaires de contact, les demandes de démonstration et l'inscription à la newsletter :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400">
+            <li><strong>Données de contact</strong> : nom et prénom, adresse e-mail, numéro de téléphone (optionnel), nom de l'établissement, nombre de chambres, fonction professionnelle et contenu du message.</li>
+            <li><strong>Données newsletter</strong> : adresse e-mail uniquement, fournie via le formulaire d'inscription en pied de page du site.</li>
+            <li><strong>Données de navigation</strong> : le site utilise Plausible Analytics (sans cookies, conforme au RGPD) qui collecte uniquement des données agrégées et anonymes. Aucune donnée personnelle de navigation n'est collectée.</li>
+          </ul>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-3">Nous ne collectons pas de données de navigation à des fins de profilage. Nous n'utilisons pas de cookies tiers à des fins publicitaires.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">3. Finalités du traitement</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Les données personnelles sont traitées aux fins suivantes :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400 mt-2">
+            <li>Répondre aux demandes d'informations et de devis</li>
+            <li>Organiser et personnaliser les démonstrations demandées</li>
+            <li>Envoyer des communications relatives au service Gratitude (newsletter), si expressément autorisé</li>
+            <li>Respecter les obligations légales</li>
+          </ul>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-2">Les données ne sont jamais utilisées à des fins de marketing non autorisé.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">4. Base juridique</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Le traitement des données personnelles repose sur :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400 mt-2">
+            <li><strong>Consentement</strong> (Art. 6(1)(a) RGPD) : pour l'inscription à la newsletter et les communications commerciales.</li>
+            <li><strong>Mesures précontractuelles</strong> (Art. 6(1)(b) RGPD) : pour la gestion des demandes de démonstration et de devis.</li>
+            <li><strong>Intérêt légitime</strong> (Art. 6(1)(f) RGPD) : pour les communications relatives aux services déjà acquis et la sécurité du site.</li>
+            <li><strong>Obligation légale</strong> (Art. 6(1)(c) RGPD) : pour se conformer aux réglementations applicables.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">5. Durée de conservation</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Les données personnelles sont conservées pendant la durée strictement nécessaire :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400 mt-2">
+            <li><strong>Données de contact et de démonstration</strong> : 24 mois maximum à compter de la collecte, sauf obligation légale contraire.</li>
+            <li><strong>Données newsletter</strong> : jusqu'à la désinscription par l'utilisateur.</li>
+            <li><strong>Cookies techniques</strong> : pour la durée de la session de navigation ou jusqu'à suppression manuelle.</li>
+          </ul>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-2">Les données peuvent être supprimées à tout moment sur demande de la personne concernée.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">6. Destinataires des données</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Les données personnelles ne sont pas transmises à des tiers. Elles peuvent être communiquées à des prestataires de services agissant en qualité de sous-traitants (par exemple, le fournisseur d'hébergement et le service de messagerie), dans la limite de ce qui est nécessaire à la fourniture du service. Ces prestataires opèrent au sein de l'Union européenne ou dans des pays garantissant un niveau de protection adéquat. Nous ne transférons pas de données en dehors de l'Espace Économique Européen (EEE).</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">7. Droits de la personne concernée</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-3">Conformément au Règlement (UE) 2016/679 (RGPD), la personne concernée a le droit de :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400">
+            <li><strong>Accès</strong> : obtenir la confirmation de l'existence de ses données et en recevoir une copie.</li>
+            <li><strong>Rectification</strong> : demander la correction de données inexactes ou incomplètes.</li>
+            <li><strong>Effacement</strong> : demander la suppression de ses données (« droit à l'oubli »).</li>
+            <li><strong>Limitation</strong> : demander la limitation du traitement.</li>
+            <li><strong>Portabilité</strong> : recevoir ses données dans un format structuré, couramment utilisé et lisible par machine.</li>
+            <li><strong>Opposition</strong> : s'opposer au traitement de ses données.</li>
+            <li><strong>Retrait du consentement</strong> : retirer son consentement à tout moment, sans affecter la licéité du traitement fondé sur le consentement avant son retrait.</li>
+          </ul>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-3">Pour exercer ces droits, contactez : <a href="mailto:info@sginformatica.com" class="text-teal-600 dark:text-teal-400 hover:underline">info@sginformatica.com</a>. La personne concernée dispose également du droit d'introduire une réclamation auprès de l'autorité italienne de protection des données (<a href="https://www.garanteprivacy.it" class="text-teal-600 dark:text-teal-400 hover:underline" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a>).</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">8. Cookies</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Le site utilise uniquement des cookies techniques nécessaires à son fonctionnement :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400 mt-2">
+            <li><strong>Préférence de thème</strong> (clair/sombre) : stockée dans le localStorage, non envoyée au serveur.</li>
+            <li><strong>Préférence de langue</strong> : déterminée par l'URL et stockée dans le localStorage.</li>
+            <li><strong>Préférences d'accessibilité</strong> (taille de police, contraste) : stockées dans le localStorage.</li>
+          </ul>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-2">Aucun cookie de profilage ni cookie publicitaire tiers n'est utilisé. Les cookies techniques ne nécessitent pas le consentement de l'utilisateur conformément à l'Art. 122 du décret législatif italien 196/2003.</p>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-2">Pour des informations détaillées, veuillez consulter notre <a href={localizedUrl(locale, '/politique-cookies/')} class="text-teal-600 dark:text-teal-400 hover:underline">Politique de cookies</a>.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">9. Newsletter et désinscription</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">L'inscription à la newsletter est volontaire et ne requiert qu'une adresse e-mail. L'utilisateur peut se désinscrire de la newsletter à tout moment :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400 mt-2">
+            <li>Via le lien de désinscription présent dans chaque e-mail de la newsletter.</li>
+            <li>En envoyant une demande à <a href="mailto:info@sginformatica.com" class="text-teal-600 dark:text-teal-400 hover:underline">info@sginformatica.com</a>.</li>
+          </ul>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed mt-2">La désinscription entraîne la suppression définitive de l'adresse e-mail de notre base de données newsletter dans un délai de 48 heures.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">10. Outils d'analyse</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Le site utilise les outils d'analyse suivants :</p>
+          <ul class="list-disc pl-6 space-y-1 text-stone-600 dark:text-stone-400 mt-2">
+            <li><strong>Plausible Analytics</strong> : solution sans cookies, conforme au RGPD. Ne collecte aucune donnée personnelle, n'utilise pas de cookies, ne suit pas les utilisateurs entre les sessions. Les données sont agrégées et anonymes.</li>
+            <li><strong>Microsoft Clarity</strong> : outil de heatmap et de relecture de sessions anonymisées. Utilise des cookies techniques first-party. Ne collecte pas de données personnellement identifiables. Les données sont anonymisées.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">11. Sécurité des données</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Les données personnelles sont protégées par des mesures de sécurité techniques et organisationnelles appropriées, notamment : chiffrement AES-256-GCM pour les données sensibles, transmission exclusivement via TLS 1.3, accès limité au personnel autorisé, journal d'audit immuable de toutes les opérations. La plateforme Gratitude a passé avec succès plus de 110 tests de sécurité.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-3">12. Modifications de cette politique</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">SG Informatica se réserve le droit de modifier cette politique de confidentialité à tout moment. Les modifications seront publiées sur cette page avec indication de la date de dernière mise à jour. Nous vous recommandons de consulter régulièrement cette page.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-16 rounded-xl border border-stone-200 bg-stone-50 p-6 dark:border-navy-700 dark:bg-navy-800/50 text-center">
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-2">Pour toute question relative à cette politique ou pour exercer vos droits, veuillez contacter :</p>
+        <p class="font-medium text-navy-800 dark:text-stone-100">SG Informatica di Gianmarco Gianni</p>
+        <a href="mailto:info@sginformatica.com" class="text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 font-medium">info@sginformatica.com</a>
+        <p class="text-xs text-stone-500 dark:text-stone-500 mt-2">N° TVA : IT02640570418 — Via Romagna, 1/A — 61011 Gabicce Mare (PU)</p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

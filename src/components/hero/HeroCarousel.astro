@@ -1,0 +1,91 @@
+---
+const slides = [
+  { src: '/screenshots/ipad-mockup-hero-2x.webp', alt: 'Gratitude — Schermata di benvenuto su iPad in hotel' },
+  { src: '/screenshots/tablet-checkout.svg', alt: 'Gratitude — Selezione mancia su tablet' },
+  { src: '/screenshots/dashboard-overview.svg', alt: 'Gratitude — Dashboard panoramica' },
+  { src: '/screenshots/qr-landing-mobile.svg', alt: 'Gratitude — QR Code landing page mobile' },
+  { src: '/screenshots/guest-feedback.svg', alt: 'Gratitude — Feedback ospiti' },
+  { src: '/screenshots/distribution-page.svg', alt: 'Gratitude — Distribuzione mance per settore' },
+];
+---
+
+<div class="hero-carousel relative w-full" data-carousel>
+  <!-- Slides -->
+  <div class="relative w-full" style="aspect-ratio: 4/3;">
+    {slides.map((slide, i) => (
+      <img
+        src={slide.src}
+        alt={slide.alt}
+        width="800"
+        height="600"
+        loading={i === 0 ? 'eager' : 'lazy'}
+        class:list={[
+          'carousel-slide absolute inset-0 w-full h-full object-cover',
+          i === 0 ? 'opacity-100' : 'opacity-0',
+        ]}
+        style="transition: opacity 700ms ease-in-out;"
+        data-slide={i}
+      />
+    ))}
+  </div>
+
+  <!-- Dots -->
+  <div class="flex justify-center gap-2 mt-4">
+    {slides.map((_, i) => (
+      <button
+        class:list={[
+          'carousel-dot h-2.5 rounded-full transition-all duration-300',
+          i === 0
+            ? 'bg-teal-600 dark:bg-teal-400 w-6'
+            : 'bg-stone-300 dark:bg-navy-600 hover:bg-stone-400 dark:hover:bg-navy-500 w-2.5',
+        ]}
+        data-dot={i}
+        aria-label={`Slide ${i + 1}`}
+      />
+    ))}
+  </div>
+</div>
+
+<script>
+  function initCarousel() {
+    document.querySelectorAll('[data-carousel]').forEach((el) => {
+      const slides = el.querySelectorAll<HTMLImageElement>('.carousel-slide');
+      const dots = el.querySelectorAll<HTMLButtonElement>('.carousel-dot');
+      if (slides.length === 0) return;
+
+      let current = 0;
+      let paused = false;
+      const total = slides.length;
+
+      function goTo(index: number) {
+        slides[current].classList.replace('opacity-100', 'opacity-0');
+        dots[current].classList.remove('bg-teal-600', 'dark:bg-teal-400', 'w-6');
+        dots[current].classList.add('bg-stone-300', 'dark:bg-navy-600', 'w-2.5');
+
+        current = index;
+
+        slides[current].classList.replace('opacity-0', 'opacity-100');
+        dots[current].classList.remove('bg-stone-300', 'dark:bg-navy-600', 'w-2.5');
+        dots[current].classList.add('bg-teal-600', 'dark:bg-teal-400', 'w-6');
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goTo(i));
+      });
+
+      el.addEventListener('mouseenter', () => { paused = true; });
+      el.addEventListener('mouseleave', () => { paused = false; });
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReducedMotion) {
+        setInterval(() => {
+          if (!paused) goTo((current + 1) % total);
+        }, 4500);
+      }
+    });
+  }
+
+  // Run on initial load and after View Transitions
+  initCarousel();
+  document.addEventListener('astro:after-swap', initCarousel);
+</script>

@@ -1,0 +1,74 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import HeroSection from '@/components/hero/HeroSection.astro';
+import ProblemSection from '@/components/sections/ProblemSection.astro';
+import SolutionSection from '@/components/sections/SolutionSection.astro';
+import FeatureGrid from '@/components/sections/FeatureGrid.astro';
+import HowItWorks from '@/components/sections/HowItWorks.astro';
+import ImpactSection from '@/components/sections/ImpactSection.astro';
+import SocialProof from '@/components/sections/SocialProof.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import { t } from '@/i18n/utils';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': 'SG Informatica',
+  'url': 'https://gratitude.esseginformatica.it',
+  'logo': 'https://gratitude.esseginformatica.it/logo-gratitude.svg',
+  'description': 'Gratitude — Sistema di gestione mance digitali per hotel',
+  'address': {
+    '@type': 'PostalAddress',
+    'addressLocality': 'Padova',
+    'addressCountry': 'IT',
+  },
+  'contactPoint': {
+    '@type': 'ContactPoint',
+    'contactType': 'sales',
+    'email': 'info@sginformatica.com',
+  },
+};
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  'name': 'Gratitude',
+  'applicationCategory': 'BusinessApplication',
+  'operatingSystem': 'Web',
+  'description': 'Sistema di gestione mance digitali per hotel con integrazione Passepartout',
+  'inLanguage': 'it',
+  'offers': {
+    '@type': 'AggregateOffer',
+    'priceCurrency': 'EUR',
+    'availability': 'https://schema.org/InStock',
+  },
+  'author': {
+    '@type': 'Organization',
+    'name': 'SG Informatica',
+  },
+};
+---
+
+<PageLayout
+  title={t('it', 'meta.home.title')}
+  description={t('it', 'meta.home.description')}
+>
+  <HeroSection />
+  <ProblemSection />
+  <SolutionSection />
+  <FeatureGrid />
+  <HowItWorks />
+  <ImpactSection />
+  <SocialProof />
+  <CTASection />
+
+  <!-- Scroll depth sentinels for analytics -->
+  <div id="scroll-25" class="scroll-sentinel" style="position:absolute;top:25%;" aria-hidden="true"></div>
+  <div id="scroll-50" class="scroll-sentinel" style="position:absolute;top:50%;" aria-hidden="true"></div>
+  <div id="scroll-75" class="scroll-sentinel" style="position:absolute;top:75%;" aria-hidden="true"></div>
+  <div id="scroll-100" class="scroll-sentinel" style="position:absolute;bottom:0;" aria-hidden="true"></div>
+
+  <JsonLd data={organizationSchema} />
+  <JsonLd data={softwareSchema} />
+</PageLayout>

@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'QR Code multi-punto de contacto para propinas | Gratitude',
+  description: 'Codigos QR para propinas desde cada rincon de su establecimiento. Habitacion, bar, spa, restaurante. Pago con tarjeta via Stripe. Plantillas de impresion profesionales. Analitica por QR.',
+};
+
+const c = {
+  h1: 'Codigos QR: propinas desde cada rincon de su establecimiento',
+  h2: 'Habitacion, bar, spa, restaurante -- donde hay un QR, hay una oportunidad',
+  intro: 'El checkout no es el unico momento en que un huesped desea expresar su gratitud. El camarero que recomendo el vino perfecto, el barman que preparo el coctel ideal, la recepcionista que organizo el traslado. Con los Codigos QR de Gratitude, cada punto de su establecimiento se convierte en un punto de contacto de propina digital. El huesped escanea, selecciona el importe, paga con tarjeta y en menos de 20 segundos el gesto esta completo.',
+  cta: 'Active los Codigos QR Gratitude -- Solicitar una demo',
+  sub1title: 'QR personalizados para cada contexto',
+  sub1desc: 'Cree codigos QR para cada empleado (con foto y nombre), departamento (cocina, recepcion, housekeeping), habitacion, zona (bar del lobby, piscina, spa) o todo el establecimiento. Cada QR tiene su propio codigo unico, protegido por firma HMAC-SHA256 contra falsificacion.',
+  sub2title: 'Pago con tarjeta via Stripe',
+  sub2desc: 'Visa, Mastercard, American Express, Apple Pay, Google Pay. El huesped paga directamente desde su telefono sin descargar ninguna aplicacion. Stripe Connect garantiza seguridad PCI Nivel 1 y transferencia directa de fondos. Pagina de aterrizaje optimizada: menos de 100KB, carga instantanea.',
+  sub3title: 'Impresion profesional en un clic',
+  sub3desc: 'Desde el panel de control, genere hojas listas para imprimir: caballetes para el restaurante, pegatinas para puertas de habitacion, tarjetas de mesa para el bar. Cada material incluye el logo de Gratitude, el logo del hotel y el codigo QR con instrucciones multilingues.',
+  sub4title: 'Analitica por QR',
+  sub4desc: 'Cada codigo QR tiene sus propias estadisticas: numero de escaneos, tasa de conversion, importe medio, horas punta. Identifique que puntos de contacto generan mas propinas y optimice la ubicacion. Compare el rendimiento a lo largo del tiempo.',
+  benefitTitle: 'Beneficio para el director',
+  benefit: 'Los codigos QR abren un canal de propinas que antes no existia. Los huespedes que nunca pasan por la recepcion -- el comensal del restaurante externo, el visitante del spa, el cliente del bar -- ahora pueden expresar su gratitud. Una inversion minima (impresion de QR) con un retorno medible desde el panel de control.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/qr-landing-mobile.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

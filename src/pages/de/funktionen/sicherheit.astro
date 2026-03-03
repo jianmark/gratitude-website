@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Enterprise-Sicherheit fuer Hotels | Gratitude',
+  description: 'TLS 1.3, AES-256-GCM, 2FA TOTP, unveraenderliches Audit-Log. 110+ Schwachstellen mit Penetrationstests getestet. DSGVO-konform. Self-hosted verfuegbar. Die sicherste digitale Trinkgeld-Plattform.',
+};
+
+const c = {
+  h1: 'Enterprise-Sicherheit. Garantierte Compliance.',
+  h2: '110+ Schwachstellen getestet und behoben. Ihr sicherster Technologiepartner.',
+  intro: 'Sicherheit ist kein Feature: Sie ist das Fundament. Gratitude wurde mit einem Security-by-Default-Ansatz entwickelt und ueber 110 Penetrationstests mit vollstaendiger Behebung unterzogen. AES-256-GCM-Verschluesselung fuer alle sensiblen Daten, TOTP-Zwei-Faktor-Authentifizierung, JWT auf httpOnly-Cookies, Redis-Rate-Limiting pro Endpoint, unveraenderliches Append-only-Audit-Log. DSGVO-konform, italienischem Steuerrecht konform, pruefungsbereit.',
+  cta: 'Gratitude-Sicherheit entdecken -- Demo anfordern',
+  sub1title: 'End-to-End-Verschluesselung',
+  sub1desc: 'AES-256-GCM mit PBKDF2-SHA512-abgeleitetem Schluessel (310.000 Iterationen). Mitarbeiterfotos, PMS-Zugangsdaten, TOTP-Geheimnisse: alles verschluesselt im Ruhezustand. TLS 1.3 fuer den gesamten Datenverkehr. HSTS, strenge CSP, X-Frame-Options DENY.',
+  sub2title: 'Zwei-Faktor-Authentifizierung',
+  sub2desc: 'TOTP (Google Authenticator, Authy) obligatorisch fuer den Dashboard-Zugang. 10 Einmal-Recovery-Codes mit bcrypt gehasht. Passwortrichtlinie: mindestens 12 Zeichen mit Komplexitaet, 90-Tage-Ablauf, erzwungene Aenderung beim ersten Login. Sperre nach 5 Versuchen: 15 Minuten.',
+  sub3title: 'DSGVO by Design',
+  sub3desc: 'Ausdrueckliche Einwilligung fuer die Sichtbarkeit der Mitarbeiter gegenueber Gaesten. Gast-E-Mail wird nie in der Datenbank gespeichert (Fire-and-Forget fuer Quittungen). IP in Logs anonymisiert. Recht auf Loeschung implementiert. Keine Tracking-Cookies auf der QR-Landing-Page.',
+  sub4title: 'Unveraenderliches Audit-Log',
+  sub4desc: 'Jede kritische Aktion wird in einem Append-only-Log erfasst: Logins, Trinkgelder, Verteilungen, Konfigurationsaenderungen, administrative Zugriffe. Das Log kann nicht geaendert oder geloescht werden. Filterbar nach Datum, Benutzer, Ereignistyp. Bereit fuer jede Pruefung.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'In einer Branche, in der das Vertrauen der Gaeste das wertvollste Gut ist, ist Datensicherheit nicht verhandelbar. Gratitude bietet ein Schutzniveau, das die gesetzlichen Anforderungen uebersteigt und Sie bei Pruefungen schuetzt. 110+ getestete und behobene Schwachstellen ist kein Marketingversprechen: Es ist das Ergebnis eines dokumentierten Penetrationstests.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/security-shield.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

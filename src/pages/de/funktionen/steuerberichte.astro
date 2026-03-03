@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Steuerberichte fuer Ihren Steuerberater | Gratitude',
+  description: 'Automatische MwSt.-Befreiung (Art. 15 DPR 633/72), Berichte pro Mitarbeiter, Mexal-CSV-Export, vorgeschlagene Buchungssaetze. Italienische Steuerkonformitaet mit einem Klick.',
+};
+
+const c = {
+  h1: 'Steuerberichte fuer Ihren Steuerberater',
+  h2: 'Italienische Steuerkonformitaet mit einem Klick',
+  intro: 'Die steuerliche Verwaltung von Trinkgeldern in Italien ist komplex: MwSt.-Befreiung, 5 % Ersatzsteuer, separate Buchfuehrung. Gratitude erstellt automatisch Berichte gemaess der geltenden Gesetzgebung: Art. 15 DPR 633/72 fuer die MwSt.-Befreiung, freiwillige Leistungen fuer die Gehaltsabrechnung, vorgeschlagene Soll/Haben-Buchungssaetze. Professioneller PDF-Export fuer den Steuerberater und CSV fuer den Direktimport in Mexal.',
+  cta: 'Steuerberichte entdecken -- Demo anfordern',
+  sub1title: 'Automatische MwSt.-Befreiung',
+  sub1desc: 'Jedes Trinkgeld wird auf Passepartout mit MwSt.-Code "ES" (Befreit Art. 15) verbucht. Der Steuerbericht gruppiert Trinkgelder nach Abteilung, Artikel und MwSt.-Code. Konformitaet ist keine Option: Sie ist in den Ablauf integriert.',
+  sub2title: 'Bericht pro Mitarbeiter',
+  sub2desc: 'Detail fuer jeden Mitarbeiter mit Mitarbeiternummer (fuer Gehaltsabrechnungsabgleich), Gesamtverteilung, Gesamtgewidmet, Gesamtautomatisch. Bereit fuer die Buchung als freiwillige Leistung mit 5 % Ersatzsteuer.',
+  sub3title: 'Mexal-Export',
+  sub3desc: 'CSV-Datei im exakten von Mexal (Passepartout-Buchhaltung) geforderten Format. Abteilungscode, Sollkonto, Habenkonto, Betrag, Beschreibung. Direktimport ohne manuelle Bearbeitung. Getestet und validiert mit der Passepartout-Umgebung.',
+  sub4title: 'Vorgeschlagene Buchungssaetze',
+  sub4desc: 'Fuer jeden Zeitraum schlaegt Gratitude Buchungssaetze vor: Belastung des Trinkgeld-Transitkontos, Gutschrift auf dem Mitarbeiterkonto. Ihr Steuerberater erhaelt ein zur Validierung fertiges Dokument, nicht zur Interpretation.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'Steuerliche Konformitaet ist kein Kosten- und Beratungsaufwand mehr. Gratitude eliminiert das Fehlerrisiko bei der Trinkgeldbuchung, reduziert die Arbeit des Steuerberaters und garantiert, dass jede Transaktion nachverfolgbar und konform ist. Bei einer Steuerpruefung ist jedes Trinkgeld mit vollstaendigem Audit-Trail dokumentiert.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/fiscal-report.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

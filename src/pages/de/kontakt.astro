@@ -1,0 +1,61 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import ContactForm from '@/components/forms/ContactForm';
+import { t, localizedUrl } from '@/i18n/utils';
+const locale = 'de';
+const channels = [
+  { icon: 'email', label: 'Vertrieb E-Mail', value: 'info@sginformatica.com', href: 'mailto:info@sginformatica.com' },
+  { icon: 'support', label: 'Technischer Support', value: 'supporto@sginformatica.com', href: 'mailto:supporto@sginformatica.com' },
+  { icon: 'phone', label: 'Telefon', value: '+39 049 123 4567', href: 'tel:+390491234567' },
+  { icon: 'address', label: 'Hauptsitz', value: 'Padua, Italien', href: null },
+];
+---
+
+<PageLayout title={t(locale, 'meta.contact.title')} description={t(locale, 'meta.contact.description')}>
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Lassen Sie uns ueber Ihr Projekt sprechen</h1>
+      <p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-3xl mx-auto">Ob Sie eine Frage haben, ein Angebot wuenschen oder einfach verstehen moechten, ob Gratitude zu Ihnen passt -- wir sind fuer Sie da.</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="section-container">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
+        <div class="lg:col-span-2 space-y-6">
+          <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100">So erreichen Sie uns</h2>
+          <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Wir antworten innerhalb von 24 Geschaeftsstunden. Fuer dringende Anfragen kontaktieren Sie uns bitte telefonisch.</p>
+
+          <div class="space-y-4">
+            {channels.map((c) => (
+              <div class="flex items-start gap-4 rounded-xl border border-stone-200 bg-white p-4 dark:border-navy-700 dark:bg-navy-800/50">
+                {c.icon === 'email' && <svg class="h-6 w-6 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>}
+                {c.icon === 'support' && <svg class="h-6 w-6 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg>}
+                {c.icon === 'phone' && <svg class="h-6 w-6 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>}
+                {c.icon === 'address' && <svg class="h-6 w-6 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>}
+                <div>
+                  <p class="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">{c.label}</p>
+                  {c.href ? <a href={c.href} class="text-sm font-semibold text-navy-800 dark:text-stone-200 hover:text-teal-700 dark:hover:text-teal-400 transition-colors">{c.value}</a> : <p class="text-sm font-semibold text-navy-800 dark:text-stone-200">{c.value}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="rounded-xl bg-stone-100 p-6 dark:bg-navy-800/50">
+            <h3 class="text-sm font-semibold text-navy-800 dark:text-stone-200 mb-2">Lieber eine Demo?</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Wenn Sie Gratitude in Aktion sehen moechten, mit einer auf Ihr Haus zugeschnittenen Demo, buchen Sie direkt.</p>
+            <a href={localizedUrl(locale, '/demo/')} class="btn-secondary text-sm text-center w-full">{t(locale, 'cta.demo.short')}</a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3">
+          <div class="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm dark:border-navy-700 dark:bg-navy-800/50">
+            <h2 class="text-xl font-bold text-navy-800 dark:text-stone-100 mb-6">Nachricht senden</h2>
+            <ContactForm locale={locale} client:load />
+          </div>
+          <p class="mt-4 text-xs text-stone-500 dark:text-stone-400 text-center">Antwort innerhalb von 24 Geschaeftsstunden. Ihre Daten werden nicht an Dritte weitergegeben.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

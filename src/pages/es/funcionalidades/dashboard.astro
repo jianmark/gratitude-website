@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Panel de control en tiempo real para propinas | Gratitude',
+  description: 'KPIs en tiempo real via WebSocket, graficos interactivos, registro completo de propinas con filtros avanzados. RBAC de 5 niveles, protegido con 2FA. Transforme la gratitud del huesped en inteligencia operativa.',
+};
+
+const c = {
+  h1: 'Panel de control en tiempo real',
+  h2: 'Cada propina, cada opinion, cada tendencia -- de un vistazo',
+  intro: 'El panel de control de Gratitude es el centro de mando de su estrategia de propinas digitales. KPIs actualizados en tiempo real via WebSocket, graficos interactivos para identificar tendencias y estacionalidad, registro completo de propinas con filtros avanzados. Disenado para el director que quiere datos, no complejidad. Protegido por autenticacion de dos factores y control de acceso basado en roles.',
+  cta: 'Explore el panel de control -- Solicitar una demo',
+  sub1title: 'KPIs en tiempo real',
+  sub1desc: 'Propinas del dia, total mensual, importe medio, tasa de adopcion, comparacion con el mes anterior. Widgets dedicados para escaneos QR, opiniones de huespedes y desglose por canal (tablet vs QR). Actualizaciones instantaneas sin recargar la pagina.',
+  sub2title: 'Graficos interactivos',
+  sub2desc: 'Tendencias de propinas a lo largo del tiempo, distribucion por sector (circular), comparacion periodo sobre periodo (barras), clasificacion del personal (horizontal), distribucion de opiniones por estrellas. Cada grafico es exportable y filtrable por fecha, sector, canal.',
+  sub3title: 'RBAC de 5 niveles',
+  sub3desc: 'Super Admin, Admin Hotel, Responsable de departamento, Visor, Operador. Cada rol ve solo lo que necesita ver. El responsable del restaurante accede unicamente a los datos de su departamento. El director tiene visibilidad completa. Los permisos son granulares hasta las acciones individuales.',
+  sub4title: 'Registro completo de propinas',
+  sub4desc: 'Cada propina se registra con fecha, hora, importe, tipo (generica/nominativa), canal (tablet/QR), estado de contabilizacion, destinatarios, opinion asociada. Filtros avanzados, busqueda, ordenacion por columna. Exportacion CSV y PDF en un clic.',
+  benefitTitle: 'Beneficio para el director',
+  benefit: 'Tome decisiones basadas en datos reales, no en impresiones. Identifique periodos punta, departamentos con mejor rendimiento, personal mas apreciado. El panel de control de Gratitude transforma la gratitud del huesped en inteligencia operativa.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/dashboard-overview.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

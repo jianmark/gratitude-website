@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Tablet Checkout con Mancia Integrata | Gratitude',
+  description: 'Presentate il conto su tablet touch al checkout. L\'ospite sceglie la mancia con un tocco: percentuale, importo fisso o nominativa. 8 lingue, PWA installabile, integrato con Passepartout.',
+};
+
+const c = {
+  h1: 'Checkout con mancia integrata',
+  h2: 'Il tablet che trasforma ogni partenza in un\'opportunita',
+  intro: 'Il momento del checkout e il momento di massima attenzione dell\'ospite. Gratitude lo valorizza con un\'interfaccia tablet elegante e intuitiva che presenta il conto, offre opzioni di mancia personalizzabili e raccoglie il feedback -- tutto in meno di 30 secondi. Nessuna app da installare, nessuna formazione complessa per il personale. L\'operatore invia il conto con un clic dalla console, l\'ospite interagisce direttamente con il tablet. La mancia viene addebitata come extra esente IVA sul conto camera, in perfetta integrazione con Passepartout Welcome.',
+  cta: 'Scopri il tablet Gratitude -- Richiedi una demo',
+  sub1title: 'Interfaccia Touch-Friendly',
+  sub1desc: 'Target touch di 64dp, font minimo 16px, debounce intelligente per evitare doppi tocchi. Progettata per dita, non per mouse. Opzioni di mancia chiare: percentuale del conto, importo fisso o "no grazie". Ogni tocco e accompagnato da feedback aptico. L\'interfaccia si resetta automaticamente dopo 3 minuti di inattivita.',
+  sub2title: 'Mancia Generica o Nominativa',
+  sub2desc: 'L\'ospite puo lasciare una mancia generica (destinata al pool di distribuzione) oppure nominarla a uno o piu dipendenti specifici. Lo split e personalizzabile con slider intuitivi. Il personale visibile e filtrato per consenso GDPR: solo chi ha dato il permesso appare nella selezione.',
+  sub3title: '8 Lingue Automatiche',
+  sub3desc: 'Italiano, inglese, tedesco, francese, spagnolo, arabo, russo e cinese. La lingua si adatta automaticamente in base alla preferenza dell\'ospite o puo essere selezionata con un tocco. Ogni elemento dell\'interfaccia, dalle etichette ai messaggi di conferma, e tradotto nativamente -- non da un traduttore automatico.',
+  sub4title: 'PWA Installabile',
+  sub4desc: 'Progressive Web App installabile su qualsiasi iPad o tablet Android. Funziona offline per la presentazione del conto. Aggiornamenti automatici senza passare dall\'App Store. Icona personalizzata Gratitude nella home screen del dispositivo.',
+  benefitTitle: 'Beneficio per il Direttore',
+  benefit: 'Eliminate la gestione manuale delle mance in contanti. Ogni transazione e tracciata, auditabile e conforme alla normativa fiscale. Il tempo risparmiato alla reception nelle operazioni di chiusura cassa si traduce in attenzione dedicata all\'ospite nel momento piu importante: la partenza.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/tablet-checkout.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

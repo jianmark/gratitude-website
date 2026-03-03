@@ -1,0 +1,19 @@
+---
+interface Props {
+  faqs: Array<{ q: string; a: string }>;
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="space-y-4">
+  {faqs.map((faq) => (
+    <details class="group rounded-xl border border-stone-200 bg-white dark:border-navy-700 dark:bg-navy-800/50">
+      <summary class="cursor-pointer list-none flex items-center justify-between px-6 py-4 text-base font-medium text-navy-800 dark:text-stone-200 [&::-webkit-details-marker]:hidden">
+        <span>{faq.q}</span>
+        <svg class="h-5 w-5 shrink-0 text-stone-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+      </summary>
+      <div class="px-6 pb-4 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{faq.a}</div>
+    </details>
+  ))}
+</div>

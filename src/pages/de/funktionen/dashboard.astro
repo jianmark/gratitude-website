@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Echtzeit-Trinkgeld-Dashboard fuer Hotels | Gratitude',
+  description: 'Echtzeit-KPIs ueber WebSocket, interaktive Diagramme, vollstaendiges Trinkgeldregister mit erweiterten Filtern. 5-Stufen-RBAC, 2FA-geschuetzt. Verwandeln Sie Gastdankbarkeit in operative Intelligenz.',
+};
+
+const c = {
+  h1: 'Echtzeit-Dashboard',
+  h2: 'Jedes Trinkgeld, jedes Feedback, jeder Trend -- auf einen Blick',
+  intro: 'Das Gratitude-Dashboard ist die Kommandozentrale Ihrer Digital-Tipping-Strategie. KPIs in Echtzeit ueber WebSocket aktualisiert, interaktive Diagramme zur Erkennung von Trends und Saisonalitaet, vollstaendiges Trinkgeldregister mit erweiterten Filtern. Konzipiert fuer die Direktion, die Daten will, nicht Komplexitaet. Geschuetzt durch Zwei-Faktor-Authentifizierung und rollenbasierte Zugriffskontrolle.',
+  cta: 'Dashboard erkunden -- Demo anfordern',
+  sub1title: 'Echtzeit-KPIs',
+  sub1desc: 'Tages-Trinkgelder, Monatssumme, Durchschnittsbetrag, Annahmerate, Vergleich zum Vormonat. Dedizierte Widgets fuer QR-Scans, Gaestefeedback und Kanalverteilung (Tablet vs QR). Sofortige Updates ohne Seitenneuladen.',
+  sub2title: 'Interaktive Diagramme',
+  sub2desc: 'Trinkgeld-Trends im Zeitverlauf, Verteilung nach Abteilung (Kreis), Periodenvergleich (Balken), Mitarbeiter-Ranking (horizontal), Feedback-Verteilung nach Sternen. Jedes Diagramm ist exportierbar und filterbar nach Datum, Abteilung, Kanal.',
+  sub3title: '5-Stufen-RBAC',
+  sub3desc: 'Super-Admin, Hotel-Admin, Abteilungsleiter, Viewer, Operator. Jede Rolle sieht nur, was sie sehen muss. Der Restaurantleiter greift nur auf die Daten seiner Abteilung zu. Die Direktion hat volle Sicht. Berechtigungen sind bis zur Einzelaktion granular.',
+  sub4title: 'Vollstaendiges Trinkgeld-Register',
+  sub4desc: 'Jedes Trinkgeld wird mit Datum, Uhrzeit, Betrag, Typ (allgemein/gewidmet), Kanal (Tablet/QR), Buchungsstatus, Empfaengern und zugehoerigem Feedback erfasst. Erweiterte Filter, Suche, Spaltensortierung. CSV- und PDF-Export mit einem Klick.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'Treffen Sie Entscheidungen auf Basis realer Daten, nicht auf Eindruecken. Identifizieren Sie Spitzenzeiten, leistungsstaerkste Abteilungen und von Gaesten am meisten geschaetzte Mitarbeiter. Das Gratitude-Dashboard verwandelt Gastdankbarkeit in operative Intelligenz.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/dashboard-overview.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Distribution equitable et transparente des pourboires | Gratitude',
+  description: 'Distribution automatique des pourboires avec deux algorithmes : pourcentage fixe ou heures travaillees. Workflow d\'approbation, simulateur what-if, pourboires nominatifs separes. Chaque centime trace.',
+};
+
+const c = {
+  h1: 'Distribution equitable et transparente',
+  h2: 'De la collecte a la paie, tout est trace',
+  intro: 'La distribution des pourboires est l\'aspect le plus sensible de la gestion. Qui recoit combien ? Selon quels criteres ? A quelle frequence ? Gratitude automatise l\'ensemble du processus avec deux algorithmes au choix : pourcentage fixe par departement ou proportionnel aux heures travaillees. Le workflow comprend le calcul automatique, l\'approbation du directeur et la confirmation de paiement. Chaque centime est trace dans le journal d\'audit immutable.',
+  cta: 'Decouvrez la distribution automatique -- Demander une demo',
+  sub1title: 'Deux modes de distribution',
+  sub1desc: 'Pourcentage fixe : chaque departement a une part predefinie (ex. Reception 30 %, Cuisine 25 %, Housekeeping 25 %, Service 20 %). Au sein du departement, chaque employe recoit selon son pourcentage. Heures travaillees : la distribution est proportionnelle a la contribution effective. Plus d\'heures, plus de part.',
+  sub2title: 'Workflow d\'approbation',
+  sub2desc: 'Calcul automatique, apercu detaille avant execution, approbation du directeur, confirmation de paiement. Chaque etape est enregistree avec horodatage et utilisateur responsable. Aucune distribution ne se fait sans supervision.',
+  sub3title: 'Simulateur What-If',
+  sub3desc: 'Avant d\'executer une distribution, simulez des scenarios : "Que se passe-t-il si je modifie les pourcentages des secteurs ?" "Combien recoit la cuisine si j\'ajoute un employe ?" Le simulateur affiche les resultats sans toucher aux donnees reelles.',
+  sub4title: 'Pourboires nominatifs separes',
+  sub4desc: 'Les pourboires dedies a un employe specifique vont directement a cet employe, sans passer par le pool de distribution. Le systeme les trace separement, garantissant une transparence totale entre les pourboires mutualises et personnels.',
+  benefitTitle: 'Avantage pour le directeur',
+  benefit: 'Zero heure de comptabilite manuelle par mois. Les litiges sur la distribution elimines grace a la transparence totale. Rapports detailles pour votre comptable en un clic. Conformite garantie : chaque distribution est auditable et conforme aux regles d\'equite definies par la direction.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/distribution-page.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

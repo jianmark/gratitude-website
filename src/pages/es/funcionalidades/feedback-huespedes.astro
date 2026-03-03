@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Opiniones de huespedes integradas en el flujo de propinas | Gratitude',
+  description: 'Evaluacion de 1 a 5 estrellas y comentario integrados en el flujo de propinas. Analisis de sentimiento, tendencias en el tiempo, alertas automaticas. Opiniones captadas en el pico de satisfaccion.',
+};
+
+const c = {
+  h1: 'Opiniones integradas en el flujo de propinas',
+  h2: 'El pico de satisfaccion, capturado',
+  intro: 'Cuando un huesped deja una propina, se encuentra en su momento de maxima gratitud. Es el momento perfecto para pedir una opinion. Gratitude integra una evaluacion de 1 a 5 estrellas y un comentario opcional directamente en el flujo de propinas -- sin interrumpir la experiencia, sin formularios separados, sin correos de seguimiento que nadie abre. Los datos recogidos alimentan un panel de control dedicado con analisis de sentimiento, tendencias en el tiempo y alertas automaticas.',
+  cta: 'Descubra las opiniones integradas -- Solicitar una demo',
+  sub1title: 'Evaluacion y comentario en el flujo',
+  sub1desc: 'Tras la propina, una unica pantalla opcional: 5 estrellas tactiles y un campo de comentario de 500 caracteres. El huesped puede completarlo en 5 segundos u omitirlo con un toque. La tasa de finalizacion es significativamente superior a las encuestas tradicionales porque la opinion es contextual e inmediata.',
+  sub2title: 'Analisis de sentimiento automatico',
+  sub2desc: 'Cada comentario se analiza en terminos de sentimiento (positivo, neutro, negativo) mediante correspondencia de palabras clave. El panel de control muestra la distribucion del sentimiento a lo largo del tiempo, permitiendole identificar tendencias e intervenir rapidamente.',
+  sub3title: 'Opiniones por empleado y departamento',
+  sub3desc: 'Cada opinion puede asociarse a un empleado especifico o a un departamento. El panel de control agrega los datos: valoracion media por empleado, por sector, tendencias en el tiempo. Un indicador poderoso para las decisiones de gestion del personal.',
+  sub4title: 'Alertas y moderacion',
+  sub4desc: 'Los comentarios criticos (evaluacion de 1-2 estrellas) generan alertas automaticas. Los comentarios inapropiados pueden ser marcados y ocultados. Todos los textos se sanitizan en el servidor para prevenir contenido malicioso.',
+  benefitTitle: 'Beneficio para el director',
+  benefit: 'Las opiniones de los huespedes son la forma mas pura de inteligencia operativa. Gratitude las recoge en el momento adecuado, las analiza automaticamente y las presenta en formato accionable. Sin encuestas que disenar, sin seguimientos que gestionar, sin datos que interpretar manualmente.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/guest-feedback.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

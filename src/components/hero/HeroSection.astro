@@ -1,0 +1,78 @@
+---
+import { getLocale, t, localizedUrl, type Locale } from '@/i18n/utils';
+import HeroCarousel from './HeroCarousel.astro';
+
+const locale = getLocale(Astro.url) as Locale;
+---
+
+<section class="relative overflow-hidden bg-gradient-to-br from-stone-50 via-teal-50/30 to-stone-50 dark:from-navy-950 dark:via-navy-900 dark:to-navy-950 section-padding">
+  <div class="section-container">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+      <!-- Text -->
+      <div class="text-center lg:text-left flex flex-col justify-center lg:justify-between lg:py-4">
+        <p class="text-sm font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4">
+          {t(locale, 'hero.preheading')}
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <span class="block">{t(locale, 'hero.headline.1')}</span>
+          <span class="block text-teal-600 dark:text-teal-400">{t(locale, 'hero.headline.2')}</span>
+        </h1>
+        <p class="text-lg md:text-xl text-stone-600 dark:text-stone-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+          {t(locale, 'hero.subheadline')}
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+          <a
+            href={localizedUrl(locale, '/demo/')}
+            class="btn-primary text-lg px-8 py-4"
+            data-track-cta={t(locale, 'cta.demo')}
+            data-track-source="hero"
+          >
+            {t(locale, 'cta.demo')}
+          </a>
+          <a
+            href="#how-it-works"
+            class="btn-secondary text-lg px-8 py-4"
+            data-track-cta={t(locale, 'cta.learn')}
+            data-track-source="hero"
+          >
+            {t(locale, 'cta.learn')}
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+          {['gdpr', 'fiscal', 'encryption', 'pms'].map((badge) => (
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-stone-100 dark:bg-navy-800 text-stone-600 dark:text-stone-400 rounded-full">
+              <svg class="h-3.5 w-3.5 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+              {t(locale, `hero.badge.${badge}`)}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Screenshot Carousel -->
+      <div class="relative lg:order-last">
+        <div class="relative">
+          <HeroCarousel />
+          <!-- Floating badge -->
+          <div class="absolute -bottom-4 -left-4 z-10 bg-white dark:bg-navy-800 rounded-xl shadow-lg px-4 py-3 border border-stone-200 dark:border-navy-700">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <p class="text-sm font-bold text-navy-800 dark:text-stone-100">5x</p>
+                <p class="text-xs text-stone-500">{locale === 'it' ? 'più mance' : locale === 'de' ? 'mehr Trinkgeld' : locale === 'fr' ? 'plus de pourboires' : locale === 'es' ? 'más propinas' : 'more tips'}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative gradient -->
+  <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-teal-100/20 to-transparent dark:from-teal-900/10 pointer-events-none" aria-hidden="true"></div>
+</section>

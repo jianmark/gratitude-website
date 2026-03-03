@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Gerechte und transparente Trinkgeldverteilung | Gratitude',
+  description: 'Automatische Trinkgeldverteilung mit zwei Algorithmen: fester Prozentsatz oder Arbeitsstunden. Genehmigungsworkflow, What-If-Simulator, gewidmetes Trinkgeld separat. Jeder Cent nachverfolgt.',
+};
+
+const c = {
+  h1: 'Gerechte und transparente Verteilung',
+  h2: 'Von der Erfassung bis zur Gehaltsabrechnung, alles nachverfolgt',
+  intro: 'Die Trinkgeldverteilung ist der heikelste Aspekt der Verwaltung. Wer erhaelt wie viel? Nach welchen Kriterien? Wie oft? Gratitude automatisiert den gesamten Prozess mit zwei waehlbaren Algorithmen: fester Prozentsatz pro Abteilung oder proportional zu den geleisteten Arbeitsstunden. Der Workflow umfasst automatische Berechnung, Genehmigung durch die Direktion und Zahlungsbestaetigung. Jeder Cent wird im unveraenderlichen Audit-Log nachverfolgt.',
+  cta: 'Automatische Verteilung entdecken -- Demo anfordern',
+  sub1title: 'Zwei Verteilungsmodi',
+  sub1desc: 'Fester Prozentsatz: Jede Abteilung hat einen vordefinierten Anteil (z. B. Empfang 30 %, Kueche 25 %, Housekeeping 25 %, Service 20 %). Innerhalb der Abteilung erhaelt jeder Mitarbeiter entsprechend seines Prozentsatzes. Arbeitsstunden: Die Verteilung erfolgt proportional zum tatsaechlichen Beitrag. Mehr Stunden, mehr Anteil.',
+  sub2title: 'Genehmigungsworkflow',
+  sub2desc: 'Automatische Berechnung, detaillierte Vorschau vor der Ausfuehrung, Genehmigung durch die Direktion, Zahlungsbestaetigung. Jeder Schritt wird mit Zeitstempel und verantwortlichem Benutzer erfasst. Keine Verteilung erfolgt ohne Aufsicht.',
+  sub3title: 'What-If-Simulator',
+  sub3desc: 'Vor der Verteilung Szenarien simulieren: "Was passiert, wenn ich die Abteilungsprozentsaetze aendere?" "Wie viel erhaelt die Kueche, wenn ich einen Mitarbeiter hinzufuege?" Der Simulator zeigt Ergebnisse, ohne reale Daten zu beruehren.',
+  sub4title: 'Gewidmetes Trinkgeld separat',
+  sub4desc: 'An einen bestimmten Mitarbeiter gewidmetes Trinkgeld geht direkt an diesen Mitarbeiter, ohne den Verteilungspool. Das System verfolgt es separat und gewaehrleistet volle Transparenz zwischen gesammeltem und persoenlichem Trinkgeld.',
+  benefitTitle: 'Vorteil fuer die Direktion',
+  benefit: 'Null Stunden manueller Buchhaltung pro Monat. Streitigkeiten ueber die Verteilung durch volle Transparenz eliminiert. Detaillierte Berichte fuer den Steuerberater mit einem Klick. Garantierte Compliance: Jede Verteilung ist prueffaehig und entspricht den von der Direktion definierten Fairnessregeln.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/distribution-page.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

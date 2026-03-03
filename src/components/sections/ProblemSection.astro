@@ -1,0 +1,58 @@
+---
+import { getLocale, t, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const stats = [
+  { key: 'problem.stat1', icon: '💳' },
+  { key: 'problem.stat2', icon: '🔄' },
+  { key: 'problem.stat3', icon: '📉' },
+];
+---
+
+<section class="section-padding bg-white dark:bg-navy-900" id="problem">
+  <div class="section-container">
+    <p class="text-sm font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider text-center mb-4">
+      {t(locale, 'problem.section_title')}
+    </p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 max-w-3xl mx-auto">
+      <span class="block">{t(locale, 'problem.heading.1')}</span>
+      <span class="block text-teal-600 dark:text-teal-400">{t(locale, 'problem.heading.2')}</span>
+    </h2>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {stats.map(({ key, icon }) => (
+        <div class="text-center p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+          <span class="text-3xl mb-3 block" aria-hidden="true">{icon}</span>
+          <p class="text-3xl md:text-4xl font-bold text-navy-800 dark:text-stone-100 mb-2">
+            {t(locale, `${key}.number`)}
+          </p>
+          <p class="text-sm text-stone-600 dark:text-stone-400">
+            {t(locale, `${key}.label`)}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Body text -->
+    <div class="max-w-3xl mx-auto">
+      <p class="text-base md:text-lg text-stone-600 dark:text-stone-300 leading-relaxed mb-6">
+        {t(locale, 'problem.body')}
+      </p>
+      <p class="text-base md:text-lg text-stone-600 dark:text-stone-300 leading-relaxed mb-8">
+        {t(locale, 'problem.body2')}
+      </p>
+
+      <!-- Pull quote -->
+      <blockquote class="border-l-4 border-teal-500 pl-6 py-2">
+        <p class="text-lg italic text-navy-700 dark:text-stone-200">
+          "{t(locale, 'problem.quote')}"
+        </p>
+        <cite class="text-sm text-stone-500 dark:text-stone-400 not-italic mt-2 block">
+          — {t(locale, 'problem.quote_source')}
+        </cite>
+      </blockquote>
+    </div>
+  </div>
+</section>

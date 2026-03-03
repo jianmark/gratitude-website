@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F0F4F8"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background transparent -->
+
+  <!-- Browser chrome -->
+  <rect x="30" y="20" width="740" height="560" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="30" y="20" width="740" height="32" rx="10" fill="#F1F5F9"/>
+  <rect x="30" y="42" width="740" height="10" fill="#F1F5F9"/>
+  <circle cx="50" cy="36" r="5" fill="#FF5F57"/>
+  <circle cx="68" cy="36" r="5" fill="#FEBC2E"/>
+  <circle cx="86" cy="36" r="5" fill="#28C840"/>
+  <rect x="130" y="28" width="280" height="16" rx="4" fill="#E2E8F0"/>
+  <text x="142" y="40" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">gratitude.hospitalityai.app/dashboard/feedback</text>
+
+  <!-- Sidebar -->
+  <rect x="30" y="52" width="150" height="528" fill="#FFFFFF"/>
+  <rect x="179" y="52" width="1" height="528" fill="#E2E8F0"/>
+  <rect x="46" y="64" width="26" height="26" rx="6" fill="#059669"/>
+  <text x="53" y="82" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">G</text>
+  <text x="80" y="74" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#059669">Gratitude</text>
+  <text x="80" y="86" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Dashboard</text>
+
+  <!-- Menu items -->
+  <text x="58" y="118" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Overview</text>
+  <text x="58" y="138" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Registro Mance</text>
+  <text x="58" y="158" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Staff</text>
+  <text x="58" y="178" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Distribuzione</text>
+  <text x="58" y="198" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">QR Codes</text>
+
+  <!-- Active: Feedback -->
+  <rect x="42" y="208" width="126" height="28" rx="6" fill="#ECFDF5"/>
+  <rect x="42" y="208" width="3" height="28" rx="1" fill="#059669"/>
+  <text x="58" y="226" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#059669">Feedback</text>
+
+  <text x="58" y="256" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Classifica</text>
+  <text x="58" y="276" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Report Fiscale</text>
+
+  <!-- Main content -->
+  <text x="200" y="76" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Feedback Ospiti</text>
+  <text x="200" y="92" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#94A3B8">42 feedback nel periodo</text>
+
+  <!-- Date range picker -->
+  <rect x="620" y="62" width="136" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="632" y="79" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">01/03/2026 - 31/03/2026</text>
+
+  <!-- KPI Cards -->
+  <rect x="196" y="104" width="130" height="68" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="210" y="120" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Rating Medio</text>
+  <text x="210" y="142" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#0F172A">4.2/5</text>
+  <text x="210" y="160" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9733;&#9734;</text>
+
+  <rect x="334" y="104" width="130" height="68" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="348" y="120" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Totale Feedback</text>
+  <text x="348" y="142" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#0F172A">42</text>
+  <text x="348" y="160" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#22C55E">+18% vs prec.</text>
+
+  <rect x="472" y="104" width="130" height="68" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="486" y="120" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">% Positivi</text>
+  <text x="486" y="142" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#059669">72%</text>
+  <text x="486" y="160" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#22C55E">+5% vs prec.</text>
+
+  <rect x="610" y="104" width="146" height="68" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="624" y="120" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">% Negativi</text>
+  <text x="624" y="142" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#EF4444">10%</text>
+  <text x="624" y="160" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#EF4444">-2% vs prec.</text>
+
+  <!-- Charts row -->
+  <!-- Star distribution chart -->
+  <rect x="196" y="182" width="270" height="200" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="212" y="200" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#334155">Distribuzione Stelle</text>
+
+  <!-- 5 stars -->
+  <text x="212" y="230" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">5&#9733;</text>
+  <rect x="236" y="222" width="200" height="12" rx="3" fill="#F1F5F9"/>
+  <rect x="236" y="222" width="140" height="12" rx="3" fill="#F59E0B"/>
+  <text x="440" y="232" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">42%</text>
+
+  <!-- 4 stars -->
+  <text x="212" y="256" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">4&#9733;</text>
+  <rect x="236" y="248" width="200" height="12" rx="3" fill="#F1F5F9"/>
+  <rect x="236" y="248" width="100" height="12" rx="3" fill="#F59E0B"/>
+  <text x="440" y="258" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">30%</text>
+
+  <!-- 3 stars -->
+  <text x="212" y="282" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">3&#9733;</text>
+  <rect x="236" y="274" width="200" height="12" rx="3" fill="#F1F5F9"/>
+  <rect x="236" y="274" width="36" height="12" rx="3" fill="#F59E0B"/>
+  <text x="440" y="284" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">18%</text>
+
+  <!-- 2 stars -->
+  <text x="212" y="308" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">2&#9733;</text>
+  <rect x="236" y="300" width="200" height="12" rx="3" fill="#F1F5F9"/>
+  <rect x="236" y="300" width="14" height="12" rx="3" fill="#F59E0B"/>
+  <text x="440" y="310" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">7%</text>
+
+  <!-- 1 star -->
+  <text x="212" y="334" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">1&#9733;</text>
+  <rect x="236" y="326" width="200" height="12" rx="3" fill="#F1F5F9"/>
+  <rect x="236" y="326" width="6" height="12" rx="3" fill="#F59E0B"/>
+  <text x="440" y="336" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">3%</text>
+
+  <text x="340" y="370" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle">Media: 4.2/5 | 42 recensioni</text>
+
+  <!-- Recent comments panel -->
+  <rect x="474" y="182" width="282" height="200" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="490" y="200" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#334155">Commenti Recenti</text>
+
+  <!-- Comment 1 -->
+  <rect x="486" y="212" width="258" height="50" rx="6" fill="#F8FAFC"/>
+  <text x="498" y="228" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+  <text x="706" y="228" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8" text-anchor="end">02/03</text>
+  <text x="498" y="244" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569">&#171;Servizio eccellente, personale gentilissimo!&#187;</text>
+  <text x="498" y="256" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Per: Mario Rossi</text>
+
+  <!-- Comment 2 -->
+  <rect x="486" y="268" width="258" height="50" rx="6" fill="#F8FAFC"/>
+  <text x="498" y="284" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9733;&#9734;</text>
+  <text x="706" y="284" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8" text-anchor="end">01/03</text>
+  <text x="498" y="300" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569">&#171;Ottima cucina, complimenti allo chef&#187;</text>
+  <text x="498" y="312" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Per: Lucia Bianchi</text>
+
+  <!-- Comment 3 -->
+  <rect x="486" y="324" width="258" height="50" rx="6" fill="#F8FAFC"/>
+  <text x="498" y="340" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9734;&#9734;</text>
+  <text x="706" y="340" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8" text-anchor="end">28/02</text>
+  <text x="498" y="356" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569">&#171;Camera pulita ma check-in un po' lento&#187;</text>
+  <text x="498" y="368" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94A3B8">Per: Giovanni Verdi</text>
+
+  <!-- Feedback table -->
+  <rect x="196" y="392" width="560" height="176" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Table header -->
+  <rect x="196" y="392" width="560" height="28" rx="8" fill="#F8FAFC"/>
+  <rect x="196" y="412" width="560" height="8" fill="#F8FAFC"/>
+  <text x="210" y="410" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">DATA</text>
+  <text x="280" y="410" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">RATING</text>
+  <text x="370" y="410" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">COMMENTO</text>
+  <text x="580" y="410" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">STAFF</text>
+  <text x="680" y="410" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">FLAG</text>
+
+  <!-- Row 1 -->
+  <text x="210" y="440" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">02/03/2026</text>
+  <text x="280" y="440" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+  <text x="370" y="440" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569">Servizio eccellente, personale gentilissimo!</text>
+  <text x="580" y="440" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">Mario Rossi</text>
+  <text x="680" y="440" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Segnala</text>
+  <line x1="204" y1="450" x2="748" y2="450" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Row 2 -->
+  <text x="210" y="470" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">01/03/2026</text>
+  <text x="280" y="470" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9733;&#9734;</text>
+  <text x="370" y="470" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569">Ottima cucina, complimenti allo chef</text>
+  <text x="580" y="470" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">Lucia Bianchi</text>
+  <text x="680" y="470" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Segnala</text>
+  <line x1="204" y1="480" x2="748" y2="480" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Row 3 -->
+  <text x="210" y="500" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">28/02/2026</text>
+  <text x="280" y="500" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9734;&#9734;</text>
+  <text x="370" y="500" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569">Camera pulita ma check-in un po' lento</text>
+  <text x="580" y="500" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">Giovanni Verdi</text>
+  <text x="680" y="500" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Segnala</text>
+  <line x1="204" y1="510" x2="748" y2="510" stroke="#F1F5F9" stroke-width="1"/>
+
+  <!-- Row 4 -->
+  <text x="210" y="530" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">27/02/2026</text>
+  <text x="280" y="530" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#F59E0B">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+  <text x="370" y="530" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569">Tutto perfetto, torneremo sicuramente!</text>
+  <text x="580" y="530" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748B">-</text>
+  <rect x="672" y="522" width="56" height="16" rx="8" fill="#FEE2E2"/>
+  <text x="700" y="533" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="500" fill="#DC2626" text-anchor="middle">Segnalato</text>
+
+  <!-- Pagination -->
+  <text x="210" y="558" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#94A3B8">Pagina 1 di 3 | 42 feedback</text>
+</svg>

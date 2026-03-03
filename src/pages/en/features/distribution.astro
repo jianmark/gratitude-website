@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Fair and Transparent Tip Distribution | Gratitude',
+  description: 'Automatic tip distribution with two algorithms: fixed percentage or hours worked. Approval workflow, what-if simulator, nominated tips kept separate. Every cent tracked.',
+};
+
+const c = {
+  h1: 'Fair and transparent distribution',
+  h2: 'From collection to payroll, everything tracked',
+  intro: 'Tip distribution is the most sensitive aspect of management. Who receives how much? By what criteria? How often? Gratitude automates the entire process with two algorithms to choose from: fixed percentage by department or proportional to hours worked. The workflow includes automatic calculation, director approval and payment confirmation. Every cent is tracked in the immutable audit log.',
+  cta: 'Discover automatic distribution -- Request a demo',
+  sub1title: 'Two Distribution Modes',
+  sub1desc: 'Fixed percentage: each department has a predefined share (e.g. Reception 30%, Kitchen 25%, Housekeeping 25%, Service 20%). Within the department, each employee receives according to their percentage. Hours worked: distribution is proportional to actual contribution. More hours, more share.',
+  sub2title: 'Approval Workflow',
+  sub2desc: 'Automatic calculation, detailed preview before execution, director approval, payment confirmation. Every step is recorded with timestamp and responsible user. No distribution occurs without supervision.',
+  sub3title: 'What-If Simulator',
+  sub3desc: 'Before executing a distribution, simulate scenarios: "What happens if I change sector percentages?" "How much does the kitchen receive if I add an employee?" The simulator shows results without touching real data.',
+  sub4title: 'Nominated Tips Kept Separate',
+  sub4desc: 'Tips nominated to a specific employee go directly to that employee, bypassing the distribution pool. The system tracks them separately, ensuring total transparency between pooled and personal tips.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'Zero hours of manual accounting per month. Disputes over distribution eliminated through total transparency. Detailed reports for your accountant with one click. Guaranteed compliance: every distribution is auditable and conforms to the fairness rules defined by management.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/distribution-page.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

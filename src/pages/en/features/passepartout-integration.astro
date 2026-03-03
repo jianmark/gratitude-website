@@ -1,0 +1,54 @@
+---
+import FeatureLayout from '@/layouts/FeatureLayout.astro';
+import { getLocale, type Locale } from '@/i18n/utils';
+
+const locale = getLocale(Astro.url) as Locale;
+
+const meta = {
+  title: 'Native Passepartout Welcome Integration | Gratitude',
+  description: 'Native integration with Passepartout Welcome. Real-time reservation reading, VAT-exempt tip posting, automatic reversal. Circuit breaker and outbox pattern: no tip ever lost.',
+};
+
+const c = {
+  h1: 'Native integration with Passepartout Welcome',
+  h2: 'Your PMS, empowered',
+  intro: 'Gratitude is not a parallel system. It integrates directly with Passepartout Welcome via REST API, reading reservations in real time and posting tips as VAT-exempt extra charges. The connection is protected by circuit breaker and outbox pattern: even if the PMS is temporarily unreachable, no tip is ever lost. The system retries automatically until success.',
+  cta: 'Discover the Passepartout integration -- Request a demo',
+  sub1title: 'Reservation Reading',
+  sub1desc: 'Guest data, room, stay dates, folio totals, charge detail -- all read in real time from Passepartout. The operator does not need to enter anything manually. The bill presented on the tablet is always up to date.',
+  sub2title: 'Automatic Posting',
+  sub2desc: 'The tip is posted as an extra charge on the room folio with article code MANCIA (or MANCIA_NOM for nominated tips), department EXTRA, VAT code Exempt Art. 15. No manual intervention required.',
+  sub3title: 'Automatic Reversal',
+  sub3desc: 'If a tip needs to be cancelled, Gratitude sends an automatic reversal to Passepartout with a negative amount. The operation is tracked in the audit log with reason and responsible user.',
+  sub4title: 'Outbox Pattern -- Zero Tips Lost',
+  sub4desc: 'Every tip to be sent to Passepartout is written to a persistent event queue in the same database transaction. A dedicated worker processes the queue in the background. If Passepartout is offline, the worker retries with exponential backoff (1min, 5min, 15min, 1h, 6h). After 5 failed attempts, the event enters dead letter and management is notified. No tip is ever lost.',
+  benefitTitle: 'Director Benefit',
+  benefit: 'Native integration eliminates double entry and the risk of misalignment between the tipping system and your PMS. Every tip appears automatically on the guest\'s folio in Passepartout, ready for invoicing. The circuit breaker protects operational flow: if Passepartout slows down, Gratitude continues without interruption.',
+};
+---
+
+<FeatureLayout title={meta.title} description={meta.description} h1={c.h1} h2={c.h2} intro={c.intro} ctaText={c.cta} screenshot="/screenshots/passepartout-integration.svg">
+  <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub1title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub1desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub2title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub2desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub3title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub3desc}</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-stone-50 dark:bg-navy-800 border border-stone-200 dark:border-navy-700">
+      <h3 class="text-lg font-bold mb-3">{c.sub4title}</h3>
+      <p class="text-stone-600 dark:text-stone-300">{c.sub4desc}</p>
+    </div>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border border-teal-200 dark:border-teal-800">
+    <h3 class="text-lg font-bold text-teal-800 dark:text-teal-300 mb-3">{c.benefitTitle}</h3>
+    <p class="text-stone-700 dark:text-stone-300">{c.benefit}</p>
+  </div>
+</FeatureLayout>

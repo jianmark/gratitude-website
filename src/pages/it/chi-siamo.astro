@@ -1,0 +1,75 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { t, localizedUrl } from '@/i18n/utils';
+const locale = 'it';
+const values = [
+  { icon: 'shield', title: 'Affidabilita', body: 'Nessuna mancia persa. Mai. Il nostro outbox pattern lo garantisce.' },
+  { icon: 'eye', title: 'Trasparenza', body: 'Ogni centesimo e tracciato. Ogni azione e auditata.' },
+  { icon: 'lock', title: 'Sicurezza', body: '110+ vulnerabilita testate. Security by default, non by afterthought.' },
+  { icon: 'sparkle', title: 'Semplicita', body: 'Potente per chi gestisce, semplice per chi usa.' },
+];
+---
+
+<PageLayout title={t(locale, 'meta.about.title')} description={t(locale, 'meta.about.description')}>
+  <!-- Hero -->
+  <section class="section-padding bg-gradient-to-b from-navy-50 to-stone-50 dark:from-navy-950 dark:to-navy-900">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">{t(locale, 'about.heading')}</h1>
+      <p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-3xl mx-auto">La tecnologia al servizio dell'ospitalita</p>
+    </div>
+  </section>
+
+  <!-- Company Story -->
+  <section class="section-padding">
+    <div class="section-container max-w-4xl mx-auto">
+      <div class="prose prose-stone dark:prose-invert max-w-none">
+        <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-6">SG Informatica</h2>
+        <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">SG Informatica e un'azienda italiana specializzata in soluzioni tecnologiche per il settore alberghiero. Da anni affianchiamo hotel e strutture ricettive nella loro trasformazione digitale, con un approccio che mette al centro l'esperienza dell'ospite e l'efficienza operativa.</p>
+        <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">La nostra conoscenza profonda dell'ecosistema Passepartout -- dalla gestione alberghiera alla contabilita -- ci ha permesso di identificare un'esigenza concreta e insoddisfatta: la gestione delle mance nell'era cashless. Da questa osservazione e nata Gratitude.</p>
+        <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Non siamo una startup che sperimenta nel settore hospitality. Siamo professionisti dell'hospitality tech che hanno costruito una soluzione specifica per un problema reale, con le competenze tecniche per farlo nel modo giusto: sicuro, conforme, integrato.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Gratitude -->
+  <section class="section-padding bg-stone-50 dark:bg-navy-900">
+    <div class="section-container max-w-4xl mx-auto">
+      <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-6">Perche Gratitude</h2>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">Gratitude nasce da una convinzione: la gratitudine degli ospiti verso il personale alberghiero merita uno strumento alla sua altezza. Non un workaround, non un'app generica, non un servizio americano adattato al mercato europeo.</p>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">Gratitude e stato progettato dall'interno dell'hotellerie italiana, per l'hotellerie italiana e internazionale. Ogni funzionalita risponde a un'esigenza operativa reale. Ogni scelta tecnica privilegia la sicurezza e l'affidabilita sulla velocita di rilascio. Ogni integrazione e stata testata sul campo, non in laboratorio.</p>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed">Il nome stesso racconta la nostra missione: trasformare un gesto naturale -- il ringraziamento -- in un valore misurabile per chi serve e per chi gestisce.</p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-padding">
+    <div class="section-container max-w-5xl mx-auto">
+      <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 text-center mb-12">I nostri valori</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {values.map((v) => (
+          <div class="rounded-2xl border border-stone-200 bg-white p-8 dark:border-navy-700 dark:bg-navy-800/50">
+            <h3 class="text-lg font-semibold text-navy-800 dark:text-stone-200 mb-2">{v.title}</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section-padding bg-stone-50 dark:bg-navy-900">
+    <div class="section-container max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-serif font-bold text-navy-800 dark:text-stone-100 mb-6">Il team</h2>
+      <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-8">Il team Gratitude riunisce competenze in ingegneria del software, sicurezza informatica, compliance fiscale italiana e hospitality management. Ogni membro ha esperienza diretta nel settore alberghiero, perche crediamo che la tecnologia migliore nasca dalla comprensione profonda del dominio in cui opera.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-navy-800 dark:bg-navy-950">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-serif font-bold text-white mb-4">Conosciamoci</h2>
+      <p class="text-lg text-stone-300 max-w-2xl mx-auto mb-8">Scoprite come Gratitude puo trasformare la gestione delle mance nel vostro hotel.</p>
+      <a href={localizedUrl(locale, '/demo/')} class="btn-primary text-lg">{t(locale, 'cta.demo')}</a>
+    </div>
+  </section>
+</PageLayout>
