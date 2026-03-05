@@ -7,18 +7,19 @@ const locale = 'it';
 
 const essentialsFeatures = [
   'Tablet checkout con mancia integrata',
-  'Fino a 5 QR Code attivi',
+  'Fino a 3 QR Code attivi',
   'Dashboard base (overview + registro mance)',
   'Distribuzione automatica (percentuale fissa)',
   'Report mensili PDF',
   'Integrazione Passepartout Welcome',
   '5 lingue (IT, EN, DE, FR, ES)',
+  'Fino a 5 dipendenti',
+  'Fino a 3 settori',
   'Supporto email',
   '1 utente dashboard',
 ];
 
 const essentialsNotIncluded = [
-  'QR illimitati',
   'Distribuzione per ore lavorate',
   'Report fiscali Mexal',
   'Guest feedback',
@@ -29,7 +30,7 @@ const essentialsNotIncluded = [
 ];
 
 const professionalFeatures = [
-  'QR Code illimitati con analytics',
+  'Fino a 10 QR Code con analytics',
   'Dashboard completa (tutti i moduli)',
   'Distribuzione per ore lavorate',
   'Report fiscali PDF + CSV Mexal',
@@ -39,6 +40,8 @@ const professionalFeatures = [
   'Classifica e gamification staff',
   'Template stampa QR (card, tent, adesivo)',
   '8 lingue (IT, EN, DE, FR, ES, AR, RU, ZH)',
+  'Fino a 15 dipendenti',
+  'Fino a 8 settori',
   'Supporto prioritario',
   'Fino a 5 utenti dashboard',
   'Formazione team dedicata',
@@ -46,10 +49,8 @@ const professionalFeatures = [
 
 const enterpriseFeatures = [
   'Multi-property (gestione centralizzata)',
-  'API personalizzate',
-  'Branding completamente personalizzato (white-label)',
+  'QR Code, dipendenti, settori e utenti illimitati',
   'SLA garantito con supporto dedicato',
-  'Utenti dashboard illimitati',
   'Integrazione Telegram per notifiche',
   'Alert sistema e monitoring avanzato',
   'Self-hosted su infrastruttura cliente',
@@ -97,13 +98,15 @@ const faqs = [
   },
   {
     q: 'E previsto un periodo di prova?',
-    a: 'Offriamo una demo completa e personalizzata. Contattateci per organizzarla senza impegno.',
+    a: 'Si! Offriamo 14 giorni di prova gratuita con accesso completo a tutte le funzionalita. Al termine potrete scegliere il piano piu adatto alla vostra struttura.',
   },
 ];
 
 const comparisonFeatures = [
   { name: 'Tablet checkout', e: true, p: true, ent: true },
-  { name: 'QR Code', e: '5', p: 'Illimitati', ent: 'Illimitati' },
+  { name: 'QR Code', e: '3', p: '10', ent: 'Illimitati' },
+  { name: 'Dipendenti', e: '5', p: '15', ent: 'Illimitati' },
+  { name: 'Settori', e: '3', p: '8', ent: 'Illimitati' },
   { name: 'Dashboard', e: 'Base', p: 'Completa', ent: 'Completa' },
   { name: 'Lingue', e: '5', p: '8', ent: '8' },
   { name: 'Utenti dashboard', e: '1', p: '5', ent: 'Illimitati' },
@@ -114,8 +117,7 @@ const comparisonFeatures = [
   { name: 'Gamification staff', e: false, p: true, ent: true },
   { name: 'Notifiche dipendenti', e: false, p: true, ent: true },
   { name: 'Multi-property', e: false, p: false, ent: true },
-  { name: 'White-label', e: false, p: false, ent: true },
-  { name: 'API personalizzate', e: false, p: false, ent: true },
+  { name: 'Telegram', e: false, p: false, ent: true },
   { name: 'Self-hosted', e: false, p: false, ent: true },
   { name: 'SLA garantito', e: false, p: false, ent: true },
   { name: 'Supporto', e: 'Email', p: 'Prioritario', ent: 'Dedicato' },

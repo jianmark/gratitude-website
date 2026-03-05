@@ -3,10 +3,10 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import JsonLd from '@/components/seo/JsonLd.astro';
 import { t, localizedUrl } from '@/i18n/utils';
 const locale = 'fr';
-const essentialsFeatures = ['Tablette checkout avec pourboire integre','Jusqu\'a 5 QR codes actifs','Tableau de bord de base (apercu + registre)','Distribution automatique (pourcentage fixe)','Rapports PDF mensuels','Integration Passepartout Welcome','5 langues (IT, EN, DE, FR, ES)','Support par e-mail','1 utilisateur tableau de bord'];
-const essentialsNotIncluded = ['QR codes illimites','Distribution par heures travaillees','Rapports fiscaux Mexal','Feedback client','Gamification du personnel','Notifications employes','Paiements Stripe QR','Support prioritaire'];
-const professionalFeatures = ['QR codes illimites avec analytics','Tableau de bord complet (tous les modules)','Distribution par heures travaillees','Rapports fiscaux PDF + CSV Mexal','Feedback client avec analyse de sentiment','Paiements Stripe QR','Notifications e-mail aux employes','Gamification et classement du personnel','Modeles d\'impression QR (carte, chevalet, autocollant)','8 langues (IT, EN, DE, FR, ES, AR, RU, ZH)','Support prioritaire','Jusqu\'a 5 utilisateurs tableau de bord','Formation d\'equipe dediee'];
-const enterpriseFeatures = ['Multi-etablissement (gestion centralisee)','APIs personnalisees','Branding white-label complet','SLA garanti avec support dedie','Utilisateurs tableau de bord illimites','Integration Telegram pour les notifications','Monitoring avance et alertes systeme','Self-hosted sur infrastructure client','Onboarding premium avec chef de projet dedie','Rapports personnalises sur demande','Audit de securite periodique'];
+const essentialsFeatures = ['Tablette checkout avec pourboire integre','Jusqu\'a 3 QR codes actifs','Tableau de bord de base (apercu + registre)','Distribution automatique (pourcentage fixe)','Rapports PDF mensuels','Integration Passepartout Welcome','5 langues (IT, EN, DE, FR, ES)','Jusqu\'a 5 employes','Jusqu\'a 3 secteurs','Support par e-mail','1 utilisateur tableau de bord'];
+const essentialsNotIncluded = ['Distribution par heures travaillees','Rapports fiscaux Mexal','Feedback client','Gamification du personnel','Notifications employes','Paiements Stripe QR','Support prioritaire'];
+const professionalFeatures = ['Jusqu\'a 10 QR codes avec analytics','Tableau de bord complet (tous les modules)','Distribution par heures travaillees','Rapports fiscaux PDF + CSV Mexal','Feedback client avec analyse de sentiment','Paiements Stripe QR','Notifications e-mail aux employes','Gamification et classement du personnel','Modeles d\'impression QR (carte, chevalet, autocollant)','8 langues (IT, EN, DE, FR, ES, AR, RU, ZH)','Jusqu\'a 15 employes','Jusqu\'a 8 secteurs','Support prioritaire','Jusqu\'a 5 utilisateurs tableau de bord','Formation d\'equipe dediee'];
+const enterpriseFeatures = ['Multi-etablissement (gestion centralisee)','QR codes, employes, secteurs et utilisateurs illimites','SLA garanti avec support dedie','Integration Telegram pour les notifications','Monitoring avance et alertes systeme','Self-hosted sur infrastructure client','Onboarding premium avec chef de projet dedie','Rapports personnalises sur demande','Audit de securite periodique'];
 const faqs = [
   { q: 'Combien coute Gratitude ?', a: 'Le prix depend de la taille de l\'etablissement, du nombre de chambres et des fonctionnalites selectionnees. Contactez-nous pour un devis transparent et sans engagement.' },
   { q: 'Y a-t-il des frais d\'installation ?', a: 'L\'installation et la configuration initiale sont incluses dans tous les plans. Notre equipe configure Gratitude sur votre infrastructure, connecte votre PMS et forme votre personnel.' },
@@ -17,11 +17,13 @@ const faqs = [
   { q: 'Comment fonctionne le support ?', a: 'Essentials inclut un support par e-mail pendant les heures ouvrables. Professional inclut un support prioritaire avec des temps de reponse garantis. Enterprise inclut un interlocuteur dedie et un SLA personnalise.' },
   { q: 'Gratitude fonctionne-t-il sans Passepartout ?', a: 'Gratitude est optimise pour Passepartout Welcome, mais le module QR avec paiement Stripe fonctionne de maniere independante. Contactez-nous pour discuter d\'integrations avec d\'autres PMS.' },
   { q: 'Combien de temps prend l\'installation ?', a: 'En general, 1 jour ouvrable pour les plans Essentials et Professional. Le plan Enterprise comprend un onboarding structure avec un chef de projet dedie, generalement 3 a 5 jours.' },
-  { q: 'Existe-t-il une periode d\'essai ?', a: 'Nous proposons une demo complete et personnalisee. Contactez-nous pour l\'organiser, sans engagement.' },
+  { q: 'Existe-t-il une periode d\'essai ?', a: 'Oui ! Nous offrons 14 jours d\'essai gratuit avec acces complet a toutes les fonctionnalites. A la fin, vous pourrez choisir le plan le plus adapte a votre etablissement.' },
 ];
 const comparisonFeatures = [
   { name: 'Tablette checkout', e: true, p: true, ent: true },
-  { name: 'QR Codes', e: '5', p: 'Illimites', ent: 'Illimites' },
+  { name: 'QR Codes', e: '3', p: '10', ent: 'Illimites' },
+  { name: 'Employes', e: '5', p: '15', ent: 'Illimites' },
+  { name: 'Secteurs', e: '3', p: '8', ent: 'Illimites' },
   { name: 'Tableau de bord', e: 'Base', p: 'Complet', ent: 'Complet' },
   { name: 'Langues', e: '5', p: '8', ent: '8' },
   { name: 'Utilisateurs', e: '1', p: '5', ent: 'Illimites' },
@@ -32,8 +34,7 @@ const comparisonFeatures = [
   { name: 'Gamification', e: false, p: true, ent: true },
   { name: 'Notifications', e: false, p: true, ent: true },
   { name: 'Multi-etablissement', e: false, p: false, ent: true },
-  { name: 'White-label', e: false, p: false, ent: true },
-  { name: 'APIs personnalisees', e: false, p: false, ent: true },
+  { name: 'Telegram', e: false, p: false, ent: true },
   { name: 'Self-hosted', e: false, p: false, ent: true },
   { name: 'SLA garanti', e: false, p: false, ent: true },
   { name: 'Support', e: 'E-mail', p: 'Prioritaire', ent: 'Dedie' },

@@ -7,18 +7,19 @@ const locale = 'en';
 
 const essentialsFeatures = [
   'Tablet checkout with tipping',
-  'Up to 5 active QR codes',
+  'Up to 3 active QR codes',
   'Basic dashboard (overview + tip registry)',
   'Automatic distribution (fixed percentage)',
   'Monthly PDF reports',
   'Passepartout Welcome integration',
   '5 languages (IT, EN, DE, FR, ES)',
+  'Up to 5 staff members',
+  'Up to 3 sectors',
   'Email support',
   '1 dashboard user',
 ];
 
 const essentialsNotIncluded = [
-  'Unlimited QR codes',
   'Distribution by hours worked',
   'Mexal fiscal reports',
   'Guest feedback',
@@ -29,7 +30,7 @@ const essentialsNotIncluded = [
 ];
 
 const professionalFeatures = [
-  'Unlimited QR codes with analytics',
+  'Up to 10 QR codes with analytics',
   'Complete dashboard (all modules)',
   'Distribution by hours worked',
   'Fiscal reports PDF + CSV Mexal',
@@ -39,6 +40,8 @@ const professionalFeatures = [
   'Staff gamification and leaderboard',
   'QR print templates (card, tent, sticker)',
   '8 languages (IT, EN, DE, FR, ES, AR, RU, ZH)',
+  'Up to 15 staff members',
+  'Up to 8 sectors',
   'Priority support',
   'Up to 5 dashboard users',
   'Dedicated team training',
@@ -46,10 +49,8 @@ const professionalFeatures = [
 
 const enterpriseFeatures = [
   'Multi-property (centralised management)',
-  'Custom APIs',
-  'Full white-label branding',
+  'Unlimited QR codes, staff, sectors and users',
   'Guaranteed SLA with dedicated support',
-  'Unlimited dashboard users',
   'Telegram notification integration',
   'Advanced monitoring and system alerts',
   'Self-hosted on client infrastructure',
@@ -97,13 +98,15 @@ const faqs = [
   },
   {
     q: 'Is there a trial period?',
-    a: 'We offer a complete, personalised demo. Contact us to arrange one, no obligation.',
+    a: 'Yes! We offer a free 14-day trial with full access to all features. At the end you can choose the plan that best suits your property.',
   },
 ];
 
 const comparisonFeatures = [
   { name: 'Tablet checkout', e: true, p: true, ent: true },
-  { name: 'QR Codes', e: '5', p: 'Unlimited', ent: 'Unlimited' },
+  { name: 'QR Codes', e: '3', p: '10', ent: 'Unlimited' },
+  { name: 'Staff members', e: '5', p: '15', ent: 'Unlimited' },
+  { name: 'Sectors', e: '3', p: '8', ent: 'Unlimited' },
   { name: 'Dashboard', e: 'Basic', p: 'Complete', ent: 'Complete' },
   { name: 'Languages', e: '5', p: '8', ent: '8' },
   { name: 'Dashboard users', e: '1', p: '5', ent: 'Unlimited' },
@@ -114,8 +117,7 @@ const comparisonFeatures = [
   { name: 'Staff gamification', e: false, p: true, ent: true },
   { name: 'Employee notifications', e: false, p: true, ent: true },
   { name: 'Multi-property', e: false, p: false, ent: true },
-  { name: 'White-label', e: false, p: false, ent: true },
-  { name: 'Custom APIs', e: false, p: false, ent: true },
+  { name: 'Telegram', e: false, p: false, ent: true },
   { name: 'Self-hosted', e: false, p: false, ent: true },
   { name: 'Guaranteed SLA', e: false, p: false, ent: true },
   { name: 'Support', e: 'Email', p: 'Priority', ent: 'Dedicated' },

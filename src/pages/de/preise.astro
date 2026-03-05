@@ -7,17 +7,18 @@ const locale = 'de';
 
 const essentialsFeatures = [
   'Tablet-Checkout mit integriertem Trinkgeld',
-  'Bis zu 5 aktive QR-Codes',
+  'Bis zu 3 aktive QR-Codes',
   'Basis-Dashboard (Uebersicht + Trinkgeld-Register)',
   'Automatische Verteilung (fester Prozentsatz)',
   'Monatliche PDF-Berichte',
   'Passepartout Welcome Integration',
   '5 Sprachen (IT, EN, DE, FR, ES)',
+  'Bis zu 5 Mitarbeiter',
+  'Bis zu 3 Abteilungen',
   'E-Mail-Support',
   '1 Dashboard-Benutzer',
 ];
 const essentialsNotIncluded = [
-  'Unbegrenzte QR-Codes',
   'Verteilung nach Arbeitsstunden',
   'Mexal-Steuerberichte',
   'Gaestefeedback',
@@ -27,7 +28,7 @@ const essentialsNotIncluded = [
   'Priorisierter Support',
 ];
 const professionalFeatures = [
-  'Unbegrenzte QR-Codes mit Analytics',
+  'Bis zu 10 QR-Codes mit Analytics',
   'Vollstaendiges Dashboard (alle Module)',
   'Verteilung nach Arbeitsstunden',
   'Steuerberichte PDF + CSV Mexal',
@@ -37,16 +38,16 @@ const professionalFeatures = [
   'Mitarbeiter-Gamification und Rangliste',
   'QR-Druckvorlagen (Karte, Aufsteller, Aufkleber)',
   '8 Sprachen (IT, EN, DE, FR, ES, AR, RU, ZH)',
+  'Bis zu 15 Mitarbeiter',
+  'Bis zu 8 Abteilungen',
   'Priorisierter Support',
   'Bis zu 5 Dashboard-Benutzer',
   'Dedizierte Teamschulung',
 ];
 const enterpriseFeatures = [
   'Multi-Property (zentrale Verwaltung)',
-  'Individuelle APIs',
-  'Vollstaendiges White-Label-Branding',
+  'Unbegrenzte QR-Codes, Mitarbeiter, Abteilungen und Benutzer',
   'Garantiertes SLA mit dediziertem Support',
-  'Unbegrenzte Dashboard-Benutzer',
   'Telegram-Benachrichtigungsintegration',
   'Erweitertes Monitoring und Systemwarnungen',
   'Self-Hosted auf Kundeninfrastruktur',
@@ -64,11 +65,13 @@ const faqs = [
   { q: 'Wie funktioniert der Support?', a: 'Essentials umfasst E-Mail-Support zu Geschaeftszeiten. Professional umfasst priorisierten Support mit garantierten Reaktionszeiten. Enterprise umfasst einen dedizierten Ansprechpartner und individuelles SLA.' },
   { q: 'Funktioniert Gratitude ohne Passepartout?', a: 'Gratitude ist fuer Passepartout Welcome optimiert, aber das QR-Modul mit Stripe-Zahlung funktioniert unabhaengig. Kontaktieren Sie uns fuer Integrationen mit anderen PMS-Systemen.' },
   { q: 'Wie lange dauert die Installation?', a: 'In der Regel 1 Werktag fuer Essentials und Professional. Enterprise beinhaltet strukturiertes Onboarding mit dediziertem Projektmanager, typischerweise 3-5 Tage.' },
-  { q: 'Gibt es eine Testphase?', a: 'Wir bieten eine vollstaendige, individuelle Demo an. Kontaktieren Sie uns unverbindlich zur Terminvereinbarung.' },
+  { q: 'Gibt es eine Testphase?', a: 'Ja! Wir bieten eine kostenlose 14-taegige Testphase mit vollem Zugang zu allen Funktionen. Danach koennen Sie den passenden Plan fuer Ihr Haus waehlen.' },
 ];
 const comparisonFeatures = [
   { name: 'Tablet-Checkout', e: true, p: true, ent: true },
-  { name: 'QR-Codes', e: '5', p: 'Unbegrenzt', ent: 'Unbegrenzt' },
+  { name: 'QR-Codes', e: '3', p: '10', ent: 'Unbegrenzt' },
+  { name: 'Mitarbeiter', e: '5', p: '15', ent: 'Unbegrenzt' },
+  { name: 'Abteilungen', e: '3', p: '8', ent: 'Unbegrenzt' },
   { name: 'Dashboard', e: 'Basis', p: 'Vollstaendig', ent: 'Vollstaendig' },
   { name: 'Sprachen', e: '5', p: '8', ent: '8' },
   { name: 'Dashboard-Benutzer', e: '1', p: '5', ent: 'Unbegrenzt' },
@@ -79,8 +82,7 @@ const comparisonFeatures = [
   { name: 'Mitarbeiter-Gamification', e: false, p: true, ent: true },
   { name: 'Mitarbeiter-Benachrichtigungen', e: false, p: true, ent: true },
   { name: 'Multi-Property', e: false, p: false, ent: true },
-  { name: 'White-Label', e: false, p: false, ent: true },
-  { name: 'Individuelle APIs', e: false, p: false, ent: true },
+  { name: 'Telegram', e: false, p: false, ent: true },
   { name: 'Self-Hosted', e: false, p: false, ent: true },
   { name: 'Garantiertes SLA', e: false, p: false, ent: true },
   { name: 'Support', e: 'E-Mail', p: 'Priorisiert', ent: 'Dediziert' },
